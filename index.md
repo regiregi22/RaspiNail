@@ -12,11 +12,11 @@ I love to tinker and build stuff.
 I am also fascinated with digital currencies, so I recently built my own Bitcoin / Lightning Full Node with a simple low-cost Raspberry Pi.
 I now basically run my own bank using free open-source software and some cheap hardware.
 
-![RaspiBolt Logo](images/00_raspibolt_v2_banner_440.png){:target="_blank"}
+![RaspiNail Logo](images/00_raspibolt_v2_banner_440.png){:target="_blank"}
 
 ---
 
-The **RaspiBolt version 2** builds on the Raspberry Pi 4. If you're looking for the old version: [check out the old source files on GitHub](https://github.com/Stadicus/RaspiBolt/blob/1.0/index.md).
+The **RaspiNail version 2** builds on the Raspberry Pi 4. If you're looking for the old version: [check out the old source files on GitHub](https://github.com/Stadicus/RaspiNail/blob/1.0/index.md).
 
 ---
 
@@ -54,7 +54,7 @@ While the full-node-using economy must be decentralized to stop fake bitcoins th
 To preserve the decentralized nature of this monetary system, I think it is important that everybody can run their own trustless Bitcoin full node, preferably on cheap hardware like a Raspberry Pi.
 If Bitcoin is digital gold, then a full node wallet is your own personal goldsmith who checks for you that received payments are genuine.
 
-This is why I set out to build my **RaspiBolt** and think that I have now - through numerous iterations - quite a good configuration that I would like to share as my modest contribution to the community.
+This is why I set out to build my **RaspiNail** and think that I have now - through numerous iterations - quite a good configuration that I would like to share as my modest contribution to the community.
 I am not a systems specialist, so please feel free to point out improvements.
 
 ## About this guide
@@ -102,10 +102,10 @@ Unfortunately, nobody uses the Lightning Testnet, so we will go straight for Mai
 But please be aware that you should start with small amounts that you are willing to lose.
 
 ## Community Support
-Find help and other Raspibolt users on the following platforms:
-* [Github Issues / Knowledge Base](https://github.com/Stadicus/RaspiBolt/issues)
-* Reddit sub: [r/raspibolt](https://www.reddit.com/r/raspibolt/)
-* Telegram group: [t.me/raspibolt](https://t.me/raspibolt)
+Find help and other RaspiNail users on the following platforms:
+* [Github Issues / Knowledge Base](https://github.com/Stadicus/RaspiNail/issues)
+* Reddit sub: [r/RaspiNail](https://www.reddit.com/r/RaspiNail/)
+* Telegram group: [t.me/RaspiNail](https://t.me/RaspiNail)
 
 ---
 

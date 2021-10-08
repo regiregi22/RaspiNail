@@ -34,13 +34,13 @@ All the above mentioned arguments are also relevant when using Lightning, as som
 
 ### Installing Tor
 
-This guide assumes that you're running a **Raspberry Pi 3** or better. If your RaspiBolt is built on an earlier version, it won't work as described below and you might want to [look at these instructions](https://tor.stackexchange.com/questions/242/how-to-run-tor-on-raspbian-on-the-raspberry-pi) instead.
+This guide assumes that you're running a **Raspberry Pi 3** or better. If your RaspiNail is built on an earlier version, it won't work as described below and you might want to [look at these instructions](https://tor.stackexchange.com/questions/242/how-to-run-tor-on-raspbian-on-the-raspberry-pi) instead.
 
-Also, this guide builds on top of the RaspiBolt guide that runs with **Raspberry Pi OS Lite**. If you run a different operating system, you may need to build Tor from source and paths may vary.
+Also, this guide builds on top of the RaspiNail guide that runs with **Raspberry Pi OS Lite**. If you run a different operating system, you may need to build Tor from source and paths may vary.
 
 For additional reference, the original instructions are available on the [Tor project website](https://www.torproject.org/docs/debian.html.en#ubuntu).
 
-* Connect to the RaspiBolt via SSH as user "admin", as [described in the main guide](raspibolt_20_pi.md#connecting-to-the-pi).
+* Connect to the RaspiNail via SSH as user "admin", as [described in the main guide](raspibolt_20_pi.md#connecting-to-the-pi).
 
 * Add the following two lines to `sources.list` to add the torproject repository.
 

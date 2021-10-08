@@ -9,7 +9,7 @@ has_toc: false
 
 *Difficulty: medium*
 
-The mobile app Shango (http://shangoapp.com) allows the managment of the essential features of LND on your RaspiBolt. It provides an status overview, lists peers, allows to open & close channels, and of course you can make payments and create invoices.
+The mobile app Shango (http://shangoapp.com) allows the managment of the essential features of LND on your RaspiNail. It provides an status overview, lists peers, allows to open & close channels, and of course you can make payments and create invoices.
 
 At the moment this app is in beta testing. If you find bugs, you can contribute to this project by reporting them here: https://github.com/neogeno/shango-lightning-wallet/issues.
 
@@ -17,7 +17,7 @@ At the moment this app is in beta testing. If you find bugs, you can contribute 
 
 ### Preparation on the Pi
 
-This guide describes how to use Shango from within your own network, the same that also connects your RaspiBolt. It is perfectly possible to use Shango on-the-go and connect to your node at home, but this involves creating new TLS certificates and can conflict with other parts of this guide.
+This guide describes how to use Shango from within your own network, the same that also connects your RaspiNail. It is perfectly possible to use Shango on-the-go and connect to your node at home, but this involves creating new TLS certificates and can conflict with other parts of this guide.
 
 * Add the following line to your lnd configuration file in the section `[Application Options]`  
 
@@ -58,14 +58,14 @@ This guide describes how to use Shango from within your own network, the same th
 
 * Start app & go to "Settings" / "Connect to other LND Servers"
   
-* On your RaspiBolt, enter the following command and "Scan QR" with the app
+* On your RaspiNail, enter the following command and "Scan QR" with the app
 
   ```bash
   echo -e "$(curl -s ipinfo.io/ip),\n$(xxd -p -c2000 ~/.lnd/data/chain/bitcoin/$NETWORK/admin.macaroon),\n$(openssl x509 -sha256 -fingerprint -in ~/.lnd/tls.cert -noout)" > qr.txt && qrencode -t ANSIUTF8 < qr.txt
   ```
 
 * In the app, the input field "IP:Port" is filled with your external ip address. Make sure to replace it with your internal ip address (eg. `192.168.0.20:10009`).  
-* Click on "Connect" and the app should sync with your RaspiBolt.
+* Click on "Connect" and the app should sync with your RaspiNail.
 
 ---
 

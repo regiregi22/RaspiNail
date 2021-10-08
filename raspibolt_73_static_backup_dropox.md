@@ -32,7 +32,7 @@ In your web browser, do the following:
 9. Click **Generate**<br/>![Dropbox API 1](https://i.postimg.cc/xdJ6nn6B/pic3.jpg)
 10. You will now see a string of letters, numbers and special characters appear. This is your **Api Token**. Copy this token and keep it safe for the next steps. This api token will be referenced as `<dropbox-api-token>` in the next step.
 
-### Preparation on the RaspiBolt
+### Preparation on the RaspiNail
 As user "admin", download the script, make it executable and move to the global bin folder.
 
 ```bash

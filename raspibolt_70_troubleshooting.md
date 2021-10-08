@@ -49,7 +49,7 @@ $ cat /proc/device-tree/model
 Raspberry Pi 3 Model B Rev 1.2
 
 $ uname -a
-Linux RaspiBolt 4.14.71-v7+ #1145 SMP Fri Sep 21 15:38:35 BST 2018 armv7l GNU/Linux
+Linux RaspiNail 4.14.71-v7+ #1145 SMP Fri Sep 21 15:38:35 BST 2018 armv7l GNU/Linux
 ```
 
 Important is that your Raspberry Pi uses the **armv7** CPU architecture.
@@ -63,7 +63,7 @@ If you get an error like `unable to ..... : Read-only file system`, this points 
 Check if the hard disk has been mounted to `/mnt/ext` and if the size is about right. The other lines can vary on your Pi.
 
 ```
-admin@RaspiBolt:~ $ df -h
+admin@RaspiNail:~ $ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        15G  2.9G   12G  21% /
 devtmpfs        484M     0  484M   0% /dev
@@ -226,7 +226,7 @@ If the base setup seems fine, lets open a "bitcoin" user session, check the Bitc
 $ sudo su - bitcoin
 
 $ cat /home/bitcoin/.bitcoin/bitcoin.conf
-# RaspiBolt LND Mainnet: bitcoind configuration
+# RaspiNail LND Mainnet: bitcoind configuration
 # /home/bitcoin/.bitcoin/bitcoin.conf
 
 # remove the following line to enable Bitcoin mainnet
@@ -237,7 +237,7 @@ server=1
 daemon=1
 
 # Connection settings
-rpcuser=raspibolt
+rpcuser=RaspiNail
 rpcpassword=PASSWORD_B
 
 onlynet=ipv4
@@ -363,7 +363,7 @@ $ sudo systemctl stop lnd
 $ sudo su - bitcoin
 
 $ cat /home/bitcoin/.lnd/lnd.conf
-# RaspiBolt: lnd configuration
+# RaspiNail: lnd configuration
 # /home/bitcoin/.lnd/lnd.conf
 
 [Application Options]

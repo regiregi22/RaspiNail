@@ -19,7 +19,7 @@ As user "admin", download the scripts, make them executable and copy them to the
 
 ```
 $ cd /home/admin/download/
-$ wget https://raw.githubusercontent.com/Stadicus/RaspiBolt/master/resources/lnbalance
+$ wget https://raw.githubusercontent.com/Stadicus/RaspiNail/master/resources/lnbalance
 $ chmod +x lnbalance
 $ sudo cp lnbalance /usr/local/bin
 $ cd
@@ -33,7 +33,7 @@ $ lnbalance
 
 ```
 $ cd /home/admin/download/
-$ wget https://raw.githubusercontent.com/Stadicus/RaspiBolt/master/resources/lnchannels
+$ wget https://raw.githubusercontent.com/Stadicus/RaspiNail/master/resources/lnchannels
 $ chmod +x lnchannels
 $ sudo cp lnchannels /usr/local/bin
 $ cd

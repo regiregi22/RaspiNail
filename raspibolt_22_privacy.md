@@ -37,7 +37,7 @@ It is called "Tor" for "The Onion Router": information is encrypted multiple tim
 
 ## Installing Tor
 
-Log in your RaspiBolt via SSH as user "admin".
+Log in your RaspiNail via SSH as user "admin".
 
 * Add the following two lines to `sources.list` to add the torproject repository.
 

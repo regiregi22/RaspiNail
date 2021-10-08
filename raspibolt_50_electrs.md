@@ -25,7 +25,7 @@ We set up Electrs to serve as a full Electrum server for use with hardware walle
 The best way to safekeep your bitcoin (meaning the best combination of security and usability) is to use a hardware wallet (like [BitBox](https://shiftcrypto.ch/bitbox02){:target="_blank"}, [Ledger](https://www.ledgerwallet.com){:target="_blank"} or [Trezor](https://trezor.io){:target="_blank"}) in combination with your own Bitcoin node.
 This gives you security, privacy and eliminates the need to trust a third party to verify transactions.
 
-With the RaspiBolt setup, the Bitcoin Core wallet on the node can only be used from the command line as no graphical user interface is installed.
+With the RaspiNail setup, the Bitcoin Core wallet on the node can only be used from the command line as no graphical user interface is installed.
 As Bitcoin Core does not offer easy support for hardware wallets quite yet, only a "hot wallet" (exposed to the internet) is possible.
 
 One possibility to use Bitcoin Core with more functionality is to use an Electrum Server as middleware.
@@ -123,11 +123,11 @@ The whole process takes about 30 minutes.
   ```
 
   ```ini
-  # RaspiBolt: electrs configuration
+  # RaspiNail: electrs configuration
   # /mnt/ext/electrs/electrs.conf
 
   # RPC user / password
-  cookie = "raspibolt:PASSWORD_[B]"
+  cookie = "RaspiNail:PASSWORD_[B]"
 
   # Bitcoin Core settings
   network = "bitcoin"
@@ -232,7 +232,7 @@ Electrs needs to start automatically on system boot.
   ```
 
   ```ini
-  # RaspiBolt: systemd unit for electrs
+  # RaspiNail: systemd unit for electrs
   # /etc/systemd/system/electrs.service
 
   [Unit]
@@ -418,11 +418,11 @@ Electrum wallet is a well-established, feature-rich software wallet that support
 
 ### General
 
-On your regular computer, configure [Electrum wallet](https://electrum.org) to use your RaspiBolt:
+On your regular computer, configure [Electrum wallet](https://electrum.org) to use your RaspiNail:
 
 * In menu: `Tools > Network > Server`
 * Uncheck "Select server automatically"
-* Enter the hostname (e.g. `raspibolt.local`) or or ip address (e.g. `192.168.0.20`) of your RaspiBolt in the address field
+* Enter the hostname (e.g. `RaspiNail.local`) or or ip address (e.g. `192.168.0.20`) of your RaspiNail in the address field
 * Enter the port `50002`
 * `Close` and check connection in tab "Console"
 
@@ -433,12 +433,12 @@ The green LED in the bottom right indicates an active connection over clearnet.
 You can force Electrum to only use your own server on startup with the following command line arguments:
 
 ```sh
-$ electrum --oneserver --server raspibolt.local:50002:s
+$ electrum --oneserver --server RaspiNail.local:50002:s
 ```
 
 ### Tor
 
-Your RaspiBolt is also available remotely over Tor.
+Your RaspiNail is also available remotely over Tor.
 You need [Tor](https://www.torproject.org) installed locally on your computer.
 
 * In the menu: `Tools > Network > Proxy`
@@ -465,10 +465,10 @@ $ electrum --oneserver --server <your-onion-address>.onion:50002:s --proxy socks
 
 ### General
 
-On your regular computer, configure the BitBoxApp to use your RaspiBolt:
+On your regular computer, configure the BitBoxApp to use your RaspiNail:
 
 * In the sidebar, select `Settings` > `Connect your own full node`
-* In the field "Enter the endpoint" enter the hostname or ip address and the port, e.g. `raspibolt.local:50002`
+* In the field "Enter the endpoint" enter the hostname or ip address and the port, e.g. `RaspiNail.local:50002`
 * Click on "Download remote certificate"
 * Click "Check", you should be prompted with the message "Successfully establised a connection"
 * Click "Add" to add your server to the list on the top
@@ -476,11 +476,11 @@ On your regular computer, configure the BitBoxApp to use your RaspiBolt:
 
 ### Tor
 
-If you have Tor installed on your computer, you can access your RaspiBolt remotely over Tor.
+If you have Tor installed on your computer, you can access your RaspiNail remotely over Tor.
 
 * In the sidebar, select `Settings` > `Enable tor proxy`
 * Enable it and confirm the proxy address (usually the default `127.0.0.1:9050`)
-* When adding your RaspiBolt full node as described above, use your Tor address (e.g. `gwdllz5g7vky2q4gr45zGuvopjzf33czreca3a3exosftx72ekppkuqd.onion:50002`)
+* When adding your RaspiNail full node as described above, use your Tor address (e.g. `gwdllz5g7vky2q4gr45zGuvopjzf33czreca3a3exosftx72ekppkuqd.onion:50002`)
 
 [![BitBoxApp](images/50_BitBoxApp.png)](images/50_BitBoxApp.png){:target="_blank"}
 

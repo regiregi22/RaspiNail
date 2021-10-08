@@ -12,7 +12,7 @@ has_toc: false
 
 ---
 
-🚨 This section has not been updated to **RaspiBolt v2** yet.
+🚨 This section has not been updated to **RaspiNail v2** yet.
 There might be some inconsistencies with the updated configuration, so handle with care!
 
 ---
@@ -24,13 +24,13 @@ There might be some inconsistencies with the updated configuration, so handle wi
 
 ---
 
-In this section, you can find various optional topics that make your RaspiBolt running even smoother. I split this up in various subsections, as the individual tasks can be quite long.
+In this section, you can find various optional topics that make your RaspiNail running even smoother. I split this up in various subsections, as the individual tasks can be quite long.
 
 ## [System overview](raspibolt_61_system-overview.md)
 
 *Difficulty: easy*
 
-Your RaspiBolt will greet you with a quick system summary on login:
+Your RaspiNail will greet you with a quick system summary on login:
 
 [![MotD system overview](images/60_status_overview.png)](raspibolt_61_system-overview.md)
 
@@ -38,14 +38,14 @@ Your RaspiBolt will greet you with a quick system summary on login:
 
 *Difficulty: medium*
 
-Manually unlocking the LND wallet every time the system starts is not really feasible if your RaspiBolt is meant to run reliably somewhere in a closet. This script automatically unlocks the wallet on startup or service-restart. This comes at a minimal security cost, however, as the password needs to be stored on the device.
+Manually unlocking the LND wallet every time the system starts is not really feasible if your RaspiNail is meant to run reliably somewhere in a closet. This script automatically unlocks the wallet on startup or service-restart. This comes at a minimal security cost, however, as the password needs to be stored on the device.
 
 ## [Anonymous node with Tor](raspibolt_69_tor.md)
 
 *Difficulty: medium*
 
 Route all your Bitcoin traffic over the Tor network to stay anonymous and avoid leaking private information like your public IP address.
-Only for older configurations, the latest RaspiBolt v2 has this already enabled by default.
+Only for older configurations, the latest RaspiNail v2 has this already enabled by default.
 
 [![Tor](images/69_tor.png)](raspibolt_69_tor.md)
 
@@ -53,9 +53,9 @@ Only for older configurations, the latest RaspiBolt v2 has this already enabled 
 
 *Difficulty: medium*
 
-The RaspiBolt is the perfect trustless Bitcoin backend for your regular on-chain transactions.
+The RaspiNail is the perfect trustless Bitcoin backend for your regular on-chain transactions.
 Together with the Electrum wallet, it works even with your Ledger or Trezor hardware wallet.
-Mostly for older configurations, the latest RaspiBolt v2 already has a full Electrum server included by default.
+Mostly for older configurations, the latest RaspiNail v2 already has a full Electrum server included by default.
 
 [![Electrum](images/60_eps_electrumwallet.png)](raspibolt_64_electrum.md)
 
@@ -71,7 +71,7 @@ The Zap desktop app (https://github.com/LN-Zap/zap-desktop) is a cross platform 
 
 *Difficulty: medium*
 
-The Zap iOS app (https://zap.jackmallers.com) provides a neat interface for the RaspiBolt to manage peers & channels, make payments and create invoices.
+The Zap iOS app (https://zap.jackmallers.com) provides a neat interface for the RaspiNail to manage peers & channels, make payments and create invoices.
 
 ![Zap iOS](images/72_zapios.png)
 
@@ -79,7 +79,7 @@ The Zap iOS app (https://zap.jackmallers.com) provides a neat interface for the 
 
 *Difficulty: medium*
 
-The iOS & Android app Shango provides a neat interface for the RaspiBolt, to manage peers & channels, make payments and create invoices.
+The iOS & Android app Shango provides a neat interface for the RaspiNail, to manage peers & channels, make payments and create invoices.
 
 [![Electrum](images/60_shango.png)](raspibolt_68_shango.md)
 
@@ -125,11 +125,11 @@ These additional bash scripts display a balance overview (on-chain & in channels
 
 Even if you aren't interested in privacy of your coins, you can use JoinMarket for some little passive income from your bitcoins, without giving up your private keys.
 
-**[JoinMarket on RaspiBolt](https://github.com/kristapsk/raspibolt-extras/blob/master/joinmarket.md)** by Kristaps Kaupe
+**[JoinMarket on RaspiNail](https://github.com/kristapsk/RaspiNail-extras/blob/master/joinmarket.md)** by Kristaps Kaupe
 
 ## Even more Extras
 
-**[RaspiBolt-Extras](https://github.com/robclark56/RaspiBolt-Extras/blob/master/README.md)** by Rob Clark
+**[RaspiNail-Extras](https://github.com/robclark56/RaspiNail-Extras/blob/master/README.md)** by Rob Clark
 
 * Lights-Out: automatic unlocking of wallet and dynamic ip
 * RaspiBoltDuo: testnet & mainnet running simultaneously

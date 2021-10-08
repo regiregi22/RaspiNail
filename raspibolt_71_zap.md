@@ -16,7 +16,7 @@ Install instructions: https://github.com/LN-Zap/zap-desktop#install
 
 ### Preparation on the Pi
 
-* Allow connections to the RaspiBolt from your own network (the netmask `/16` restricts access to all computers with an ip address of 192.168.*.*).  
+* Allow connections to the RaspiNail from your own network (the netmask `/16` restricts access to all computers with an ip address of 192.168.*.*).  
   ```
   $ sudo nano /home/bitcoin/.lnd/lnd.conf
   ```
@@ -51,7 +51,7 @@ Install instructions: https://github.com/LN-Zap/zap-desktop#install
   ```
 
 ### Connect Zap Desktop with a Connection String 
-We will connect Zap to the RaspiBolt using a connection string that includes the connection and authentication information. This   option is available starting with Zap 0.4.0 beta.
+We will connect Zap to the RaspiNail using a connection string that includes the connection and authentication information. This   option is available starting with Zap 0.4.0 beta.
 
 #### On the Pi:
 

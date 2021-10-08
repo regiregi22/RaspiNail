@@ -7,7 +7,7 @@ nav_order: 21
 # Security
 {: .no_toc }
 
-We make sure that your RaspiBolt is secure and reliable.
+We make sure that your RaspiNail is secure and reliable.
 
 ---
 
@@ -19,7 +19,7 @@ We make sure that your RaspiBolt is secure and reliable.
 
 ---
 
-The RaspiBolt will be visible from the internet and therefore needs to be secured against attacks using various methods.
+The RaspiNail will be visible from the internet and therefore needs to be secured against attacks using various methods.
 
 ## Login with SSH keys
 
@@ -58,7 +58,7 @@ Follow this guide [Configure “No Password SSH Keys Authentication” with PuTT
   You will be prompted for your password once.
 
   ```sh
-  $ ssh-copy-id admin@raspibolt.local
+  $ ssh-copy-id admin@RaspiNail.local
   ```
 
   💡 If you are on macOS and encounter an error, you might need to enable `ssh-copy-id` first, using [this guide](https://devtip.io/ssh-keys-remote-server).
@@ -153,7 +153,7 @@ The initial configuration should be fine as it is enabled for SSH by default.
 
 ## Increase your open files limit
 
-In case your RaspiBolt is swamped with internet requests (honest or malicious due to a DDoS attack), you will quickly encounter the `can't accept connection: too many open files` error.
+In case your RaspiNail is swamped with internet requests (honest or malicious due to a DDoS attack), you will quickly encounter the `can't accept connection: too many open files` error.
 This is due to a limit on open files (representing individual tcp connections) that is set too low.
 
 Edit the following three files, add the additional line(s) right before the end comment, save and exit.

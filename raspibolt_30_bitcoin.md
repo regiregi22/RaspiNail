@@ -114,7 +114,7 @@ $ nano /mnt/ext/bitcoin/bitcoin.conf
 ```
 
 ```ini
-# RaspiBolt: bitcoind configuration
+# RaspiNail: bitcoind configuration
 # /mnt/ext/bitcoin/bitcoin.conf
 
 # Bitcoin daemon
@@ -128,7 +128,7 @@ proxy=127.0.0.1:9050
 bind=127.0.0.1
 
 # Connections
-rpcuser=raspibolt
+rpcuser=RaspiNail
 rpcpassword=PASSWORD_[B]
 zmqpubrawblock=tcp://127.0.0.1:28332
 zmqpubrawtx=tcp://127.0.0.1:28333
@@ -193,7 +193,7 @@ We use “systemd“, a daemon that controls the startup process using configura
   ```
 
   ```ini
-  # RaspiBolt: systemd unit for bitcoind
+  # RaspiNail: systemd unit for bitcoind
   # /etc/systemd/system/bitcoind.service
 
   [Unit]

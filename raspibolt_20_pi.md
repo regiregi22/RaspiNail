@@ -37,7 +37,7 @@ This causes the Secure Shell (ssh) to be enabled from the start and we will be a
 
 ### Prepare Wifi
 
-You can run your RaspiBolt over Wifi.
+You can run your RaspiNail over Wifi.
 To avoid using a network cable for the initial setup, you can pre-configure the wireless settings:
 
 * Create a file `wpa_supplicant.conf` in the boot partition of the microSD card with the following content.
@@ -181,7 +181,7 @@ $ sudo raspi-config
 
 * First, choose `1 System options` (press enter) and navigate to `S3 Password` (down arrow, and press enter) and change your password to your `password [A]`.
 * Next, choose `8 Update` to get the latest configuration tool
-* Next, choose `1 System options` and then `S4 Hostname`. You can give your node a cute hostname like “raspibolt”
+* Next, choose `1 System options` and then `S4 Hostname`. You can give your node a cute hostname like “RaspiNail”
 * Next, choose `1 System options` and then `S1 Wireless LAN` and then `B1 Console`
 * Next, choose `1 System options` and then `S5 Boot/Auto Login` and configure your Wifi connection
 * Next, choose `1 System options` and then `S6 Network at boot` and select `<Yes>`
@@ -191,11 +191,11 @@ $ sudo raspi-config
 _(Warning: the video below is outdated and does not correspond exactly to the commands above)_
 <script id="asciicast-1oSmvJaZLCuN3hUIn33OZCtJy" src="https://asciinema.org/a/1oSmvJaZLCuN3hUIn33OZCtJy.js" async></script>
 
-**Important**: if you connected using the hostname `raspberrypi.local`, you now need to use the new hostname (e.g. `raspibolt.local`)
+**Important**: if you connected using the hostname `raspberrypi.local`, you now need to use the new hostname (e.g. `RaspiNail.local`)
 
 The following two potential error messages are expected:
 
-* After changing the hostname, e.g. to `raspibolt`, a reboot is required to get rid of this error message.
+* After changing the hostname, e.g. to `RaspiNail`, a reboot is required to get rid of this error message.
   It can be safely ignored for now.
 
   ```
@@ -282,7 +282,7 @@ This user does not have admin rights and cannot change the system configuration.
   $ sudo adduser admin bitcoin
   ```
 
-* Restart your RaspiBolt.
+* Restart your RaspiNail.
 
   ```sh
   $ sudo reboot
@@ -304,10 +304,10 @@ The external hard disk is then attached to the file system and can be accessed a
 
 * Do not yet connect the external drive to your Pi, we need to check some things first.
 * Start your Raspberry Pi by unplugging it and connecting the power cable again.
-* Log in using SSH, but now with the user `admin`, your `password [A]` and the new hostname (e.g. `raspibolt.local`) or the IP address.
+* Log in using SSH, but now with the user `admin`, your `password [A]` and the new hostname (e.g. `RaspiNail.local`) or the IP address.
 
   ```sh
-  $ ssh admin@raspibolt.local
+  $ ssh admin@RaspiNail.local
   ```
 
 * To change system configuration and files that don't belong to the "admin", you have to prefix commands with `sudo`.

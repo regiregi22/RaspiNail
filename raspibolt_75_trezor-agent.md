@@ -81,7 +81,7 @@ or as root
 $ trezor-agent -c root@192.168.0.20
 ```
 If the SSH succeeded go to your authorized keys file and delete/comment out all other public keys
-That's it, Now you can only SSH to your raspibolt using your trezor.
+That's it, Now you can only SSH to your RaspiNail using your trezor.
 
 
 

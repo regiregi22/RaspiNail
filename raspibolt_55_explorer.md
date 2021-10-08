@@ -22,7 +22,7 @@ Run your own block explorer without depending on external services.
 
 ## Run your own block explorer
 
-After the RaspiBolt runs your own fully validated node, and maybe even acts as a backend for your hardware wallet with Electrs, the last important puzzle piece to improve privacy and financial sovereignty is your own Block Explorer.
+After the RaspiNail runs your own fully validated node, and maybe even acts as a backend for your hardware wallet with Electrs, the last important puzzle piece to improve privacy and financial sovereignty is your own Block Explorer.
 This lets you query transactions, addresses and blocks of your choice.
 You no longer need to leak information by querying a third-party block explorer that can be used to get your location and cluster addresses.
 
@@ -114,7 +114,7 @@ We are going to install the BTC RPC Explorer in the home directory since it does
   ```conf
   BTCEXP_BITCOIND_HOST=127.0.0.1
   BTCEXP_BITCOIND_PORT=8332
-  BTCEXP_BITCOIND_USER=raspibolt
+  BTCEXP_BITCOIND_USER=RaspiNail
   BTCEXP_BITCOIND_PASS=PASSWORD_[B]
   ```
 
@@ -125,7 +125,7 @@ We are going to install the BTC RPC Explorer in the home directory since it does
   ```
 
 * To get address balances, either an Electrum server or an external service is necessary.
-  It is important to use local RaspiBolt Electrs server, no real privacy is gained when we query external services anyway.
+  It is important to use local RaspiNail Electrs server, no real privacy is gained when we query external services anyway.
   The following configuration also works with Electrum Personal Server or ElectrumX.
 
   ```conf
@@ -167,12 +167,12 @@ Test starting the explorer manually first to make sure it works.
   $ npm run start
   ```
 
-* Now point your browser to `http://raspibolt.local:3002` (or whatever you chose as hostname) or the ip address (e.g. `http://192.168.0.20:3002`).
+* Now point your browser to `http://RaspiNail.local:3002` (or whatever you chose as hostname) or the ip address (e.g. `http://192.168.0.20:3002`).
   You should see the home page of the BTC RPC Explorer.
 
   ![BTC RPC Explorer home screen with dark theme](images/6B_btcrpcexplorer_home.png)
 
-* If you see a lot of errors on the RaspiBolt command line, then Bitcoin Core might still be indexing the blockchain.
+* If you see a lot of errors on the RaspiNail command line, then Bitcoin Core might still be indexing the blockchain.
   You need to wait until reindexing is done before using the BTC RPC Explorer.
 
 * Stop the Explorer in the terminal with `Ctrl`-`C` and exit the "btcrpcexplorer" user session.
@@ -195,7 +195,7 @@ In order to do that we create a systemd unit that starts the service on boot dir
 * Paste the following configuration. Save and exit.
 
   ```ini
-  # RaspiBolt: systemd unit for BTC RPC Explorer
+  # RaspiNail: systemd unit for BTC RPC Explorer
   # /etc/systemd/system/btcrpcexplorer.service
 
   [Unit]
@@ -227,12 +227,12 @@ In order to do that we create a systemd unit that starts the service on boot dir
   $ sudo journalctl -f -u btcrpcexplorer
   ```
 
-* You can now access your own BTC RPC Explorer from within your local network by browsing to <http://raspibolt.local:3002> (or your equivalent ip address).
+* You can now access your own BTC RPC Explorer from within your local network by browsing to <http://RaspiNail.local:3002> (or your equivalent ip address).
 
 ### Remote access over Tor (optional)
 
 Do you want to access your personal block explorer remotely?
-You can easily do so by adding a Tor hidden service on the RaspiBolt and accessing the BTC RPC Explorer with the Tor browser from any device.
+You can easily do so by adding a Tor hidden service on the RaspiNail and accessing the BTC RPC Explorer with the Tor browser from any device.
 
 * Add the following three lines in the section for "location-hidden services" in the `torrc` file.
   Save and exit.

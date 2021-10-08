@@ -8,20 +8,20 @@ has_toc: false
 ## Bonus guide: Zap iOS Lightning Wallet
 *Difficulty: medium*
 
-This guide describes how to use Zap iOS from within your own network, the same that also connects your RaspiBolt.
+This guide describes how to use Zap iOS from within your own network, the same that also connects your RaspiNail.
 
 ![Zap iOS](images/72_zapios.png)
 
 Zap is a free Lightning Network wallet focused on good user experience and ease of use. It is in alpha testing, so **use it at your own risk**. You can find more details in the [Zap iOS GitHub repository](https://github.com/LN-Zap/zap-iOS). If you find bugs, you can contribute to this project by [reporting issues](https://github.com/LN-Zap/zap-iOS/issues).
 
-### Preparation on the RaspiBolt
+### Preparation on the RaspiNail
 
 #### Prepare LND Node for gRPC access
 First we make sure that LND is listening for connections from other computers on the gRPC interface.
 
 * Login as user "admin"
 
-* Allow connections to the RaspiBolt from your own network. Check how the ip address of your Pi is starting with, eg. 192.168.0 or 192.168.1 , and use the address accordingly. Ending with .0/24 will allow all IP addresses from that network.
+* Allow connections to the RaspiNail from your own network. Check how the ip address of your Pi is starting with, eg. 192.168.0 or 192.168.1 , and use the address accordingly. Ending with .0/24 will allow all IP addresses from that network.
 
   Add the following lines to the section `[Application Options]`:
   `$ sudo nano /home/bitcoin/.lnd/lnd.conf`
@@ -53,7 +53,7 @@ First we make sure that LND is listening for connections from other computers on
   `$ sudo ufw status`
 
 #### Install LND Connect
-The nifty helper tool LND Connect helps to pair the RaspiBolt with the iPhone, encoding connection and authorization information either into a QR code or a connection string.
+The nifty helper tool LND Connect helps to pair the RaspiNail with the iPhone, encoding connection and authorization information either into a QR code or a connection string.
 
 * As user "admin", download, extract and install the current release from the [release page](https://github.com/LN-Zap/lndconnect/releases).
   ```
@@ -66,7 +66,7 @@ The nifty helper tool LND Connect helps to pair the RaspiBolt with the iPhone, e
   $ lndconnect -h
   ```
 
-### Connect Zap iOS to your RaspiBolt
+### Connect Zap iOS to your RaspiNail
 
 * Now simply run lndconnect to generate the QR code we’ll scan from our iPhone
   ```
@@ -92,7 +92,7 @@ The nifty helper tool LND Connect helps to pair the RaspiBolt with the iPhone, e
 
 💡 It is perfectly possible to use Zap iOS on-the-go (from the public internet) and connect to your node at home, but this involves creating new TLS certificates and reduces security. You need to set `tlsextraip=<YOUR_PUBLIC_IP>` and allow the ufw firewall to listen on 10009 from everywhere.
 
-### Connect Zap iOS to RaspiBolt over Tor
+### Connect Zap iOS to RaspiNail over Tor
 
 * [Install Tor](raspibolt_69_tor.md#installing-tor)
 

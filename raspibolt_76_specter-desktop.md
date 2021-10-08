@@ -11,9 +11,9 @@ has_toc: false
 
 The Specter Desktop app is a project that's working on making a convenient and user-friendly GUI around Bitcoin Core with a focus on ***multisignature setup with hardware wallets and airgapped devices***.
 
-The application communicates directly with a Bitcoin full node via its RPC interface. This guide lays out how to install the Specter application to a Raspibolt device and have it communicate with `bitcoind` to execute its operations.
+The application communicates directly with a Bitcoin full node via its RPC interface. This guide lays out how to install the Specter application to a RaspiNail device and have it communicate with `bitcoind` to execute its operations.
 
-The default setup guides you on how to allow for plugging in your hardware devices _directly to the Raspibolt device_ to do multisig operations. There are some additional guides linked further down that explain how to configure Specter differently to plug your hardware devices into the laptop/computer you're using instead of directly into the Pi.
+The default setup guides you on how to allow for plugging in your hardware devices _directly to the RaspiNail device_ to do multisig operations. There are some additional guides linked further down that explain how to configure Specter differently to plug your hardware devices into the laptop/computer you're using instead of directly into the Pi.
 
 ## Preparation on the Pi
 
@@ -129,7 +129,7 @@ These instructions will clone the repo to fetch the latest version and then "pip
     "rpc": {
         "autodetect": false,
         "datadir": "",
-        "user": "raspibolt",
+        "user": "RaspiNail",
         "password": "PASSWORD_[B]",
         "port": "8332",
         "host": "localhost",
@@ -139,7 +139,7 @@ These instructions will clone the repo to fetch the latest version and then "pip
     "internal_node": {
         "autodetect": false,
         "datadir": "",
-        "user": "raspibolt",
+        "user": "RaspiNail",
         "password": "PASSWORD_[B]",
         "host": "localhost",
         "protocol": "http",
@@ -319,7 +319,7 @@ Test Specter Desktop manually first to make sure it works.
   $ /home/specter/.env/bin/python3 -m cryptoadvance.specter server --host 0.0.0.0
   ```
 
-- Now point your browser to http://raspibolt.local:25441 (or whatever you chose as hostname) or the ip address (e.g. http://192.168.0.20:25441). You should see the home page of Specter Desktop.
+- Now point your browser to http://RaspiNail.local:25441 (or whatever you chose as hostname) or the ip address (e.g. http://192.168.0.20:25441). You should see the home page of Specter Desktop.
 
 - Next we will test that Specter Desktop can detect your hardware wallet. Go to **Settings _(top right)_** -> **USB Devices _(tab)_** -> **Test connection _(bottom)_**. A blue popup should appear to the top of the page with the message `"Device detected successfully! USB connections configured correctly!"`
 

@@ -27,7 +27,7 @@ $ exit
 
 ### Create microSD card image
 
-* Shut down your RaspiBolt
+* Shut down your RaspiNail
   `$ sudo shutdown now`
 * Remove the microSD card and connect it to your regular computer
 * Follow this guide to create a disk image:
@@ -35,7 +35,7 @@ $ exit
 
 ### System recovery
 
-If you have a spare microSD card, you should test the system recovery by writing the disk image to the backup microSD card and booting your RaspiBolt with it.
+If you have a spare microSD card, you should test the system recovery by writing the disk image to the backup microSD card and booting your RaspiNail with it.
 
 If just the microSD card was defective, there's no need to restore the files on your external hard disk. In fact it would cause more harm than good. :heavy_check_mark:
 

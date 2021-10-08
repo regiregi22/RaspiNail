@@ -8,13 +8,13 @@ has_toc: false
 ## Bonus guide: Odroid XU Setup Guide
 *Difficulty: medium*
 
-This guide describes how to setup RaspiBolt using an Odroid XU4 or compatible hardware (like Odroid HC1, [HC2] (https://www.hardkernel.com/shop/odroid-hc2-home-cloud-two/) and many others).
+This guide describes how to setup RaspiNail using an Odroid XU4 or compatible hardware (like Odroid HC1, [HC2] (https://www.hardkernel.com/shop/odroid-hc2-home-cloud-two/) and many others).
 
 ![Odroid XU4](images/76_odroidxu4.png)
 
 The Odroid series is an alternative low-cost, light-weight computer based on ARM processors. There are a series of computers available at the manufacturer [Hardkernel](https://www.hardkernel.com/). The Odroid XU4 is roughly in the same league as the Raspberry Pi4 when it comes to computing power and price.
 
-This guide aims to provide an end-to-end solution to install on Odroid. Nevertheless, it is recommended to review the original RaspiBolt guide for the Raspberry Pi, to help you understand the origins of this guide and its deviations.
+This guide aims to provide an end-to-end solution to install on Odroid. Nevertheless, it is recommended to review the original RaspiNail guide for the Raspberry Pi, to help you understand the origins of this guide and its deviations.
 
 At this point, this guide only includes the Bitcoin Node setup. Lightning might follow later.
 
@@ -157,10 +157,10 @@ Now we use the bitcoin user going forward to run all Bitcoin Core related proces
 
 #### Configuration
 
-* Add RaspiBolt configuration: `nano /mnt/ext/bitcoin/bitcoin.conf` and copy/paste below:
+* Add RaspiNail configuration: `nano /mnt/ext/bitcoin/bitcoin.conf` and copy/paste below:
 
 ```ini
-# RaspiBolt: bitcoind configuration
+# RaspiNail: bitcoind configuration
 # /mnt/ext/bitcoin/bitcoin.conf
 
 # Bitcoin daemon
@@ -174,7 +174,7 @@ proxy=127.0.0.1:9050
 bind=127.0.0.1
 
 # Connections
-rpcuser=raspibolt
+rpcuser=RaspiNail
 rpcpassword=PASSWORD_[B]
 zmqpubrawblock=tcp://127.0.0.1:28332
 zmqpubrawtx=tcp://127.0.0.1:28333
@@ -203,7 +203,7 @@ $ sudo nano /etc/systemd/system/bitcoind.service
 ```
 
 ```ini
-# RaspiBolt: systemd unit for bitcoind
+# RaspiNail: systemd unit for bitcoind
 # /etc/systemd/system/bitcoind.service
 
 [Unit]

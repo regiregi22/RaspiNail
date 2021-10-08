@@ -72,10 +72,10 @@ The external hard disk is then attached to the file system and can be accessed a
 
 * Do not yet connect the external drive to your Pi, we need to check some things first.
 * Start your Raspberry Pi by unplugging it and connecting the power cable again.
-* Log in using SSH, but now with the user `admin`, your `password [A]` and the new hostname (e.g. `raspibolt.local`) or the IP address.
+* Log in using SSH, but now with the user `admin`, your `password [A]` and the new hostname (e.g. `RaspiNail.local`) or the IP address.
 
   ```sh
-  $ ssh admin@raspibolt.local
+  $ ssh admin@RaspiNail.local
   ```
 
 * To change system configuration and files that don't belong to the "admin", you have to prefix commands with `sudo`.

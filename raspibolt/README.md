@@ -1,8 +1,8 @@
 ---
 nav_exclude: true
 ---
-### The RaspiBolt Guide is now available on GitHub Pages:
+### The RaspiNail Guide is now available on GitHub Pages:
 
-https://stadicus.github.io/RaspiBolt/
+https://stadicus.github.io/RaspiNail/
 
 This repository contains all sources and is used for Issue tracking.

@@ -11,7 +11,7 @@ has_toc: false
 Download the Zeus app, APKs available here: https://github.com/ZeusLN/zeus/releases, 
 on F-Droid and Google Play.
 
-Log in to your RaspiBolt through ssh.
+Log in to your RaspiNail through ssh.
 
 Edit `torrc` with `sudo nano /etc/tor/torrc` and add the following lines:
 ```

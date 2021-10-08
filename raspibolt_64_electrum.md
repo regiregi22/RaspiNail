@@ -13,11 +13,11 @@ has_toc: false
 
 The best way to safekeep your bitcoin (meaning the best combination of security and usability) is to use a hardware wallet (like [Ledger](https://www.ledgerwallet.com/) or [Trezor](https://trezor.io/)) in combination with your own Bitcoin node. This gives you security, privacy and eliminates the need to trust a third party to verify transactions.
 
-With the RaspiBolt setup, the Bitcoin Core wallet on the node can only be used from the command line as no graphical user interface is installed. As Bitcoin Core does not offer support for hardware wallets, only a "hot wallet" (exposed to the internet) can be realized.
+With the RaspiNail setup, the Bitcoin Core wallet on the node can only be used from the command line as no graphical user interface is installed. As Bitcoin Core does not offer support for hardware wallets, only a "hot wallet" (exposed to the internet) can be realized.
 
 One possibility to use Bitcoin Core with more functionality is to set up an additional [ElectrumX](https://github.com/kyuupichan/electrumx) server and then use the great [Electrum wallet](https://electrum.org/) (on your regular computer) that integrates with hardware wallets. But this setup is not easy, and the overhead is more than a Raspberry Pi can handle.
 
-The new [Electrum Personal Server](https://github.com/chris-belcher/electrum-personal-server) makes it possible to connect Electrum (using your hardware wallet) directly to your RaspiBolt. In contrast to ElectrumX, this is not a full server that serves multiple users, but your own dedicated backend.
+The new [Electrum Personal Server](https://github.com/chris-belcher/electrum-personal-server) makes it possible to connect Electrum (using your hardware wallet) directly to your RaspiNail. In contrast to ElectrumX, this is not a full server that serves multiple users, but your own dedicated backend.
 
 Before using this setup, please familiarize yourself with all components by setting up your own Electrum wallet, visiting the linked project websites and reading [The Electrum Personal Server Will Give Users the Full Node Security They Need](https://bitcoinmagazine.com/articles/electrum-personal-server-will-give-users-full-node-security-they-need/) in Bitcoin Magazine.
 
@@ -82,7 +82,7 @@ Electrum Personal Server uses the Bitcoin Core wallet with "watch-only" addresse
 
   * In `[bitcoin-rpc]`, uncomment and complete the lines.
     ```ini
-    rpc_user = raspibolt
+    rpc_user = RaspiNail
     rpc_password = [PASSWORD_B]
     ```
 
@@ -130,13 +130,13 @@ The Electrum Personal Server scripts are installed in the directory `/home/bitco
 
 ### Connect Electrum
 
-On your regular computer, configure Electrum to use your RaspiBolt:
+On your regular computer, configure Electrum to use your RaspiNail:
 
 * In menu: `Tools > Network > Server`
 * Uncheck "Select server automatically"
-* Enter the IP of your RaspiBolt (eg. 192.168.0.20) in the address field
+* Enter the IP of your RaspiNail (eg. 192.168.0.20) in the address field
 
-  [![Connect Electrum to RaspiBolt](images/60_eps_electrum-connect.png)](images/60_eps_electrum-connect.png)
+  [![Connect Electrum to RaspiNail](images/60_eps_electrum-connect.png)](images/60_eps_electrum-connect.png)
 
 * `Close` and check connection in tab "Console"
 
@@ -146,7 +146,7 @@ On your regular computer, configure Electrum to use your RaspiBolt:
   `--oneserver --server 192.168.0.20:50002:s`
 
 ### Automate startup
-If everything works as expected, we will now automate the start of Electrum Personal Server on the RaspiBolt.
+If everything works as expected, we will now automate the start of Electrum Personal Server on the RaspiNail.
 
 * On the Pi, exit Electrum Personal Server by pressing `Ctrl-C`
 

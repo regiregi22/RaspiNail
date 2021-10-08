@@ -9,11 +9,11 @@ has_toc: false
 
 *Difficulty: easy*
 
-It is possible to run *lnd* on the RaspiBolt, and *lncli* on a different computer. The instructions below explain how to install *lncli* on a Windows PC and communicate with the RaspiBolt. Instructions for different computer systems (MAC, Linux, ...) will be very similar.
+It is possible to run *lnd* on the RaspiNail, and *lncli* on a different computer. The instructions below explain how to install *lncli* on a Windows PC and communicate with the RaspiNail. Instructions for different computer systems (MAC, Linux, ...) will be very similar.
 
-In these instructions, it is assumed the lncli computer is on the same LAN as the RaspiBolt. It is possible for the lncli computer to be outside the local LAN but that introduces additional security risks and will not be included in this guide.
+In these instructions, it is assumed the lncli computer is on the same LAN as the RaspiNail. It is possible for the lncli computer to be outside the local LAN but that introduces additional security risks and will not be included in this guide.
 
-## RaspiBolt
+## RaspiNail
 
 - Login as admin
 
@@ -21,9 +21,9 @@ In these instructions, it is assumed the lncli computer is on the same LAN as th
 
 ```
 admin ~  ฿  sudo su
-root@RaspiBolt:/home/admin#  ufw allow from 192.168.0.0/24 to any port  10009 comment 'allow lnd rpc from Local LAN'
-root@RaspiBolt:/home/admin#  ufw status
-root@RaspiBolt:/home/admin#  exit
+root@RaspiNail:/home/admin#  ufw allow from 192.168.0.0/24 to any port  10009 comment 'allow lnd rpc from Local LAN'
+root@RaspiNail:/home/admin#  ufw status
+root@RaspiNail:/home/admin#  exit
 ```
 - Add one new line in the [Application Options] section of lnd.conf to allow rpc from more than just the default localhost  
   `admin ~  ฿  sudo nano /home/bitcoin/.lnd/lnd.conf`
@@ -78,14 +78,14 @@ GLOBAL OPTIONS:
  ![Files to Copy](images/60_winLND.png) 
 
 
- - Back on the RaspiBolt: Reset admin.macaroon permissions  
+ - Back on the RaspiNail: Reset admin.macaroon permissions  
    `admin ~  ฿ sudo chmod 600 /home/bitcoin/.lnd/admin.macaroon`
 
 
 - Run lncli on the PC
 ```
 > cd %USERPROFILE%\desktop
-> lncli  --rpcserver ip.of.your.raspibolt:10009  getinfo
+> lncli  --rpcserver ip.of.your.RaspiNail:10009  getinfo
 ```
 
 ## A word on Permisson Files (Macaroons)
@@ -95,7 +95,7 @@ By default, *lncli* will load *admin.macaroon* and hence have full privileges. T
 Example
 
 ```
->lncli  --macaroonpath %LOCALAPPDATA%\Lnd\readonly.macaroon --rpcserver ip.of.your.raspibolt:10009  addinvoice --amt=100
+>lncli  --macaroonpath %LOCALAPPDATA%\Lnd\readonly.macaroon --rpcserver ip.of.your.RaspiNail:10009  addinvoice --amt=100
 [lncli] rpc error: code = Unknown desc = permission denied
 ```
 

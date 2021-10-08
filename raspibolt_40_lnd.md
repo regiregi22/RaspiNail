@@ -85,7 +85,7 @@ Now that LND is installed, we need to configure it to work with Bitcoin Core and
   ```
 
   ```ini
-  # RaspiBolt: lnd configuration
+  # RaspiNail: lnd configuration
   # /mnt/ext/lnd/lnd.conf
 
   [Application Options]
@@ -210,7 +210,7 @@ These 24 words, combined with your passphrase (optional `password [D]`)  is all 
 <script id="asciicast-xv9Gq3G5Pu5A1Jtxu2bACRvjQ" src="https://asciinema.org/a/xv9Gq3G5Pu5A1Jtxu2bACRvjQ.js" async></script>
 
 💡 _In this screencast I use the awesome [`tmux`](https://www.ocf.berkeley.edu/~ckuehl/tmux/){:target="_blank"} to run multiple Terminal sessions in parallel.
-But you can just connect to your RaspiBolt with two separate SSH sessions._
+But you can just connect to your RaspiNail with two separate SSH sessions._
 
 ### Authorization for "admin"
 
@@ -281,7 +281,7 @@ Now, let's set up LND to start automatically on system startup.
   ```
 
   ```ini
-  # RaspiBolt: systemd unit for lnd
+  # RaspiNail: systemd unit for lnd
   # /etc/systemd/system/lnd.service
 
   [Unit]
@@ -368,9 +368,9 @@ Now, let's set up LND to start automatically on system startup.
 Now your Lightning node is ready.
 This is also the point of no return.
 Up until now, you can just start over.
-Once you send real bitcoin to your RaspiBolt, you have "skin in the game".
+Once you send real bitcoin to your RaspiNail, you have "skin in the game".
 
-* Make sure your RaspiBolt is working as expected.
+* Make sure your RaspiNail is working as expected.
 * Get a little practice with `bitcoin-cli` and its options (see [Bitcoin Core RPC documentation](https://bitcoin-rpc.github.io/){:target="_blank"})
 * Try a few restarts (first stop lnd and bitcoind with `lncli stop`, `sudo systemctl stop lnd`, `sudo systemctl stop bitcoind` and then reboot with `sudo reboot`), is everything starting fine (don't forget to unlock the wallet after each reboot with `lncli unlock`)?
 
@@ -642,12 +642,12 @@ LiT has its own configuration file. The settings for LND, Pool, Faraday, Loop ca
   $ nano lit.conf
   ```
   ```ini
-  # RaspiBolt: lit configuration
+  # RaspiNail: lit configuration
   # /home/bitcoin/.lit/lit.conf
   
   # Feel free to change this IP depending of you need to access the UI
   # If you want the UI to be available ONLY from your home network,
-  # replace 0.0.0.0 by the local IP of the RaspiBolt
+  # replace 0.0.0.0 by the local IP of the RaspiNail
   # 0.0.0.0 let you access the UI from anywhere
   httpslisten=0.0.0.0:8443
   
@@ -738,10 +738,10 @@ LiT has its own configuration file. The settings for LND, Pool, Faraday, Loop ca
   ####################
   # If connect_bitcoin is set to 1, Faraday can connect to a bitcoin node (with --txindex set) to provide node accounting services
   faraday.connect_bitcoin=1
-  # The Bitcoin node IP is the IP address of the Raspibolt, i.e. an address like 192.168.0.20
+  # The Bitcoin node IP is the IP address of the RaspiNail, i.e. an address like 192.168.0.20
   faraday.bitcoin.host=[Bitcoin node IP]:8332
   # bitcoin.user provides to Faraday the bicoind RPC username, as specified in our bitcoin.conf
-  faraday.bitcoin.user=raspibolt
+  faraday.bitcoin.user=RaspiNail
   # bitcoin.password provides to Faraday the bitcoind RPC password, as specified in our bitcoin.conf
   faraday.bitcoin.password=PASSWORD_[B]
   ```
