@@ -25,28 +25,21 @@ This amazing piece of hardware is a tiny computer-on-a-chip, costs about $60 and
 ## Hardware requirements
 
 This guide is written for the fastest Raspberry Pi, as it makes a lot of hacks and workarounds obsolete.
-You need
+A recommended setup could be something like:
 
-* Raspberry Pi 4, with 4 GB RAM (8 GB recommended for future-proof)
-* microSD card: 8 GB or more, incl. adapter to your regular computer
-* Official RPi USB power adapter: 5V/3A + USB-C cable
-* External SSD: 1 TB or more (2 TB recommended for future-proof)
-* optional: Raspberry Pi case
+* Raspberry Pi 4, with 4 GB RAM (8 GB recommended for future-proof): (https://www.amazon.es/gp/product/B0899VXM8F/)
+* Official RPi power adapter 5V/3A + USB-C cable: (https://www.amazon.es/gp/product/B07TMPC9FG/)
+* Raspberry case (https://www.amazon.es/gp/product/B08HMRPXWT/)
+* microSD card: SanDisk MAX Endurance 32GB (https://www.amazon.es/gp/product/B084CJLNM4)
+* microSD reader: (https://www.amazon.es/gp/product/B07L9VT8YY/)
+* SSD: 1 TB or more (2 TB recommended for future-proof) Samsung SSD 870 EVO 1TB (https://www.amazon.es/gp/product/B08PC5DKZQ)
+* SSD Case: UGREEN SATA-USB Case (https://www.amazon.es/gp/product/B06XWSDGP6/)
 
 ![Raspberry Pi](images/10_raspberrypi_hardware.png)
 
 To run a Lightning node, the full Bitcoin blockchain must be stored locally, which is over 300 GB and growing.
 You can buy a cheap hard disk enclosure and reuse an old 1 TB SSD or larger. If you also plan to run Electrs and the Block Explorer, you should use a 1TB disk or larger.
 I recommend getting a modern 2.5" SSD that can be powered through the USB connection to the Pi directly, which also speeds up initial sync time significantly.
-
-A recommended setup could be something like:
-
-* Raspberry Pi 4 8GB (https://www.amazon.es/gp/product/B0899VXM8F/)
-* Official RPi power adapter (https://www.amazon.es/gp/product/B07TMPC9FG/)
-* Raspberry case (https://www.amazon.es/gp/product/B08HMRPXWT/)
-* SanDisk MAX Endurance 32GB (https://www.amazon.es/gp/product/B084CJLNM4)
-* Samsung SSD 870 EVO 1TB (https://www.amazon.es/gp/product/B08PC5DKZQ)
-* UGREEN SATA-USB Case (https://www.amazon.es/gp/product/B06XWSDGP6/)
 
 ---
 
