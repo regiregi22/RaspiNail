@@ -10,7 +10,6 @@ https://stadicus.github.io/RaspiBolt/
 <br/><br/>
 For more information regarding this fork, please refer to:
 https://github.com/regiregi22/RaspiNail/
-<br/><br/>
 
 ## Beginner’s Guide to ️Lightning️ on a Raspberry Pi 4
 {: .no_toc }
