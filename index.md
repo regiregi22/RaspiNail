@@ -5,7 +5,7 @@ nav_order: 1
 ---
 <!-- markdownlint-disable MD014 MD022 MD025 MD033 MD040 -->
 
-## Beginner’s Guide to ️Lightning️ on a Raspberry Pi
+## Beginner’s Guide to ️Lightning️ on a Raspberry Pi 4
 {: .no_toc }
 
 I love to tinker and build stuff.
@@ -16,7 +16,7 @@ I now basically run my own bank using free open-source software and some cheap h
 
 ---
 
-The **RaspiNail version 2** builds on the Raspberry Pi 4. If you're looking for the old version: [check out the old source files on GitHub](https://github.com/Stadicus/RaspiNail/blob/1.0/index.md).
+The **RaspiNail version 2** builds on the Raspberry Pi 4.
 
 ---
 
@@ -84,10 +84,6 @@ My aim is to set up a Bitcoin and Lightning node that
 
 This server is set up without graphical user interface and is used remotely using the Secure Shell (SSH) command line.
 
-**The good old days**: this was the original goal of this guide, back in 2017, simply buying a Blockaccino.
-
-[![Buying a Blockaccino](images/00_blockaccino_goal.png)](https://vimeo.com/258395303){:target="_blank"}
-
 ### Target audience
 
 This guide strives to give simple and foolproof instructions.
@@ -103,9 +99,7 @@ But please be aware that you should start with small amounts that you are willin
 
 ## Community Support
 Find help and other RaspiNail users on the following platforms:
-* [Github Issues / Knowledge Base](https://github.com/Stadicus/RaspiNail/issues)
-* Reddit sub: [r/RaspiNail](https://www.reddit.com/r/RaspiNail/)
-* Telegram group: [t.me/RaspiNail](https://t.me/RaspiNail)
+* [Github Issues / Knowledge Base](https://github.com/regiregi22/RaspiNail/issues)
 
 ---
 
