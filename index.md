@@ -9,7 +9,7 @@ This is a forked, modified and up-to-date version of the original work Raspibolt
 https://stadicus.github.io/RaspiBolt/
 <br/><br/>
 For more information regarding this fork, please refer to:
-https://github.com/regiregi22/RaspiNail
+https://github.com/regiregi22/RaspiNail/
 <br/><br/>
 
 ## Beginner’s Guide to ️Lightning️ on a Raspberry Pi 4
