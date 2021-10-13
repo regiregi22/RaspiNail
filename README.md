@@ -5,16 +5,17 @@ This is a forked, modified and up-to-date version of the original work from Stad
 * https://stadicus.github.io/RaspiBolt/
 * https://github.com/Stadicus/RaspiBolt
 
-### Changes from RaspiBolt to RaspiNail:
+### Differences of RaspiNail from RaspiBolt:
 * Changed OS deployed from Raspberry OS 32 bits to Ubuntu Server 64bits
-
+<br/><br/>
 * Updated signatures check of Bitcoin Core since v22
 * Updated configuration in Electrs since v9
-
+<br/><br/>
 * Added some useful apps (rfkill, htop, nyx, glances, lm-sensors)
 * Added SSH access through TOR
 * Added section for updating all software of the node
-
+* Added section for checking the correct behaviour of all services
+<br/><br/>
 * Removed references and support for other hardware boards that are not Raspberry (Odroid, Pine64...)
 * Removed WIFI/Buetooth 
 * Removed access using certificates
