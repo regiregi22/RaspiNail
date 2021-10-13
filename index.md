@@ -7,8 +7,10 @@ nav_order: 1
 
 This is a forked, modified and up-to-date version of the original work Raspibolt from Stadicus. All credit goes to him and his great original guide. Thank him for the great ammount of work invested for the Bitcoin node community:
 https://stadicus.github.io/RaspiBolt/
+<br/><br/>
 For more information regarding this fork, please refer to:
 https://github.com/regiregi22/RaspiNail
+<br/><br/>
 
 ## Beginner’s Guide to ️Lightning️ on a Raspberry Pi 4
 {: .no_toc }
