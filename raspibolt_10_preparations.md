@@ -27,25 +27,26 @@ This amazing piece of hardware is a tiny computer-on-a-chip, costs about $60 and
 This guide is written for the fastest Raspberry Pi, as it makes a lot of hacks and workarounds obsolete.
 You need
 
-* Raspberry Pi 4, with 4 GB RAM
+* Raspberry Pi 4, with 4 GB RAM (8 GB recommended for future-proof)
 * microSD card: 8 GB or more, incl. adapter to your regular computer
-* strong USB power adapter: 5V/3A + USB-C cable
-* external hard disk: 500 GB or more (1 TB recommended)
+* Official RPi USB power adapter: 5V/3A + USB-C cable
+* External SSD: 1 TB or more (2 TB recommended for future-proof)
 * optional: Raspberry Pi case
 
 ![Raspberry Pi](images/10_raspberrypi_hardware.png)
 
 To run a Lightning node, the full Bitcoin blockchain must be stored locally, which is over 300 GB and growing.
-You can buy a cheap hard disk enclosure and reuse an old 500 GB hard disk or larger.  If you also plan to run Electrs and the Block Explorer, you should use a 1TB disk or larger.
+You can buy a cheap hard disk enclosure and reuse an old 1 TB SSD or larger. If you also plan to run Electrs and the Block Explorer, you should use a 1TB disk or larger.
 I recommend getting a modern 2.5" SSD that can be powered through the USB connection to the Pi directly, which also speeds up initial sync time significantly.
 
----
+A recommended setup could be something like:
 
-## Other computing platforms
-
-This guide works with most Debian-based Linux distributions, be it on other computing platforms, a real laptop or a virtual machine.
-Only the "Raspberry Pi" part is quite specific, but easily adaptable to other environments.
-Over time, it would be great to describe the differences that need to be considered when using other environments like [Odroid](https://www.hardkernel.com/), [Pine64](https://www.pine64.org/) or [Libre Computer](https://libre.computer/).
+* Raspberry Pi 4 8GB (https://www.amazon.es/gp/product/B0899VXM8F/)
+* Official RPi power adapter (https://www.amazon.es/gp/product/B07TMPC9FG/)
+* Raspberry case (https://www.amazon.es/gp/product/B08HMRPXWT/)
+* SanDisk MAX Endurance 32GB (https://www.amazon.es/gp/product/B084CJLNM4)
+* Samsung SSD 870 EVO 1TB (https://www.amazon.es/gp/product/B08PC5DKZQ)
+* UGREEN SATA-USB Case (https://www.amazon.es/gp/product/B06XWSDGP6/)
 
 ---
 
