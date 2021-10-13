@@ -1,4 +1,23 @@
 ### The RaspiNail Guide is now available on GitHub Pages:
-https://stadicus.github.io/RaspiNail/
+https://regiregi22.github.io/RaspiNail/
 
-This repository contains all sources and is used for Issue tracking.
+This is a forked, modified and up-to-date version of the original work from Stadicus. All credit goes to him and his great original guide. Thank him for the great ammount of work invested for the Bitcoin node community.
+https://stadicus.github.io/RaspiBolt/
+https://github.com/Stadicus/RaspiBolt
+
+Changes from RaspiBolt to RaspiNail:
+-Changed OS deployed from Raspberry OS 32 bits to Ubuntu Server 64bits
+
+-Updated signatures check of Bitcoin Core since v22
+-Updated configuration in Electrs since v9
+
+-Added some useful apps (rfkill, htop, nyx, glances, lm-sensors)
+-Added SSH access through TOR
+-Added section for updating all software of the node
+
+-Removed references and support for other hardware boards that are not Raspberry (Odroid, Pine64...)
+-Removed WIFI/Buetooth 
+-Removed access using certificates
+
+Pending:
+-General revision of all the software related to Lightning Network implementation
