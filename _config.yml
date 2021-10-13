@@ -3,9 +3,9 @@ remote_theme: pmarsceill/just-the-docs
 search_enabled: true
 aux_links:
     "Issues / Knowledge Base":
-      - "https://github.com/Stadicus/RaspiBolt/issues"
+      - "https://github.com/regiregi22/RaspiNail/issues"
     "Contribute! Source on GitHub":
-      - "https://github.com/Stadicus/RaspiBolt/"
+      - "https://github.com/regiregi22/RaspiNail/"
 
 # enable theme for local usage
 #theme: "just-the-docs"
