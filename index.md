@@ -23,7 +23,7 @@ I now basically run my own bank using free open-source software and some cheap h
 
 ---
 
-The **RaspiNail version 2** builds on the Raspberry Pi 4.
+The **RaspiNail version 3** builds on the Raspberry Pi 4.
 
 ---
 
