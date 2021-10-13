@@ -17,8 +17,8 @@ This is a forked, modified and up-to-date version of the original work from Stad
 * Added section for checking the correct behaviour of all services
 <br/><br/>
 * Removed references and support for other hardware boards that are not Raspberry (Odroid, Pine64...)
-* Removed WIFI/Buetooth 
-* Removed access using certificates
+* Removed WIFI/Buetooth support
+* Removed SSH access using certificates
 
 ### Pending:
 * General revision of all the software related to Lightning Network implementation
