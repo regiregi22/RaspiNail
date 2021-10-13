@@ -40,21 +40,33 @@ This causes the Secure Shell (ssh) to be enabled from the start and we will be a
 You can run your RaspiNail over Wifi.
 To avoid using a network cable for the initial setup, you can pre-configure the wireless settings:
 
-* Create a file `wpa_supplicant.conf` in the boot partition of the microSD card with the following content.
-  Note that the network name (ssid) and password need to be in double-quotes (like `psk="password"`)
+* Locate the file `network-config` in the boot partition of the microSD card. An example is already included in the file, you can simply adapt it.
 
-  ```conf
-  ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-  update_config=1
-  country=[COUNTRY_CODE]
-  network={
-    ssid="[WIFI_SSID]"
-    psk="[WIFI_PASSWORD]"
-  }
+To do so, uncomment (remove the “#” at the beginning) and edit the following lines:
+
+  ```wifis:
+  wlan0:
+    dhcp4: true
+    optional: true
+    access-points:
+      <wifi network name>:
+        password: "<wifi password>"
+  ```
+  
+For example:
+
+  ```wifis:
+  wlan0:
+    dhcp4: true
+    optional: true
+    access-points:
+      "home network":
+        password: "123456789"
   ```
 
-* Replace `[COUNTRY_CODE]` with the [ISO2 code](https://www.iso.org/obp/ui/#search){:target="_blank"} of your country (eg. `US`)
-* Replace `[WIFI_SSID]` and `[WIFI_PASSWORD]` with the credentials for your own WiFi.
+* Note: network name must be enclosed in quotation marks.
+* Save the file.
+* Note ⓘ: During the first boot, your Raspberry Pi will try to connect to this network. It will fail the first time around. Simply reboot sudo reboot and it will work.
 
 ### Start your Pi
 
