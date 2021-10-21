@@ -156,10 +156,10 @@ For that, a Secure Shell (SSH) client is needed.
 
 If you need to provide connection details, use the following settings:
 
-* host name: `raspberrypi.local` or the ip address like `192.168.0.20`
+* host name: The ip address like `192.168.0.20`
 * port: `22`
-* username: `pi`
-* password:  `raspberry`.
+* username: `ubuntu`
+* password:  `ubuntu`
 
 Install and start the SSH client for your operating system:
 
@@ -168,7 +168,11 @@ Install and start the SSH client for your operating system:
   * `ssh pi@raspberrypi.local` or
   * `ssh pi@192.168.0.20`
 
-<script id="asciicast-UxufwsDLfdhIfitCfBbHXx4mA" src="https://asciinema.org/a/UxufwsDLfdhIfitCfBbHXx4mA.js" async></script>
+### Changing the password
+When prompted, use “ubuntu” for the password. **(The cursor won’t move when you type the password.)** The first thing Ubuntu will do is to ask you to change it to a secure password. Once done, you can reconnect again with the SSH command and the new password.
+
+Success! You are now connected to Ubuntu Server running on your Raspberry Pi.
+
 
 🔍 *more: [using SSH with Raspberry Pi](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md){:target="_blank"}*
 
