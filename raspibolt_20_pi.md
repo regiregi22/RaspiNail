@@ -22,7 +22,7 @@ We configure the Raspberry Pi and install the Linux operating system.
 
 ## Preparing the operating system
 
-The node runs headless, that means without keyboard or display, so the operating system Raspberry Pi OS Lite is used.
+The node runs headless, that means without keyboard or display, so the operating system Ubuntu Server is used.
 
 1. Download and install the [Raspberry Pi Imager](https://www.raspberrypi.org/software/){:target="_blank"}
 2. Choose "Other general-purpose OS" and then "Ubuntu Server 21.10 64-bit", choose your SD-card and write the image.
