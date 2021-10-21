@@ -176,6 +176,27 @@ Success! You are now connected to Ubuntu Server running on your Raspberry Pi.
 
 🔍 *more: [using SSH with Raspberry Pi](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md){:target="_blank"}*
 
+### Still not connected to the internet?
+Sometimes the structure of the network-config file that you modified before boot gets messed up when you book. This would cause your Pi not to be able to connect to your wifi.
+
+To fix this you need to go into the correct file and correct the issue. Run:
+  ```
+sudo nano /etc/netplan/50-cloud-init.yaml
+  ```
+so you can edit the file. Edit it so it looks like this again, the indentation needs to be correct for the .yaml to work:
+  ```
+wifis:
+  wlan0:
+    dhcp4: true
+    optional: true
+    access-points:
+      "home network":
+        password: "123456789"
+  ```
+Save and exit the file with   ``` Ctrl + S   ``` and   ``` Ctrl + X  ```.
+
+Run sudo netplan apply and sudo reboot and when you log back in, you will be connected to your wifi.
+
 ---
 
 ## The command line
