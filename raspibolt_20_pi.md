@@ -40,7 +40,8 @@ This causes the Secure Shell (ssh) to be enabled from the start and we will be a
 You can run your RaspiNail over Wifi.
 To avoid using a network cable for the initial setup, you can pre-configure the wireless settings:
 
-* Locate the file `network-config` in the boot partition of the microSD card. An example is already included in the file, you can simply adapt it.
+* Locate the file `network-config` in the boot partition of the microSD card. An example is already included in the file, you can simply adapt it.  
+* If the boot partition doesn't appear in Windows, just open Start/"Create and format hard disk partitions", right click on the system-boot partition, and assing it a Drive Letter that is not already in use.
 
 To do so, uncomment (remove the “#” at the beginning) and edit the following lines:
 
