@@ -168,13 +168,14 @@ Install and start the SSH client for your operating system:
   * `ssh pi@raspberrypi.local` or
   * `ssh pi@192.168.0.20`
 
+🔍 *more: [using SSH with Raspberry Pi](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md){:target="_blank"}*
+
+
 ### Changing the password
 When prompted, use “ubuntu” for the password. **(The cursor won’t move when you type the password.)** The first thing Ubuntu will do is to ask you to change it to a secure password. Once done, you can reconnect again with the SSH command and the new password.
 
 Success! You are now connected to Ubuntu Server running on your Raspberry Pi.
 
-
-🔍 *more: [using SSH with Raspberry Pi](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md){:target="_blank"}*
 
 ### Still not connected to the internet?
 Sometimes the structure of the network-config file that you modified before boot gets messed up when you book. This would cause your Pi not to be able to connect to your wifi.
