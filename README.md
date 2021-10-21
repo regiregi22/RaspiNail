@@ -6,7 +6,7 @@ This is a forked, modified and up-to-date version of the original work from Stad
 * https://github.com/Stadicus/RaspiBolt
 
 ### Differences of RaspiNail from RaspiBolt:
-* Changed OS deployed from Raspberry OS 32 bits to Ubuntu Server 64bits
+* Changed OS deployed from Raspberry OS 32 bits to Ubuntu Server 64 bits
 <br/><br/>
 * Updated signatures check of Bitcoin Core since v22
 * Updated configuration in Electrs since v9
