@@ -44,29 +44,52 @@ To avoid using a network cable for the initial setup, you can pre-configure the 
 
 To do so, uncomment (remove the “#” at the beginning) and edit the following lines:
 
-  ```wifis:
-  wlan0:
-    dhcp4: true
-    optional: true
-    access-points:
-      <wifi network name>:
-        password: "<wifi password>"
+  ```
+  wifis:
+    wlan0:
+      dhcp4: true
+      optional: true
+      access-points:
+        <wifi network name>:
+          password: "<wifi password>"
   ```
   
 For example:
 
-  ```wifis:
-  wlan0:
-    dhcp4: true
-    optional: true
-    access-points:
-      "home network":
-        password: "123456789"
+  ```
+  wifis:
+    wlan0:
+      dhcp4: true
+      optional: true
+      access-points:
+        "home network":
+          password: "123456789"
   ```
 
 * Note: network name must be enclosed in quotation marks.
 * Save the file.
 * Note ⓘ: During the first boot, your Raspberry Pi will try to connect to this network. It will fail the first time around. Simply reboot sudo reboot and it will work.
+
+### Set a static IP
+
+To set a static IP you need to replace the
+  ```
+  dhcp4: true
+  ```
+line in the network-config file with lines that specify the intended IP address as well as its default gateway and DNS server. You can do this for either the eth0 or wlan0 interface (or both). **It is important that you get the indenting right for this work correctly**
+
+For example, if you were planning to give the pi the address 192.168.1.23 in the 192.168.1.0/24 subnet with a default gateway of 192.168.1.1 and a DNS server of 192.168.1.53 then the following text would work. The same structure works for both the eth0 or wlan0 sections in the file:
+  ```
+ethernets:
+  eth0:
+    addresses:
+      - 192.168.101.23/24
+    gateway4: 192.168.1.1
+    nameservers:
+      addresses: [192.168.1.23]
+    optional: true
+  ```
+
 
 ### Start your Pi
 
