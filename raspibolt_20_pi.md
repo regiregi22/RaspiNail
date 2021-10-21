@@ -27,14 +27,6 @@ The node runs headless, that means without keyboard or display, so the operating
 1. Download and install the [Raspberry Pi Imager](https://www.raspberrypi.org/software/){:target="_blank"}
 2. Choose "Other general-purpose OS" and then "Ubuntu Server 21.10 64-bit", choose your SD-card and write the image.
 
-### Enable Secure Shell
-
-Without keyboard or screen, no direct interaction with the Pi is possible during the initial setup.
-After writing the image to the microSD card, create an empty file called “ssh” (without extension) in the main directory of the card.
-This causes the Secure Shell (ssh) to be enabled from the start and we will be able to login remotely.
-
-* Create a file `ssh` in the boot partition of the microSD card
-
 ### Prepare Wifi
 
 You can run your RaspiNail over Wifi.
