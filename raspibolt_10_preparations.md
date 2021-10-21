@@ -19,7 +19,7 @@ Let's get all the required parts and assemble the Raspberry Pi.
 
 ---
 
-This guide builds on the easily available and very flexible Raspberry Pi 4.
+This guide builds on the easily available and very flexible Raspberry Pi 4. <br />
 This amazing piece of hardware is a tiny computer-on-a-chip, costs about $60 and consumes very little energy.
 
 ## Hardware requirements
@@ -47,8 +47,10 @@ I recommend getting a modern 2.5" SSD that can be powered through the USB connec
 ## Write down your passwords
 
 You will need several passwords and I find it easiest to write them all down in the beginning, instead of bumping into them throughout the guide.
-They should be unique and very secure, at least 12 characters in length. Do **not use uncommon special characters**, spaces or quotes (‘ or “).
-You could use the [random.org](https://www.random.org/strings/) string generator, which is a good source of randomness.
+They should be unique and very secure, at least 12 characters in length. Do **not use uncommon special characters**, spaces or quotes (‘ or “). <br />
+
+You could use the [random.org](https://www.random.org/strings/) string generator, which is a good source of randomness. <br />
+
 Or you can roll a dice and concatenate some random words for each password using the list from [EFF's New Wordlists for Random Passphrases](https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt)
 
 ```console
