@@ -300,7 +300,7 @@ Make sure that all necessary software packages are installed:
 ```sh
 $ sudo apt install htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
 ```
-We will make some cleaning:
+We will do some cleaning:
 ```
 $ sudo apt --fix-broken install
 $ sudo apt autoremove
@@ -312,7 +312,7 @@ $ sudo reboot
 
 ### Add users
 
-This guide uses the main user "admin" instead of "pi" to make it more reusable with other platforms.
+This guide uses the main user "admin" instead of "ubuntu" to make it more reusable with other platforms.
 
 * Create the new user "admin", set `password [A]` and add it to the group "sudo"
 
