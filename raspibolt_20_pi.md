@@ -105,7 +105,7 @@ Finding it can be a bit tricky without a screen.
   
 * To determine the IP address of your board, open a terminal and run the arp command:
 
-On Ubuntu and Mac OS:
+**On Ubuntu and Mac OS:**
   ```
 arp -na | grep -i "b8:27:eb"
   ```
@@ -126,7 +126,7 @@ Depending on your version of Ubuntu, you may need to install the net-tools packa
  ? (xx.xx.xx.x) at b8:27:eb:yy:yy:yy [ether] on wlp2s0
   ```
   
-On Windows:
+**On Windows:**
   ```
 arp -a | findstr b8-27-eb
   ```
@@ -147,27 +147,7 @@ Where the x’s are the IP address of any Raspberry Pi connected to the local ne
 
 If the command doesn’t return an IP address, you may need to wait a little longer for your Pi to join the network. If you still can’t see it after a few tries, which can happen with some home or office network configurations, we recommend you use a USB keyboard and HDMI screen to interact with your device.
   
-  
-  
-  
-  
-
-* Try to ping the Raspberry Pi local hostname (press `Ctrl`-`C` to interrupt)
-
-  ```sh
-  $ ping raspberrypi.local
-  > PING raspberrypi.local (192.168.1.192) 56(84) bytes of data.
-  > 64 bytes from 192.168.1.192 (192.168.1.192): icmp_seq=1 ttl=64 time=88.1 ms
-  > 64 bytes from 192.168.1.192 (192.168.1.192): icmp_seq=2 ttl=64 time=61.5 ms
-  ```
-
-* If you get a response like above, mDNS works within your local network.
-  Proceed directly to the next section.
-
-* If the `ping` command fails or does not return anything, you need to manually look for your Pi.
-  As this is a common challenge, just follow the official Raspberry Pi guideance on how to find your [IP Address](https://www.raspberrypi.org/documentation/remote-access/ip-address.md){:target="_blank"}.
-
-* You should now be able to reach your Pi, either with the hostname `raspberrypi.local` or an IP address like `192.168.0.20`.
+* You should now be able to reach your Pi withan IP address like `192.168.0.20`.
 
 ### Access with Secure Shell
 
