@@ -195,7 +195,7 @@ wifis:
   ```
 Save and exit the file with   ``` Ctrl + S   ``` and   ``` Ctrl + X  ```.
 
-Run sudo netplan apply and sudo reboot and when you log back in, you will be connected to your wifi.
+Run   ``` sudo netplan apply   ``` and   ``` sudo reboot   ``` and when you log back in, you will be connected to your wifi.
 
 ---
 
