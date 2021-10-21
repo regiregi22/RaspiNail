@@ -254,25 +254,16 @@ Let's start with the configuration.
 
 ### RaspiNail Configuration
 
-* You can give your node a cute hostname like “raspinail”: ``` sudo hostnamectl set-hostname raspinail ```
-* Next, choose `1 System options` and then `S1 Wireless LAN` and then `B1 Console`
-* Next, choose `1 System options` and then `S5 Boot/Auto Login` and configure your Wifi connection
-* Next, choose `1 System options` and then `S6 Network at boot` and select `<Yes>`
-* Next, choose `6 Advanced options` and then `A1 Expand Filesystem`
-* Exit by selecting `<Finish>` (right arrow twice), and `<No>` as no reboot is necessary
-
-_(Warning: the video below is outdated and does not correspond exactly to the commands above)_
-<script id="asciicast-1oSmvJaZLCuN3hUIn33OZCtJy" src="https://asciinema.org/a/1oSmvJaZLCuN3hUIn33OZCtJy.js" async></script>
-
-**Important**: if you connected using the hostname `raspberrypi.local`, you now need to use the new hostname (e.g. `RaspiNail.local`)
+* You can give your node a cute hostname like “raspinail” ``` sudo hostnamectl set-hostname raspinail ```
+* Set your local timezone by copying your time zone from the list ```timedatectl list-timezones``` and then input ```sudo timedatectl set-timezone Europe/Madrid``` with "Europe/Madrid" as an example.
 
 The following two potential error messages are expected:
 
-* After changing the hostname, e.g. to `RaspiNail`, a reboot is required to get rid of this error message.
+* After changing the hostname, e.g. to `raspinail`, a reboot is required to get rid of this error message.
   It can be safely ignored for now.
 
   ```
-  sudo: unable to resolve host raspberrypi: Name or service not known
+  sudo: unable to resolve host ubuntu: Name or service not known
   ```
 
 * The `raspi-config` automatically sets your location, but does not generate the corresponding `locale` files:
