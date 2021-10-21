@@ -19,6 +19,7 @@ https://github.com/regiregi22/RaspiNail/
 ---
 
 The **RaspiNail version 3** builds on the Raspberry Pi 4.
+You can check the whole source files of this guide and download it here: https://github.com/regiregi22/RaspiNail
 
 ---
 
@@ -53,7 +54,7 @@ To preserve the decentralized nature of this monetary system, I think it is impo
 If Bitcoin is digital gold, then a full node wallet is your own personal goldsmith who checks for you that received payments are genuine.
 
 This is why I set out to build my **RaspiNail** and think that I have now - through numerous iterations - quite a good configuration that I would like to share as my modest contribution to the community.
-I am not a systems specialist, so please feel free to point out improvements.
+Please feel free to point out improvements.
 
 ## About this guide
 
