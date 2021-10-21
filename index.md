@@ -19,7 +19,7 @@ nav_order: 1
 ---
 
 The **RaspiNail version 3** builds on the Raspberry Pi 4.
-You can check the whole source files of this guide and download it here: https://github.com/regiregi22/RaspiNail
+You can check the whole source files of this guide and download it here: [https://github.com/regiregi22/RaspiNail](https://github.com/regiregi22/RaspiNail) 
 
 ---
 
