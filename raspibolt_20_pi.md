@@ -266,23 +266,12 @@ The following two potential error messages are expected:
   sudo: unable to resolve host ubuntu: Name or service not known
   ```
 
-* The `raspi-config` automatically sets your location, but does not generate the corresponding `locale` files:
-
-  ```sh
-  perl: warning: Setting locale failed.
-  perl: warning: Please check that your locale settings:
-  ...
-  LC_NUMERIC = "de_CH.UTF-8",
-  ...
-  are supported and installed on your system.
-  ```
-
-  This error is safe to ignore.
-  If you want to get rid of it, note the setting for `LC_NUMERIC` (e.g. `de_CH.UTF-8`), select this locale in the following configuration screen and configure it as default.
-
+* We will generate the corresponding ```locale``` files:
   ```sh
   $ sudo dpkg-reconfigure locales
   ```
+  We will select in the first menu ```All locales``` when asked "Locales to be generated", and in the second menu ```None``` for "Default locale for the system environment".  
+  
   If the above fix does not remove the locale error, it is probably your host machine that you use to SSH from pushing its locale onto the Pi. What you need to do is very simple: make Pi stop accepting locale over SSH regardless of origin. You do that by editing sshd_config file in nano editor:
 
 ```sh
@@ -311,8 +300,15 @@ Make sure that all necessary software packages are installed:
 ```sh
 $ sudo apt install htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
 ```
-
-<script id="asciicast-hg9s5u5vzv04OpUPwTFfqqrLy" src="https://asciinema.org/a/hg9s5u5vzv04OpUPwTFfqqrLy.js" async></script>
+We will make some cleaning:
+```
+$ sudo apt --fix-broken install
+$ sudo apt autoremove
+```
+We will reboot the system:
+```
+$ sudo reboot
+```
 
 ### Add users
 
