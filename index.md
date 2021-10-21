@@ -14,10 +14,6 @@ https://github.com/regiregi22/RaspiNail/
 ## Beginner’s Guide to ️Lightning️ on a Raspberry Pi 4
 {: .no_toc }
 
-I love to tinker and build stuff.
-I am also fascinated with digital currencies, so I recently built my own Bitcoin / Lightning Full Node with a simple low-cost Raspberry Pi.
-I now basically run my own bank using free open-source software and some cheap hardware.
-
 ![RaspiNail Logo](images/00_raspibolt_v2_banner_440.png){:target="_blank"}
 
 ---
@@ -33,10 +29,6 @@ The **RaspiNail version 3** builds on the Raspberry Pi 4.
 {:toc}
 
 ---
-
-This project was as much about the learning process as about the result.
-And I think I succeeded: I learned a lot and my node runs very well.
-This guide is my attempt to share my learnings and encourage you to run a node yourself.
 
 ## Why am I excited about Bitcoin and Lightning?
 
