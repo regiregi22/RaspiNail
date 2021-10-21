@@ -99,10 +99,58 @@ ethernets:
 
 The Pi is starting and gets a new address from your home network.
 Finding it can be a bit tricky without a screen.
-If you're lucky, you don't need to know this address and can just connect using mDNS.
 
 * On your regular computer, open the Terminal (also known as "command line").
   Here are a few links with additional details for [Windows](https://www.computerhope.com/issues/chusedos.htm){:target="_blank"}, [MacOS](https://macpaw.com/how-to/use-terminal-on-mac){:target="_blank"} and [Linux](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/){:target="_blank"}.
+  
+* To determine the IP address of your board, open a terminal and run the arp command:
+
+On Ubuntu and Mac OS:
+  ```
+arp -na | grep -i "b8:27:eb"
+  ```
+If this doesn’t work and you are using the latest Raspberry Pi 4, instead run:
+  ```
+arp -na | grep -i "dc:a6:32"
+  ```
+If this doesn’t work and you are using the latest Raspberry Pi 4, instead run:
+  ```
+arp -na | grep -i "e4:5f:01"
+  ```
+  ```
+Information
+Depending on your version of Ubuntu, you may need to install the net-tools package. Install it with sudo apt install net-tools and try the arp command again.
+  ```
+  This will return an output similar to:
+  ```
+ ? (xx.xx.xx.x) at b8:27:eb:yy:yy:yy [ether] on wlp2s0
+  ```
+  
+On Windows:
+  ```
+arp -a | findstr b8-27-eb
+  ```
+If this doesn’t work and you are using the latest Raspberry Pi 4, instead run:
+  ```
+arp -a | findstr dc-a6-32
+  ```
+If this doesn’t work and you are using the latest Raspberry Pi 4, instead run:
+  ```
+arp -a | findstr e4-5f-01
+  ```
+This will return an output similar to:
+  ```
+xx.xx.xx.x       b8-27-eb-yy-yy-yy     dynamic
+  ```
+
+Where the x’s are the IP address of any Raspberry Pi connected to the local network. Note it down.
+
+If the command doesn’t return an IP address, you may need to wait a little longer for your Pi to join the network. If you still can’t see it after a few tries, which can happen with some home or office network configurations, we recommend you use a USB keyboard and HDMI screen to interact with your device.
+  
+  
+  
+  
+  
 
 * Try to ping the Raspberry Pi local hostname (press `Ctrl`-`C` to interrupt)
 
