@@ -14,7 +14,7 @@ This is a forked, modified and up-to-date version of the original work from Stad
 * Added some useful apps (rfkill, htop, nyx, glances, lm-sensors)
 * Added SSH access through TOR
 * Added section for updating all software of the node
-* Added section for checking the correct behaviour of all services
+* Added section for checking the correct behaviour of the system and all services
 <br/><br/>
 * Removed references and support for other hardware boards that are not Raspberry (Odroid, Pine64...)
 * Removed Buetooth support. Optionally, WIFI too.
