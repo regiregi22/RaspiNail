@@ -34,11 +34,12 @@ A recommended setup could be something like:
 * [MicroSD USB reader](https://www.amazon.es/gp/product/B07L9VT8YY/)
 * [SSD unit: 1 Tb (2 Tb recommended for future-proof)](https://www.amazon.es/gp/product/B08PC5DKZQ)
 * [SSD enclosure](https://www.amazon.es/gp/product/B06XWSDGP6/)
+* 
 
 ![Raspberry Pi](images/10_raspberrypi_hardware.png)
 
-To run a Lightning node, the full Bitcoin blockchain must be stored locally, which is over 300 GB and growing.
-You can buy a cheap hard disk enclosure and reuse an old 1 TB SSD or larger. If you also plan to run Electrs and the Block Explorer, you should use a 1TB disk or larger.
+To run a Lightning node, the full Bitcoin blockchain must be stored locally, which is near 400 GB and growing daily.
+You can buy a cheap hard disk enclosure and reuse an old 1 Tb HDD or larger. If you also plan to run Electrs and the Block Explorer, you should use a 1TB disk or larger.
 I recommend getting a modern 2.5" SSD that can be powered through the USB connection to the Pi directly, which also speeds up initial sync time significantly.
 
 ---
@@ -47,6 +48,8 @@ I recommend getting a modern 2.5" SSD that can be powered through the USB connec
 
 You will need several passwords and I find it easiest to write them all down in the beginning, instead of bumping into them throughout the guide.
 They should be unique and very secure, at least 12 characters in length. Do **not use uncommon special characters**, spaces or quotes (‘ or “).
+You could use the [random.org](https://www.random.org/strings/) string generator, which is a good source of randomness.
+Or you can roll a dice and concatenate some random words for each password using the list from [EFF's New Wordlists for Random Passphrases](https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt)
 
 ```console
 [ A ] Master user password
