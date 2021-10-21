@@ -1,2 +1,5 @@
+* En la pagina de Intro, ver si el indice queda correcto al final del todo.
+
+
 * Revisar la parte del arranque, si da DHCP y SSH de primeras.
 * Ver si Ubuntu server, aparte del SSH al comienzo, tiene tambien un mDNS (raspibolt.local)
