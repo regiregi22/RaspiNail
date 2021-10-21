@@ -24,16 +24,16 @@ This amazing piece of hardware is a tiny computer-on-a-chip, costs about $60 and
 
 ## Hardware requirements
 
-This guide is written for the fastest Raspberry Pi, as it makes a lot of hacks and workarounds obsolete.
+This guide is written for the fastest Raspberry Pi 4, as it makes a lot of hacks and workarounds obsolete.
 A recommended setup could be something like:
 
-* Raspberry Pi 4, with 4 GB RAM (8 GB recommended for future-proof): (https://www.amazon.es/gp/product/B0899VXM8F/)
-* Official RPi power adapter 5V/3A + USB-C cable: (https://www.amazon.es/gp/product/B07TMPC9FG/)
-* Raspberry case (https://www.amazon.es/gp/product/B08HMRPXWT/)
-* microSD card: SanDisk MAX Endurance 32GB (https://www.amazon.es/gp/product/B084CJLNM4)
-* microSD reader: (https://www.amazon.es/gp/product/B07L9VT8YY/)
-* SSD: 1 TB or more (2 TB recommended for future-proof) Samsung SSD 870 EVO 1TB (https://www.amazon.es/gp/product/B08PC5DKZQ)
-* SSD Case: UGREEN SATA-USB Case (https://www.amazon.es/gp/product/B06XWSDGP6/)
+* [Raspberry Pi 4 with 4 GB RAM (8 GB recommended for future-proof)](https://www.amazon.es/gp/product/B0899VXM8F/)
+* [Official RPi power adapter 5V/3A](https://www.amazon.es/gp/product/B07TMPC9FG/)
+* [Raspberry Pi enclosure](https://www.amazon.es/gp/product/B08HMRPXWT/)
+* [MicroSD card (min. 16Gb)](https://www.amazon.es/gp/product/B084CJLNM4)
+* [MicroSD USB reader](https://www.amazon.es/gp/product/B07L9VT8YY/)
+* [SSD unit: 1 Tb (2 Tb recommended for future-proof)](https://www.amazon.es/gp/product/B08PC5DKZQ)
+* [SSD enclosure](https://www.amazon.es/gp/product/B06XWSDGP6/)
 
 ![Raspberry Pi](images/10_raspberrypi_hardware.png)
 
