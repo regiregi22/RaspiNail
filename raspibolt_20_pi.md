@@ -309,8 +309,8 @@ $ sudo apt install raspi-config rpi-eeprom avahi-daemon htop git curl bash-compl
 ```
 * We have just installed Avahi, so now your node is accessible by its hostname using raspinail.local instead of a dynamic IP inside your network, which is very handy if the router changes its IP.
 * 
-**On Windows:
-```
+**On Windows:**
+  ```
 ping raspinail.local
 
 Pinging raspinail.local [fe80::xxxx:xxxx:xxxx:xxxxxx] with 32 bytes of data:
@@ -323,7 +323,7 @@ Ping statistics for fe80::xxxx:xxxx:xxxx:xxxxxx:
     Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
 Approximate round trip times in milli-seconds:
     Minimum = 0ms, Maximum = 0ms, Average = 0ms
-```
+  ```
 
 We will do some cleaning:
 ```sh
