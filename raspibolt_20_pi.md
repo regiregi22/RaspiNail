@@ -469,7 +469,7 @@ We will now check if your drive works well as-is, or if additional configuration
   <https://superuser.com/questions/643765/creating-ext4-partition-from-console>
 
 ### Create an EXT4 partition on the external disk, if not already created:
-* First, check if there ir already a partition of the Linux tye (EXT4) already with   ``` fdisk -l /dev/sda  ```.
+* First, check if there ir already a partition of the Linux type (EXT4) already present with   ``` fdisk -l /dev/sda  ```.
 * If not, proceed with ```sudo fdisk /dev/sda```, then press ```n```, the press ```Enter``` four times to create the partition. Press ```w``` to write it to the disk. If already inside the fdisk menu, exit to the main prompt with ```q```.
 * Create the filesystem on the partition with ```sudo mkfs.ext4 /dev/sda1```
 
