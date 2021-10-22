@@ -39,6 +39,7 @@ $ ufw default allow outgoing
 $ ufw allow 22    comment 'allow SSH'
 $ ufw allow 50002 comment 'allow Electrum SSL'
 $ ufw enable
+  y
 $ systemctl enable ufw
 $ ufw status
 > Status: active
@@ -47,6 +48,8 @@ $ ufw status
 > --                         ------      ----
 > 22                         ALLOW       Anywhere                   # allow SSH
 > 50002                      ALLOW       Anywhere                   # allow Electrum SSL
+> 22 (v6)                    ALLOW       Anywhere (v6)              # allow SSH
+> 50002 (v6)                 ALLOW       Anywhere (v6)              # allow Electrum SSL
 > ...
 $ exit
 ```
