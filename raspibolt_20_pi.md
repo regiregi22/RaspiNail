@@ -395,10 +395,10 @@ The external hard disk is then attached to the file system and can be accessed a
 
 * Do not yet connect the external drive to your Pi, we need to check some things first.
 * Start your Raspberry Pi by unplugging it and connecting the power cable again.
-* Log in using SSH, but now with the user `admin`, your `password [A]` and the new hostname (e.g. `RaspiNail.local`) or the IP address.
+* Log in using SSH, but now with the user `admin`, your `password [A]` and the new hostname (e.g. `raspinail.local`) or the IP address.
 
   ```sh
-  $ ssh admin@RaspiNail.local
+  $ ssh admin@raspinail.local
   ```
 
 * To change system configuration and files that don't belong to the "admin", you have to prefix commands with `sudo`.
@@ -467,6 +467,12 @@ We will now check if your drive works well as-is, or if additional configuration
 
 * If your external drive (e.g. `sda`) does not contain any partitions (e.g. no `sda1`), create a partition first using as described here:
   <https://superuser.com/questions/643765/creating-ext4-partition-from-console>
+
+** How to create an EXT4 partition if not already created:
+* First, check if there ir already a partition of the Linux tye (EXT4) already with   ``` fdisk -l /dev/sda  ```.
+* If not, proceed with ```sudo fdisk /dev/sda```, then press ```n```, the press ```Enter``` four times to create the partition. Press ```w``` to write it to the disk. If already inside the fdisk menu, exit to the main prompt with ```q```.
+* Create the filesystem on the partition with ```sudo mkfs.ext4 /dev/sda1```
+
 
 * Now, let's test the read performance of your drive.
   Make sure to use the right partition name (used with the `/dev/` prefix).
