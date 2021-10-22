@@ -307,7 +307,7 @@ Make sure that all necessary software packages are installed:
 ```sh
 $ sudo apt install raspi-config rpi-eeprom avahi-daemon htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
 ```
-* We have just installed Avahi, so now your node is accessible by its hostname using raspinail.local instead of a dynamic IP inside your network, which is very handy if the router changes its IP.
+* We have just installed Avahi, so now your node is accessible by its hostname using raspinail.local instead of a dynamic IP inside your network, which is very handy if the router changes its IP by DHCP.
 
 **On Windows:**  
   ```
@@ -324,6 +324,7 @@ Ping statistics for fe80::xxxx:xxxx:xxxx:xxxxxx:
 Approximate round trip times in milli-seconds:
     Minimum = 0ms, Maximum = 0ms, Average = 0ms
   ```
+Now your node is accessible using raspinail.local instead of a dynamic IP inside your network.
 
 We will do some cleaning:
 ```sh
