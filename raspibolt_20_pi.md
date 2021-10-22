@@ -551,7 +551,7 @@ We will now check if your drive works well as-is, or if additional configuration
   $ sudo mkdir /mnt/ext
   ```
 
-* Mount all drives and check the file system is “/mnt/ext” listed?
+* Mount all drives and check the file system “/mnt/ext” is listed.
 
   ```sh
   $ sudo mount -a
