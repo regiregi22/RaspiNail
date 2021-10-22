@@ -298,7 +298,7 @@ $ sudo apt full-upgrade
 Make sure that all necessary software packages are installed:
 
 ```sh
-$ sudo apt install htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
+$ sudo apt install raspi-config htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
 ```
 We will do some cleaning:
 ```
@@ -309,6 +309,9 @@ We will reboot the system:
 ```
 $ sudo reboot
 ```
+
+* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem".
+
 
 ### Add users
 
