@@ -114,7 +114,7 @@ Log in your RaspiNail via SSH as user "admin".
   $ sudo systemctl restart tor
   ```
   
-* Take not of your TOR onion address for remote management:
+* Take note of your TOR onion address for remote management:
   ```sh
 $ sudo cat /var/lib/tor/hidden_service_ssh/hostname
 > xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.onion
