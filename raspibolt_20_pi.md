@@ -465,7 +465,7 @@ We will now check if your drive works well as-is, or if additional configuration
   > └─mmcblk0p2 /          2ab3f8e1-7dc6-43f5-b0db-dd5759d51d4e ext4    14.6G rootfs
   ```
 
-* If your external drive (e.g. `sda`) does not contain any partitions (e.g. no `sda1`), create a partition first using as described here:
+* If your external drive (e.g. `sda`) does not contain any partitions (e.g. no `sda1`), we will create a partition first in the next step as described here:
   <https://superuser.com/questions/643765/creating-ext4-partition-from-console>
 
 ### Create an EXT4 partition on the external disk, if not already created:
