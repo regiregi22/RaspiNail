@@ -86,10 +86,10 @@ Log in your RaspiNail via SSH as user "admin".
   ```sh
   $ sudo adduser bitcoin debian-tor
   $ cat /etc/group | grep debian-tor
-  > debian-tor:x:114:bitcoin
+  > debian-tor:x:123:bitcoin
   ```
 
-* Modify the Tor configuration by uncommenting (removing the #) or adding the following lines.
+* Modify the Tor configuration by uncommenting (removing the #) or adding the following lines. On top of that, it will allow you to connect to your node from a TOR connection to the SSH port for remote management:
 
   ```sh
   $ sudo nano /etc/tor/torrc
@@ -102,6 +102,10 @@ Log in your RaspiNail via SSH as user "admin".
 
   # add:
   CookieAuthFileGroupReadable 1
+  
+  HiddenServiceDir /var/lib/tor/hidden_service_ssh/
+  HiddenServiceVersion 3
+  HiddenServicePort 22 127.0.0.1:22
   ```
 
 * Restart Tor to activate modifications
@@ -109,7 +113,13 @@ Log in your RaspiNail via SSH as user "admin".
   ```sh
   $ sudo systemctl restart tor
   ```
-
+  
+* Take not of your TOR onion address for remote management:
+  ```sh
+$ sudo cat /var/lib/tor/hidden_service_ssh/hostname
+> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.onion
+  ```
+  
 <script id="asciicast-xeGJH0YDOVZV719yn5rDL9GuP" src="https://asciinema.org/a/xeGJH0YDOVZV719yn5rDL9GuP.js" async></script>
 
 Not all network traffic is routed over the Tor network.
