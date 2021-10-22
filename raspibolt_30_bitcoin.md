@@ -140,7 +140,7 @@ proxy=127.0.0.1:9050
 bind=127.0.0.1
 
 # Connections
-rpcuser=RaspiNail
+rpcuser=raspinail
 rpcpassword=PASSWORD_[B]
 zmqpubrawblock=tcp://127.0.0.1:28332
 zmqpubrawtx=tcp://127.0.0.1:28333
@@ -148,6 +148,9 @@ zmqpubrawtx=tcp://127.0.0.1:28333
 # Raspberry Pi optimizations
 maxconnections=40
 maxuploadtarget=5000
+
+#Allows Electrs to bypass the "maxuploadtarget=" for local P2P used for Electrs indexing.
+whitelist=download@127.0.0.1
 
 # Initial block download optimizations
 dbcache=2000
