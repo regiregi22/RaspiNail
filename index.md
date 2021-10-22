@@ -11,7 +11,7 @@ nav_order: 1
 **For more information regarding this fork, please refer to:**
 [https://github.com/regiregi22/RaspiNail/](https://github.com/regiregi22/RaspiNail/) 
 
-## Beginner’s Guide to ️Lightning️ on a Raspberry Pi 4
+## Beginner’s Guide to ️Bitcoin Node on a Raspberry Pi 4
 {: .no_toc }
 
 ![RaspiNail Logo](images/00_raspibolt_v2_banner_440.png){:target="_blank"}
