@@ -255,12 +255,12 @@ Let's start with the configuration.
 ### RaspiNail Configuration
 
 * You can give your node a cute hostname like “raspinail” with
-``` 
-sudo hostnamectl set-hostname raspinail 
+```sh
+$ sudo hostnamectl set-hostname raspinail 
 ```
 * Set your local timezone by copying your time zone from the list ```timedatectl list-timezones``` and then: 
-```
-sudo timedatectl set-timezone Europe/Madrid
+```sh
+$ sudo timedatectl set-timezone Europe/Madrid
 ``` 
 with "Europe/Madrid" as an example.
 
@@ -305,15 +305,32 @@ $ sudo apt full-upgrade
 Make sure that all necessary software packages are installed:
 
 ```sh
-$ sudo apt install raspi-config rpi-eeprom htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
+$ sudo apt install raspi-config rpi-eeprom avahi-daemon htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
 ```
+* We have just installed Avahi, so now your node is accessible by its hostname using raspinail.local instead of a dynamic IP inside your network, which is very handy if the router changes its IP.
+**On Windows:**
+```
+ping raspinail.local
+
+Pinging raspinail.local [fe80::xxxx:xxxx:xxxx:xxxxxx] with 32 bytes of data:
+Reply from fe80::xxxx:xxxx:xxxx:xxxxxx: time<1ms
+Reply from fe80::xxxx:xxxx:xxxx:xxxxxx: time<1ms
+Reply from fe80::xxxx:xxxx:xxxx:xxxxxx: time<1ms
+Reply from fe80::xxxx:xxxx:xxxx:xxxxxx: time<1ms
+
+Ping statistics for fe80::xxxx:xxxx:xxxx:xxxxxx:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+```
+
 We will do some cleaning:
-```
+```sh
 $ sudo apt --fix-broken install
 $ sudo apt autoremove
 ```
 We will reboot the system:
-```
+```sh
 $ sudo reboot
 ```
 
