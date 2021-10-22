@@ -109,6 +109,10 @@ session required pam_limits.so
 $ sudo nano /etc/pam.d/common-session-noninteractive
 session required pam_limits.so
 ```
+Reboot the system:
+```sh
+$ sudo reboot
+```
 
 <script id="asciicast-ZWxK6wLjrRs1AAnEJpXfIoyPb" src="https://asciinema.org/a/ZWxK6wLjrRs1AAnEJpXfIoyPb.js" async></script>
 
