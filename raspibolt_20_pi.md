@@ -627,6 +627,7 @@ Therefore, we will move it to the external drive.
 
   ```sh
   $ sudo dphys-swapfile install
+  $ sudo reboot
   ```
 
 <script id="asciicast-p7I8GeTfxOk15dFWHu8FVV83q" src="https://asciinema.org/a/p7I8GeTfxOk15dFWHu8FVV83q.js" async></script>
