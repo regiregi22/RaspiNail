@@ -305,7 +305,7 @@ $ sudo apt full-upgrade
 Make sure that all necessary software packages are installed:
 
 ```sh
-$ sudo apt install raspi-config rpi-eeprom rfkill avahi-daemon nyx htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
+$ sudo apt install raspi-config rpi-eeprom rfkill avahi-daemon nyx iftop htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
 ```
 * We have just installed Avahi, so now your node is accessible by its hostname using raspinail.local instead of a dynamic IP inside your network, which is very handy if the router changes its IP by DHCP.
 
