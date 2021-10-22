@@ -525,13 +525,7 @@ We will now check if your drive works well as-is, or if additional configuration
 
 <script id="asciicast-NiOhoAsu2g9kltfHXzfU6GLnq" src="https://asciinema.org/a/NiOhoAsu2g9kltfHXzfU6GLnq.js" async></script>
 
-### Format external drive and mount
-
-* Format the partition on the external drive with Ext4 (use `[NAME]` from above, e.g `sda1`)
-
-  ```sh
-  $ sudo mkfs.ext4 /dev/[NAME]
-  ```
+### Mount external drive
 
 * List the devices once more and copy the `UUID` into a text editor on your local computer.
 
@@ -557,7 +551,7 @@ We will now check if your drive works well as-is, or if additional configuration
   $ sudo mkdir /mnt/ext
   ```
 
-* Mount all drives and check the file system. Is “/mnt/ext” listed?
+* Mount all drives and check the file system is “/mnt/ext” listed?
 
   ```sh
   $ sudo mount -a
