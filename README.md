@@ -11,7 +11,7 @@ This is a forked, modified and up-to-date version of the original work from Stad
 * Updated signatures check of Bitcoin Core since v22
 * Updated configuration in Electrs since v9
 <br/><br/>
-* Added some useful apps (rfkill, htop, nyx, glances, lm-sensors)
+* Added some useful apps (rfkill, htop, nyx, glances)
 * Added SSH access through TOR
 * Added section for updating all software of the node
 * Added section for checking the correct behaviour of the system and all services
