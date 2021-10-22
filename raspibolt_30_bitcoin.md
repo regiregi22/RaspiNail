@@ -332,22 +332,6 @@ After rebooting, the bitcoind should start and begin to sync and validate the Bi
 
 This can take up to a week when using a Raspberry Pi 4, depending mostly on your external drive (SSD good, HDD bad; USB3 good, USB2 bad).
 
-### Explore bitcoin-cli
-
-If everything is running smoothly, this is the perfect time to familiarize yourself with Bitcoin, the technical aspects of Bitcoin Core and play around with `bitcoin-cli` until the blockchain is up-to-date.
-
-* [**The Little Bitcoin Book**](https://littlebitcoinbook.com){:target="_blank"} is a fantastic introduction to Bitcoin, focusing on the "why" and less on the "how".
-
-* [**Mastering Bitcoin**](https://bitcoinbook.info){:target="_blank"} by Andreas Antonopoulos is a great point to start, especially chapter 3 (ignore the first part how to compile from source code):
-  * you definitely need to have a [real copy](https://bitcoinbook.info/){:target="_blank"} of this book!
-  * read it online on [Github](https://github.com/bitcoinbook/bitcoinbook){:target="_blank"}
-
-  ![Mastering Bitcoin](images/30_mastering_bitcoin_book.jpg){:target="_blank"}
-
-* [**Learning Bitcoin from the Command Line**](https://github.com/ChristopherA/Learning-Bitcoin-from-the-Command-Line/blob/master/README.md){:target="_blank"} by Christopher Allen gives a thorough deep dive into understanding the technical aspects of Bitcoin.
-
-* Also, check out the [bitcoin-cli reference](https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list){:target="_blank"}
-
 ---
 
 ## Reduce 'dbcache' after full sync
