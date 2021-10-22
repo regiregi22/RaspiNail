@@ -53,6 +53,7 @@ Log in your RaspiNail via SSH as user "admin".
 * In order to verify the integrity of the Tor files, download and add the signing keys of the torproject.
 
   ```sh
+  $ sudo apt update
   $ sudo apt install dirmngr apt-transport-https
   $ curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
   $ gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | sudo apt-key add -
