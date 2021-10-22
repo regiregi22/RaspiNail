@@ -7,13 +7,9 @@
 
 
 Ideas pendientes MarcosDub:
-- Bitcoin Core v0.21.1 vs v22.0 + configuración nueva
-- Tor (con la guía te instala por defecto la v0.3.5.15 y ya van por la v0.4.6.7)
-- BTC RPC Explorer v3.1.0 vs v3.2.0 + configuración nueva
-- Configuración nueva para la ultima version de Electrs + configuración funcional  "only one server" para Electrum Wallet en Windows 10 (a mi solo me llego a funcionar modificando el archivo "config" y en la guia no se menciona) 
+- BTC RPC Explorer v3.1.0 vs v3.2.0 + configuración nueva 
 - LND v0.13.1-beta vs v0.13.3-beta + configuracion con Watchtower server + client activada por defecto
 - Añadir a la guia para instalar Thunderhub
-- Añadir configuración para acceso SSH mediante TOR
 - Actualizar el script del System overview
 
 Pdte. revisar mas adelante:
