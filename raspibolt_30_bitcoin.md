@@ -48,39 +48,51 @@ This is a precaution to make sure that this is an official release and not a mal
   cd /tmp
   ```
 
-* Get the latest download links at [bitcoincore.org/en/download](https://bitcoincore.org/en/download){:target="_blank"} (ARM Linux 32 bit), they change with each update.
+* Get the latest download links at [bitcoincore.org/en/download](https://bitcoincore.org/en/download){:target="_blank"} (ARM Linux 64 bit), they change with each update.
   Then run the following  commands (with adjusted filenames) and check the output where indicated:
 
   ```sh
-  # download Bitcoin Core binary
-  $ wget https://bitcoincore.org/bin/bitcoin-core-0.21.1/bitcoin-0.21.1-arm-linux-gnueabihf.tar.gz
-  $ wget https://bitcoincore.org/bin/bitcoin-core-0.21.1/SHA256SUMS.asc
-  $ wget https://bitcoin.org/laanwj-releases.asc
+  # Download Bitcoin Core binary
+  $ wget https://bitcoincore.org/bin/bitcoin-core-22.0/bitcoin-22.0-aarch64-linux-gnu.tar.gz
 
-  # check that the reference checksum matches the real checksum
-  # (ignore the "lines are improperly formatted" warning)
-  $ sha256sum --check SHA256SUMS.asc --ignore-missing
-  > bitcoin-0.21.1-arm-linux-gnueabihf.tar.gz: OK
+  # Download the list of cryptographic checksums (SHA256 binary hashes):
+  $ wget https://bitcoincore.org/bin/bitcoin-core-22.0/SHA256SUMS
 
-  # import the public key of Wladimir van der Laan, verify the signed  checksum file
-  # and check the fingerprint again in case of malicious keys
-  $ gpg --import ./laanwj-releases.asc
+  # Download the signatures attesting to validity of the checksums (SHA256 hash signatures):
+  $ wget https://bitcoincore.org/bin/bitcoin-core-22.0/SHA256SUMS.asc
+
+  # Download Bitcoin Core developer's keys list
+  $ wget https://raw.githubusercontent.com/bitcoin/bitcoin/master/contrib/builder-keys/keys.txt
+
+  # Fetch keys of builders and active developers, feed the list of fingerprints of the primary keys into gpg:
+  $ while read fingerprint keyholder_name; do gpg --keyserver hkps://keys.openpgp.org --recv-keys ${fingerprint}; done < ./keys.txt
+
+  # Check for keys update
+  $ gpg --keyserver hkp://keyserver.ubuntu.com --refresh-keys
   $ gpg --refresh-keys
+
+  # Verify that the checksum of the release file is listed in the checksums file:
+  # (ignore the "lines are improperly formatted" warning)
+  $ sha256sum --ignore-missing --check SHA256SUMS
+  > bitcoin-22.0-aarch64-linux-gnu.tar.gz: OK
+  # Ensure the output lists "OK" after the name of the release file you downloaded.
+
   $ gpg --verify SHA256SUMS.asc
-  > gpg: Good signature from "Wladimir J. van der Laan ..."
-  > Primary key fingerprint: 01EA 5486 DE18 A882 D4C2 6845 90C8 019E 36C2 E964
+  # The command above will output a series of signature checks for each of the public keys that signed the checksums.
+  # Check at at least some signatures show the following text:
+  # A line that starts with: gpg: Good signature
+  # A complete line saying: Primary key fingerprint: E777 299F C265 DD04 7930  70EB 944D 35F9 AC3D B76A
+  # The output from the verify command may contain warnings that the "key is not certified with a trusted signature."
   ```
 
 * Extract the Bitcoin Core binaries, install them and check the version.
 
   ```sh
-  $ tar -xvf bitcoin-0.21.1-arm-linux-gnueabihf.tar.gz
-  $ sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-0.21.1/bin/*
+  $ tar -xvf bitcoin-22.0-aarch64-linux-gnu.tar.gz
+  $ sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-22.0/bin/*
   $ bitcoind --version
-  > Bitcoin Core version v0.21.1
+  > Bitcoin Core version v22.0.0
   ```
-
-<script id="asciicast-Ivlf954BGJNmOuJoj7FQ6qNKt" src="https://asciinema.org/a/Ivlf954BGJNmOuJoj7FQ6qNKt.js" async></script>
 
 ### Prepare data directory
 
