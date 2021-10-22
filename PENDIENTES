@@ -3,12 +3,7 @@
 
 * Revisar la parte del arranque, si da DHCP y SSH de primeras.
 * Ver si Ubuntu server, aparte del SSH al comienzo, tiene tambien un mDNS (raspibolt.local)
-
-
-
-Pdte. revisar mas adelante:
-
-https://github.com/marcosdub/custom_raspibolt_others/blob/main/lndinstallupgrade.md
+* Revisar si es necesario deshabilitar IPv6 para el mDNS
 
 
 Ideas pendientes MarcosDub:
@@ -20,3 +15,6 @@ Ideas pendientes MarcosDub:
 - Añadir a la guia para instalar Thunderhub
 - Añadir configuración para acceso SSH mediante TOR
 - Actualizar el script del System overview
+
+Pdte. revisar mas adelante:
+https://github.com/marcosdub/custom_raspibolt_others/blob/main/lndinstallupgrade.md
