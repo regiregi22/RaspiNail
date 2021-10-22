@@ -324,7 +324,7 @@ Ping statistics for fe80::xxxx:xxxx:xxxx:xxxxxx:
 Approximate round trip times in milli-seconds:
     Minimum = 0ms, Maximum = 0ms, Average = 0ms
   ```
-Now your node is accessible using raspinail.local instead of a dynamic IP inside your network.
+Now your node is accessible using **raspinail.local** instead of a dynamic IP inside your network.
 
 * We will do some cleaning:
 ```sh
