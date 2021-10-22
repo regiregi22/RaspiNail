@@ -118,4 +118,16 @@ $ sudo reboot
 
 ---
 
+## rfkill - Disable Bluetooh
+
+As we are not using Bluetooth on the node, it is more secure to just disable it:
+
+```sh
+$ sudo rfkill block 1
+$ rfkill
+ID TYPE      DEVICE      SOFT      HARD
+ 0 wlan      phy0   unblocked unblocked
+ 1 bluetooth hci0     blocked unblocked
+```
+
 Next: [Privacy >>](raspibolt_22_privacy.md)
