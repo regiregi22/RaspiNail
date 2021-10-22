@@ -8,7 +8,7 @@ nav_order: 1
 **This is a forked, modified and up-to-date version of the original work Raspibolt from Stadicus. All credit goes to him and his great original guide. Thank him for the great ammount of work invested for the Bitcoin community:**
 [https://stadicus.github.io/RaspiBolt/](https://stadicus.github.io/RaspiBolt/) 
 <br/><br/>
-**For more information regarding this fork, please refer to:**
+**For more information regarding this fork please refer to:**
 [https://github.com/regiregi22/RaspiNail/](https://github.com/regiregi22/RaspiNail/) 
 
 ## Beginner’s Guide to ️Bitcoin Node on a Raspberry Pi 4
@@ -18,8 +18,8 @@ nav_order: 1
 
 ---
 
-The **RaspiNail version 3** builds on the Raspberry Pi 4.
-You can check the whole source files of this guide and download it here: [https://github.com/regiregi22/RaspiNail](https://github.com/regiregi22/RaspiNail) 
+The **RaspiNail version 1** builds on the Raspberry Pi 4.  
+You can check the whole source files of this guide and download it here: [https://github.com/regiregi22/RaspiNail](https://github.com/regiregi22/RaspiNail)  
 
 ---
 
