@@ -310,7 +310,11 @@ We will reboot the system:
 $ sudo reboot
 ```
 
-* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem".
+* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem```.  
+It will reboot the system.
+
+* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options```, then ```A7 Boot ROM Version``` and then ```E1 Latest```. 
+It will reboot the system.
 
 
 ### Add users
