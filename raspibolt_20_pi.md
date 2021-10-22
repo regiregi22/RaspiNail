@@ -177,7 +177,7 @@ Success! You are now connected to Ubuntu Server running on your Raspberry Pi.
 
 
 ### Still not connected to the internet?
-Sometimes the structure of the network-config file that you modified before boot gets messed up when you book. This would cause your Pi not to be able to connect to your wifi.
+Sometimes the structure of the network-config file that you modified before boot gets messed up when you boot. This would cause your Pi not to be able to connect to your wifi.
 
 To fix this you need to go into the correct file and correct the issue. Run:
   ```
@@ -348,7 +348,7 @@ This guide uses the main user "admin" instead of "ubuntu" to make it more reusab
 * Create the new user "admin", set `password [A]` and add it to the group "sudo"
 
   ```sh
-  $ sudo adduser admin
+  $ sudo adduser admin --ingroup sudo
   $ sudo adduser admin sudo
   ```
 
