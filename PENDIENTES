@@ -1,8 +1,8 @@
 * En la pagina de Intro, ver si el indice queda correcto al final del todo.
 
+* Ver temp:
+  sudo vcgencmd measure_temp  //  quitamos el lm_sensors usando el anterior
 
-* Revisar la parte del arranque, si da DHCP y SSH de primeras.
-* Ver si Ubuntu server, aparte del SSH al comienzo, tiene tambien un mDNS (raspibolt.local)
 * Revisar si es necesario deshabilitar IPv6 para el mDNS
 
 
