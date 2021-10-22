@@ -254,8 +254,15 @@ Let's start with the configuration.
 
 ### RaspiNail Configuration
 
-* You can give your node a cute hostname like “raspinail” ``` sudo hostnamectl set-hostname raspinail ```
-* Set your local timezone by copying your time zone from the list ```timedatectl list-timezones``` and then input ```sudo timedatectl set-timezone Europe/Madrid``` with "Europe/Madrid" as an example.
+* You can give your node a cute hostname like “raspinail” with
+``` 
+sudo hostnamectl set-hostname raspinail 
+```
+* Set your local timezone by copying your time zone from the list ```timedatectl list-timezones``` and then: 
+```
+sudo timedatectl set-timezone Europe/Madrid
+``` 
+with "Europe/Madrid" as an example.
 
 The following two potential error messages are expected:
 
@@ -298,7 +305,7 @@ $ sudo apt full-upgrade
 Make sure that all necessary software packages are installed:
 
 ```sh
-$ sudo apt install raspi-config htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
+$ sudo apt install raspi-config rpi-eeprom htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
 ```
 We will do some cleaning:
 ```
