@@ -104,7 +104,7 @@ Finding it can be a bit tricky without a screen.
   Here are a few links with additional details for [Windows](https://www.computerhope.com/issues/chusedos.htm){:target="_blank"}, [MacOS](https://macpaw.com/how-to/use-terminal-on-mac){:target="_blank"} and [Linux](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/){:target="_blank"}.
   
 * To determine the IP address of your board, open a terminal and run the arp command:
-
+ 
 **On Ubuntu and Mac OS:**
   ```
 arp -na | grep -i "b8:27:eb"
