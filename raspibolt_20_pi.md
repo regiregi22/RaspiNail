@@ -326,21 +326,19 @@ Approximate round trip times in milli-seconds:
   ```
 Now your node is accessible using raspinail.local instead of a dynamic IP inside your network.
 
-We will do some cleaning:
+* We will do some cleaning:
 ```sh
 $ sudo apt --fix-broken install
 $ sudo apt autoremove
 ```
-We will reboot the system:
+and then reboot the system:
 ```sh
 $ sudo reboot
 ```
 
-* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem```.  
-It will reboot the system.
+* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem```, to allow the system to make use of the full sdcard. It will reboot the system afterwards.
 
-* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options```, then ```A7 Boot ROM Version``` and then ```E1 Latest```. 
-It will reboot the system.
+* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options```, then ```A7 Boot ROM Version``` and then ```E1 Latest```, to update the Bootloader of the Raspberry. It will reboot the system afterwards.
 
 
 ### Add users
