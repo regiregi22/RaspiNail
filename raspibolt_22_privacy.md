@@ -46,8 +46,8 @@ Log in your RaspiNail via SSH as user "admin".
   ```
 
   ```
-  deb https://deb.torproject.org/torproject.org buster main
-  deb-src https://deb.torproject.org/torproject.org buster main
+  deb https://deb.torproject.org/torproject.org impish main
+  deb-src https://deb.torproject.org/torproject.org impish main
   ```
 
 * In order to verify the integrity of the Tor files, download and add the signing keys of the torproject.
@@ -70,7 +70,7 @@ Log in your RaspiNail via SSH as user "admin".
 
   ```sh
   $ tor --version
-  > Tor version 0.4.1.6.
+  > Tor version 0.4.5.10.
   $ systemctl status tor
   ```
 
