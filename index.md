@@ -5,7 +5,7 @@ nav_order: 1
 ---
 <!-- markdownlint-disable MD014 MD022 MD025 MD033 MD040 -->
 
-**This is a forked, modified and up-to-date version of the original work Raspibolt from Stadicus. All credit goes to him and his great original guide. Thank him for the great ammount of work invested for the Bitcoin community:**
+**This is a forked, improved and up-to-date version of the original work Raspibolt from Stadicus. All credit goes to him and his great original guide. Thank him for the great ammount of work invested for the Bitcoin community:**
 [https://stadicus.github.io/RaspiBolt/](https://stadicus.github.io/RaspiBolt/) 
 <br/><br/>
 **For more information regarding this fork please refer to:**
@@ -18,8 +18,7 @@ nav_order: 1
 
 ---
 
-The **RaspiNail version 1** builds on the Raspberry Pi 4.  
-You can check the whole source files of this guide and download it here: [https://github.com/regiregi22/RaspiNail](https://github.com/regiregi22/RaspiNail)  
+The **RaspiNail version 1** builds on the Raspberry Pi 4 platform.  
 
 ---
 
@@ -30,31 +29,6 @@ You can check the whole source files of this guide and download it here: [https:
 {:toc}
 
 ---
-
-## Why am I excited about Bitcoin and Lightning?
-
-**Bitcoin as new technology** is an incredibly interesting endeavor, especially because of its interdisciplinary nature.
-**Bitcoin as sound money** is going to have a major impact on economic principles and society as a whole.
-In my opinion, a solid, anti-fragile base layer for this future monetary network is the killer app for blockchains and will be more important than the most novel feature of competing altcoin projects.
-
-At the moment, Bitcoin is more of a store of value and not really suited for small everyday transactions.
-Due to limitations of the blockchain and the growth of its usage, fees have risen and business models relying on cheap transactions are being priced out.
-This is fine.
-**Truly decentralized blockchains are a scarce resource** and cannot scale to accommodate all global transactions.
-The current scaling pains are a great motivator to build better technology to scale exponentially, as opposed to just making everything bigger for linear scaling.
-
-This is where the **Lightning Network** comes in.
-As one of several new blockchain “extensions”, its promise is to accommodate nearly unlimited transactions, with instant payment confirmation, minimal fees and increased privacy.
-It sounds almost too good to be true, but in contrast to ubiquitous ICO with their own token, this technology is well researched, committed to the cypherpunk open-source ethos and leverages the solid underpinnings of Bitcoin.
-
-Bitcoin's security model requires both full nodes and miners to be decentralized.
-While the full-node-using economy must be decentralized to stop fake bitcoins that do not abide to consensus from being accepted as payments, the miners must be  decentralized to stop censorship of transactions and to make transactions irreversible.
-
-To preserve the decentralized nature of this monetary system, I think it is important that everybody can run their own trustless Bitcoin full node, preferably on cheap hardware like a Raspberry Pi.
-If Bitcoin is digital gold, then a full node wallet is your own personal goldsmith who checks for you that received payments are genuine.
-
-This is why I set out to build my **RaspiNail** and think that I have now - through numerous iterations - quite a good configuration that I would like to share as my modest contribution to the community.
-Please feel free to point out improvements.
 
 ## About this guide
 
@@ -76,20 +50,17 @@ Please feel free to point out improvements.
 
 My aim is to set up a Bitcoin and Lightning node that
 
-* is as fully validating Bitcoin Full Node and does not require any trust in a 3rd party,
-* is reliably running 24/7,
-* is part of and supports the decentralization of the Lightning network by routing payments and
-* can be used to send and receive personal payments using the command line interface.
-
-This server is set up without graphical user interface and is used remotely using the Secure Shell (SSH) command line.
+* is a Bitcoin Full Node running 24/7, supporting Lightning Network routing, and not requiring any trust in a 3rd party.
+* is configured with the higher standards of security and privacy, while keeping usability and compatibility.
+* is using a 64 bits state of the art operating system, and the latest and most stable versions of the applications.
+* is using oversized hardware requirements that will be enough for more than a decade.
+* is set up without graphical user interface and is used remotely using the Secure Shell (SSH) command line.
 
 ### Target audience
 
 This guide strives to give simple and foolproof instructions.
 But the goal is also to do everything ourselves, no shortcuts that involve trust in a 3rd party allowed.
-This makes this guide quite technical and lengthy, but I try to make it as straightforward as possible and explain everything for you to gain a basic understanding of the how and why.
-
-If you like to learn about Linux, Bitcoin and Lightning, this guide is for you.
+This makes this guide quite technical and lengthy, but I try to make it as straightforward as possible and explain everything for you to gain a basic understanding of the how and why. If you like to learn about Linux, Bitcoin and Lightning, this guide is for you.
 
 ## A word of caution
 All components of the Lightning network are still under development and we are dealing with real money here.
