@@ -49,7 +49,7 @@ You will need several passwords and I find it easiest to write them all down in 
 They should be unique and very secure, at least 12 characters in length. Do **not use uncommon special characters**, spaces or quotes (‘ or “). <br />
 
 You could use the [random.org](https://www.random.org/strings/) string generator, which is a good source of randomness. <br />
-Or you can roll a dice and concatenate some random words for each password using the list from [EFF's New Wordlists for Random Passphrases](https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt)
+Or you can roll some dices and concatenate some random words for each password using the list from [EFF's New Wordlists for Random Passphrases](https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt)
 
 ```console
 [ A ] Master user password
