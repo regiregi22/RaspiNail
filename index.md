@@ -7,7 +7,7 @@ nav_order: 1
 
 **This is a forked, improved and updated version of the original work "RaspiBolt" from Stadicus, made years ago. Thank him for the great ammount of work invested in his great original guide:**
 [https://stadicus.github.io/RaspiBolt/](https://stadicus.github.io/RaspiBolt/) 
-<br/><br/>
+<br/>
 
 
 ## Beginner’s Guide to ️Bitcoin Node on a Raspberry Pi 4
@@ -18,7 +18,6 @@ nav_order: 1
 ---
 
 The **RaspiNail** node builds on the Raspberry Pi 4 platform.  
-You can download this full guide here: [RaspiNail](https://github.com/regiregi22/RaspiNail/) 
 
 ---
 
@@ -69,7 +68,8 @@ But please be aware that you should start with small amounts that you are willin
 
 ## Community Support
 Find help and other RaspiNail users on the following platforms:
-* [Github Issues / Knowledge Base](https://github.com/regiregi22/RaspiNail/issues)
+* [Github Issues / Knowledge Base](https://github.com/regiregi22/RaspiNail/issues)<br/>
+You can download this full guide here: [RaspiNail](https://github.com/regiregi22/RaspiNail/) 
 
 ---
 
