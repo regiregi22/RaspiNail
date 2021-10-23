@@ -27,10 +27,10 @@ This amazing piece of hardware is a tiny computer-on-a-chip, costs about $60 and
 This guide is written for the fastest Raspberry Pi 4, as it makes a lot of hacks and workarounds obsolete.
 A recommended setup could be something like:
 
-* [Raspberry Pi 4 with 4 GB RAM (8 GB recommended for future-proof)](https://www.amazon.es/gp/product/B0899VXM8F/)
-* [Official RPi power adapter 5V/3A](https://www.amazon.es/gp/product/B07TMPC9FG/)
+* [Raspberry Pi 4 with 4 GB RAM (8 GB recommended for future-proof)](https://www.amazon.es/gp/product/B07TC2BK1X/)
 * [Raspberry Pi enclosure](https://www.amazon.es/gp/product/B08HMRPXWT/)
-* [MicroSD card (min. 16Gb)](https://www.amazon.es/gp/product/B084CJLNM4)
+* [Official RPi power adapter 5V/3A](https://www.amazon.es/gp/product/B07TMPC9FG/)
+* [MicroSD card (min. 16Gb, recommended 32Gb)](https://www.amazon.es/gp/product/B084CJLNM4)
 * [MicroSD USB reader](https://www.amazon.es/gp/product/B07L9VT8YY/)
 * [SSD unit: 1 Tb (2 Tb recommended for future-proof)](https://www.amazon.es/gp/product/B08PC5DKZQ)
 * [SSD enclosure](https://www.amazon.es/gp/product/B06XWSDGP6/)
