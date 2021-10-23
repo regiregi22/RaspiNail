@@ -120,6 +120,7 @@ Instead of creating a real directory, we create a link that points to a director
 
 Now, the configuration file for bitcoind needs to be created.
 Still as user "bitcoin", open it with Nano and paste the configuration below. Save and exit.
+🚨 **Change the rpcpassword** to your secure `password [B]`.
 
 ```sh
 $ nano /mnt/ext/bitcoin/bitcoin.conf
@@ -157,7 +158,6 @@ dbcache=2000
 blocksonly=1
 ```
 
-🚨 **Change the rpcpassword** to your secure `password [B]`.
 
 <script id="asciicast-gQJ1dSWPdcavFcZs5PRuYS4Ad" src="https://asciinema.org/a/gQJ1dSWPdcavFcZs5PRuYS4Ad.js" async></script>
 
