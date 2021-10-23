@@ -34,7 +34,7 @@ Wallets like the [BitBoxApp](https://shiftcrypto.ch/app/){:target="_blank"} or [
 
 The installation of your own Electrum server is optional and not essential for running a Lightning node.
 It is very much recommended, however, as it is an important step to claim back your on-chain sovereignty and enforce the Bitcoin consensus.
-In the article "[We need Bitcoin full nodes. Economic ones.](https://medium.com/shiftcrypto/we-need-bitcoin-full-nodes-economic-ones-fd17efcb61fb){:target="_blank"}", I outline why it is pointless to run an idle Bitcoin full node without using it to verify your own on-chain transactions.
+In the article "[We need Bitcoin full nodes. Economic ones.](https://medium.com/shiftcrypto/we-need-bitcoin-full-nodes-economic-ones-fd17efcb61fb){:target="_blank"}", it's outlined why it is pointless to run an idle Bitcoin full node without using it to verify your own on-chain transactions.
 
 ---
 
