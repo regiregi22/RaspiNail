@@ -55,7 +55,7 @@ My aim is to set up a Bitcoin and Lightning node that
 * has overdimensioned hardware specs that will last for years.
 * is set up without graphical user interface and is used remotely using the Secure Shell (SSH) command line.
 
-### Changes from the original [Raspibolt](https://stadicus.github.io/RaspiBolt/)
+### Changes from the original [RaspiBolt](https://stadicus.github.io/RaspiBolt/) guide
 * Changed OS from Raspberry OS 32 bits to Ubuntu Server 64 bits (21.10 Impish)
 * Updated signatures check of Bitcoin Core since v22
 * Updated configuration in Electrs since v9
