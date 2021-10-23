@@ -325,12 +325,15 @@ After rebooting, the bitcoind should start and begin to sync and validate the Bi
     That’s normal, just give it a few minutes.
   * Among other infos, the “verificationprogress” is shown.
     Once this value reaches almost 1 (0.999…), the blockchain is up-to-date and fully validated.
-
-<script id="asciicast-ij6r5XKR4Hx2Nr7ViiO7M09kf" src="https://asciinema.org/a/ij6r5XKR4Hx2Nr7ViiO7M09kf.js" async></script>
-
+    
+    
 🚨 **Please let Bitcoin Core sync fully before proceeding.**
 
 This can take up to a week when using a Raspberry Pi 4, depending mostly on your external drive (SSD good, HDD bad; USB3 good, USB2 bad).
+
+<script id="asciicast-ij6r5XKR4Hx2Nr7ViiO7M09kf" src="https://asciinema.org/a/ij6r5XKR4Hx2Nr7ViiO7M09kf.js" async></script>
+
+
 
 ---
 
