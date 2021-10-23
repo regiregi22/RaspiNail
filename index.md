@@ -5,7 +5,7 @@ nav_order: 1
 ---
 <!-- markdownlint-disable MD014 MD022 MD025 MD033 MD040 -->
 
-**This is a forked, improved and up-to-date version of the original work Raspibolt from Stadicus. All credit goes to him and his great original guide. Thank him for the great ammount of work invested for the Bitcoin community:**
+**This is a forked, improved and updated version of the original work "RaspiBolt" from Stadicus, made years ago. Thank him for the great ammount of work invested in his great original guide:**
 [https://stadicus.github.io/RaspiBolt/](https://stadicus.github.io/RaspiBolt/) 
 <br/><br/>
 **For more information regarding this fork please refer to:**
@@ -18,7 +18,7 @@ nav_order: 1
 
 ---
 
-The **RaspiNail version 1** builds on the Raspberry Pi 4 platform.  
+The **RaspiNail** node builds on the Raspberry Pi 4 platform.  
 
 ---
 
@@ -52,8 +52,8 @@ My aim is to set up a Bitcoin and Lightning node that
 
 * is a Bitcoin Full Node running 24/7, supporting Lightning Network routing, and not requiring any trust in a 3rd party.
 * is configured with the higher standards of security and privacy, while keeping usability and compatibility.
-* is using a 64 bits state of the art operating system, and the latest and most stable versions of the applications.
-* is using oversized hardware requirements that will be enough for more than a decade.
+* is set up with Ubuntu Server 64bit, [the far most widely used server OS](https://w3techs.com/technologies/details/os-linux).
+* has overdimensioned hardware specs that will last for years.
 * is set up without graphical user interface and is used remotely using the Secure Shell (SSH) command line.
 
 ### Target audience
