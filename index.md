@@ -69,7 +69,7 @@ But please be aware that you should start with small amounts that you are willin
 ## Community Support
 Find help and other RaspiNail users on the following platforms:
 * [Github Issues / Knowledge Base](https://github.com/regiregi22/RaspiNail/issues)<br/>
-You can download this full guide here: [RaspiNail](https://github.com/regiregi22/RaspiNail/) 
+* You can download this full guide here: [RaspiNail](https://github.com/regiregi22/RaspiNail/) 
 
 ---
 
