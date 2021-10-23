@@ -57,15 +57,12 @@ My aim is to set up a Bitcoin and Lightning node that
 
 ### Changes from the original [Raspibolt](https://stadicus.github.io/RaspiBolt/)
 * Changed OS from Raspberry OS 32 bits to Ubuntu Server 64 bits (21.10 Impish)
-<br/><br/>
 * Updated signatures check of Bitcoin Core since v22
 * Updated configuration in Electrs since v9
-<br/><br/>
 * Added some useful apps (rfkill, htop, iftop, nyx)
 * Added SSH access through TOR
 * Added section for updating all software of the node
 * Added section for checking the correct functioning of the system's services
-<br/><br/>
 * Removed support for other boards (Odroid, Pine64...)
 * Removed SSH access using certificates
 * Disabled Buetooth
