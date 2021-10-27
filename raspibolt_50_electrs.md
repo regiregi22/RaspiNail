@@ -131,7 +131,7 @@ The whole process takes about 30 minutes.
 # /mnt/ext/electrs/electrs.conf
 
 # RPC user / password
-auth = "RaspiNail:PASSWORD_[B]"
+auth = "raspinail:PASSWORD_[B]"
 
 # Bitcoin Core settings
 network = "bitcoin"
