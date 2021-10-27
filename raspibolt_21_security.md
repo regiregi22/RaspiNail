@@ -123,6 +123,8 @@ $ sudo reboot
 As we are not using Bluetooth on the node, it is more secure to just disable it:
 
 ```sh
+$ sudo apt update
+$ sudo apt install rfkill
 $ sudo rfkill block 1
 $ rfkill
 ID TYPE      DEVICE      SOFT      HARD
