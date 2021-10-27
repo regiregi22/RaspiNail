@@ -125,28 +125,31 @@ The whole process takes about 30 minutes.
   $ nano /mnt/ext/electrs/electrs.conf
   ```
 
-  ```ini
-  # RaspiNail: electrs configuration
-  # /mnt/ext/electrs/electrs.conf
+```ini
+# RaspiNail: electrs configuration
+# /mnt/ext/electrs/electrs.conf
 
-  # RPC user / password
-  cookie = "RaspiNail:PASSWORD_[B]"
+# RPC user / password
+auth = "RaspiNail:PASSWORD_[B]"
 
-  # Bitcoin Core settings
-  network = "bitcoin"
-  daemon_dir= "/mnt/ext/bitcoin"
-  daemon_rpc_addr = "127.0.0.1:8332"
+# Bitcoin Core settings
+network = "bitcoin"
+daemon_dir= "/mnt/ext/bitcoin"
+daemon_rpc_addr = "127.0.0.1:8332"
 
-  # Electrs settings
-  electrum_rpc_addr = "127.0.0.1:50001"
-  db_dir = "/mnt/ext/electrs/db"
-  txid_limit = 1000
+# Use p2p method for indexing Electrs database
+daemon_p2p_addr = "127.0.0.1:8333"
 
-  # Logging
-  verbose = 4
-  timestamp = true
-  rust_backtrace = true
-  ```
+# Electrs settings
+electrum_rpc_addr = "127.0.0.1:50001"
+db_dir = "/mnt/ext/electrs/db"
+index_lookup_limit = 1000
+
+# Logging
+verbose = 2
+timestamp = true
+rust_backtrace = true
+```
 
   🚨 **Change the password**, otherwise Electrs is not able to talk to Bitcoin Core.
 
