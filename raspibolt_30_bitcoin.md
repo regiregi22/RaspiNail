@@ -150,7 +150,7 @@ zmqpubrawtx=tcp://127.0.0.1:28333
 maxconnections=40
 maxuploadtarget=5000
 
-#Allows Electrs to bypass the "maxuploadtarget=" for local P2P used for Electrs indexing.
+# Allows Electrs to bypass the "maxuploadtarget=" for local P2P used for Electrs indexing.
 whitelist=download@127.0.0.1
 
 # Initial block download optimizations
