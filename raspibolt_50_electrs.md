@@ -49,11 +49,11 @@ As there are no binaries available, we will compile the application directly fro
 
 ### Install dependencies
 
-* Install the Rust programming language. Latest stable version is 1.56.0, but you can check the current version as "aarch64-unknown-linux-gnu" here: https://forge.rust-lang.org/infra/other-installation-methods.html
+* Install the Rust programming language.  Latest stable version is 1.56.0, but you can check the current version named as "aarch64-unknown-linux-gnu" here: [https://forge.rust-lang.org/infra/other-installation-methods.html](https://forge.rust-lang.org/infra/other-installation-methods.html)
 
   🚨 This Rust installation is for Linux ARM64 systems only. Don't install the following binaries on other platforms, it could damage your system.  
 
-  ```sh
+```sh
 # download
 $ cd /tmp
 $ curl https://static.rust-lang.org/dist/rust-1.56.0-aarch64-unknown-linux-gnu.tar.gz -o rust.tar.gz
@@ -75,7 +75,7 @@ $ mkdir /home/admin/rust
 $ tar --strip-components 1 -C /home/admin/rust -xzvf rust.tar.gz
 $ cd /home/admin/rust
 $ sudo ./install.sh
-  ```
+```
 
 * Install build tools
 
