@@ -119,7 +119,7 @@ Instead of creating a real directory, we create a link that points to a director
 ### Configuration
 
 Now, the configuration file for bitcoind needs to be created.
-Still as user "bitcoin", open it with Nano and paste the configuration below. Save and exit.
+Still as user "bitcoin", open it with Nano and paste the configuration below. Save and exit.  
 🚨 **Change the rpcpassword** to your secure `password [B]`.
 
 ```sh
