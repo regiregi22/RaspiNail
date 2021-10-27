@@ -413,23 +413,29 @@ Electrum wallet is a well-established, feature-rich software wallet that support
 
 ### General
 
-On your regular computer, configure [Electrum wallet](https://electrum.org) to use your RaspiNail:
+On your regular computer, configure [Electrum wallet](https://electrum.org) to use your RaspiNail node. We will set it up to connect ONLY to your own node, by plain IP connection on your LAN network or by private TOR connection from a remote location:
 
-* In menu: `Tools > Network > Server`
-* Uncheck "Select server automatically"
-* Enter the hostname (e.g. `RaspiNail.local`) or or ip address (e.g. `192.168.0.20`) of your RaspiNail in the address field
-* Enter the port `50002`
-* `Close` and check connection in tab "Console"
+* Create a shortcut on your desktop called "Electrum LAN", right click on "Properties" and write this on the "target" field. Change the executable path to your actual Electrum version:
+```
+"C:\Program Files (x86)\Electrum\electrum-4.1.5.exe" --oneserver --server raspinail.local:50002:s --proxy none
+```
+or you could use the node LAN IP to connect to it (eg 192.168.0.20):
+```
+"C:\Program Files (x86)\Electrum\electrum-4.1.5.exe" --oneserver --server 192.168.0.20:50002:s --proxy none
+```
+* Create another shortcut on your desktop called "Electrum TOR", right click on "Properties" and write this on the "target" field. Change the "xxxxxxxxxxxx.onion" string to your actual Onion TOR address:
+```
+"C:\Program Files (x86)\Electrum\electrum-4.1.5.exe" --oneserver --server xxxxxxxxxxxx.onion:50002:s --proxy socks5:127.0.0.1:9050
+```
+To use the TOR connection, you need [Tor](https://www.torproject.org) installed locally on your computer. You have to execute this TOR proxy before opening the wallet in order to allow it to connect through TOR:
+```
+C:\Users\regiregi22\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe
+```
 
 [![Electrum Wallet local](images/50_electrum_wallet_local.png)](images/50_electrum_wallet_local.png){:target="_blank"}
 
-The green LED in the bottom right indicates an active connection over clearnet.
-
-You can force Electrum to only use your own server on startup with the following command line arguments:
-
-```sh
-$ electrum --oneserver --server RaspiNail.local:50002:s
-```
+A green LED in the bottom right indicates an active connection over IP clearnet.  
+A blue LED in the bottom right indicates an active connection over TOR net.
 
 ### Tor
 
