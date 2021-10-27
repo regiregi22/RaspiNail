@@ -80,6 +80,7 @@ $ sudo ./install.sh
 * Install build tools
 
   ```sh
+  $ sudo apt update
   $ sudo apt install -y clang cmake
   ```
 
