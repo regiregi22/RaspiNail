@@ -174,6 +174,11 @@ The whole process takes about 30 minutes.
   [2021-10-27T10:32:29.286Z INFO  electrs::index] indexing 2000 blocks: [4001..6000]
   [2021-10-27T10:32:30.086Z INFO  electrs::chain] chain updated: tip=00000000dbbb79792303bdd1c6c4d7ab9c21bba0667213c2eca955e11230c5a5, height=6000
   ...
+  [2021-10-27T18:50:44.037Z INFO  electrs::index] indexing 1228 blocks: [705751..706978]
+  [2021-10-27T18:52:30.605Z INFO  electrs::chain] chain updated: tip=00000000000000000007f6f9c0f1978a64b090fbcaf71b94b37048a04e29dfaa, height=706978
+  [2021-10-27T18:52:46.144Z INFO  electrs::db] starting config compaction
+  [2021-10-27T18:52:46.158Z INFO  electrs::db] starting headers compaction
+  [2021-10-27T18:52:50.335Z INFO  electrs::db] starting txid compaction
   ```
 
 * Wait until the initial sync is completed and the database is compacted.  The space used on disk will grow to over 125 GB before reducing to about 60 GB at the time of this writing.
