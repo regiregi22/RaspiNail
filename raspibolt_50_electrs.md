@@ -162,27 +162,18 @@ The whole process takes about 30 minutes.
   ```
 
     ```bash
-  Config { log: StdErrLog { verbosity: Trace, quiet: false, timestamp: Millisecond, modules: [], writer: "stderr", color_choice: Auto }, network_type: bitcoin, db_path: "/mnt/ext/electrs/db/mainnet", daemon_dir: "/mnt/ext/bitcoin", blocks_dir: "/mnt/ext/bitcoin/blocks", daemon_rpc_addr: V4(127.0.0.1:8332), electrum_rpc_addr: V4(127.0.0.1:50001), monitoring_addr: V4(127.0.0.1:4224), jsonrpc_import: false, index_batch_size: 100, bulk_index_threads: 4, tx_cache_size: 10485760, txid_limit: 1000, server_banner: "Welcome to electrs 0.8.5 (Electrum Rust Server)!", blocktxids_cache_size: 10485760 }
-  2020-07-11T17:24:15.776+01:00 - DEBUG - Server listening on 127.0.0.1:4224
-  2020-07-11T17:24:15.778+01:00 - DEBUG - Running accept thread
-  2020-07-11T17:24:15.779+01:00 - INFO - NetworkInfo { version: 200000, subversion: "/Satoshi:0.20.0/", relayfee: 0.00001 }
-  2020-07-11T17:24:15.780+01:00 - INFO - BlockchainInfo { chain: "main", blocks: 638792, headers: 638792, verificationprogress: 0.999998834745944, bestblockhash: "00000000000000000007bcaf73926092f8765725795fba82fd8c9f0bd5df27fd", pruned: false, initialblockdownload: false }
-  2020-07-11T17:24:15.781+01:00 - DEBUG - opening DB at "/mnt/ext/electrs/db/mainnet"
-  2020-07-11T17:24:26.706+01:00 - TRACE - latest indexed blockhash: 0000000000000000000000000000000000000000000000000000000000000000
-  2020-07-11T17:24:26.706+01:00 - INFO - listing block files at "/mnt/ext/bitcoin/blocks/blk*.dat"
-  2020-07-11T17:24:27.836+01:00 - INFO - indexing 2150 blk*.dat files
-  2020-07-11T17:24:27.837+01:00 - DEBUG - found 0 indexed blocks
-  2020-07-11T17:24:27.855+01:00 - TRACE - downloading 100000 block headers
-  2020-07-11T17:25:10.765+01:00 - TRACE - downloading 100000 block headers
-  2020-07-11T17:25:39.281+01:00 - TRACE - downloading 100000 block headers
-  2020-07-11T17:26:25.260+01:00 - TRACE - downloading 100000 block headers
-  2020-07-11T17:26:43.626+01:00 - TRACE - downloading 100000 block headers
-  2020-07-11T17:27:04.621+01:00 - TRACE - downloading 100000 block headers
-  2020-07-11T17:27:38.230+01:00 - TRACE - downloading 38793 block headers
-  2020-07-11T17:27:49.807+01:00 - DEBUG - applying 638793 new headers from height 0
-  2020-07-11T17:28:12.078+01:00 - TRACE - indexed "/mnt/ext/bitcoin/blocks/blk00000.dat": 1711986 rows
-  2020-07-11T17:28:23.918+01:00 - TRACE - indexed "/mnt/ext/bitcoin/blocks/blk00001.dat": 1652333 rows
-  2020-07-11T17:28:38.673+01:00 - TRACE - indexed "/mnt/ext/bitcoin/blocks/blk00002.dat": 1742359 rows
+  bitcoin@raspinail:~$ electrs --conf /mnt/ext/electrs/electrs.conf
+  Starting electrs 0.9.1 on aarch64 linux with Config { network: Bitcoin, db_path: "/mnt/ext/electrs/db/bitcoin", daemon_dir: "/mnt/ext/bitcoin", daemon_auth: UserPass("raspinail", "<sensitive>"), daemon_rpc_addr: 127.0.0.1:8332, daemon_p2p_addr: 127.0.0.1:8333, electrum_rpc_addr: 127.0.0.1:50001, monitoring_addr: 127.0.0.1:4224, wait_duration: 10s, jsonrpc_timeout: 15s, index_batch_size: 10, index_lookup_limit: Some(1000), reindex_last_blocks: 0, auto_reindex: true, ignore_mempool: false, sync_once: false, disable_electrum_rpc: false, server_banner: "Welcome to electrs 0.9.1 (Electrum Rust Server)!", args: [] }
+  [2021-10-27T10:32:27.517Z INFO  electrs::metrics::metrics_impl] serving Prometheus metrics on 127.0.0.1:4224
+  [2021-10-27T10:32:27.593Z INFO  electrs::db] "/mnt/ext/electrs/db/bitcoin": 0 SST files, 0 GB, 0 Grows
+  [2021-10-27T10:32:27.613Z INFO  electrs::server] serving Electrum RPC on 127.0.0.1:50001
+  [2021-10-27T10:32:27.647Z INFO  electrs::index] indexing 2000 blocks: [1..2000]
+  [2021-10-27T10:32:28.468Z INFO  electrs::chain] chain updated: tip=00000000dfd5d65c9d8561b4b8f60a63018fe3933ecb131fb37f905f87da951a, height=2000
+  [2021-10-27T10:32:28.492Z INFO  electrs::index] indexing 2000 blocks: [2001..4000]
+  [2021-10-27T10:32:29.263Z INFO  electrs::chain] chain updated: tip=00000000922e2aa9e84a474350a3555f49f06061fd49df50a9352f156692a842, height=4000
+  [2021-10-27T10:32:29.286Z INFO  electrs::index] indexing 2000 blocks: [4001..6000]
+  [2021-10-27T10:32:30.086Z INFO  electrs::chain] chain updated: tip=00000000dbbb79792303bdd1c6c4d7ab9c21bba0667213c2eca955e11230c5a5, height=6000
+  ...
   ```
 
 * Wait until the initial sync is completed and the database is compacted.  The space used on disk will grow to over 125 GB before reducing to about 60 GB at the time of this writing.
