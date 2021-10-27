@@ -55,29 +55,29 @@ As there are no binaries available, we will compile the application directly fro
   
   Logged in as admin:
 
-```sh
-# download
-$ cd /tmp
-$ curl https://static.rust-lang.org/dist/rust-1.56.0-aarch64-unknown-linux-gnu.tar.gz -o rust.tar.gz
-$ curl https://static.rust-lang.org/dist/rust-1.56.0-aarch64-unknown-linux-gnu.tar.gz.asc -o rust.tar.gz.asc
-$ curl https://keybase.io/rust/pgp_keys.asc | gpg --import
+  ```sh
+  # download
+  $ cd /tmp
+  $ curl https://static.rust-lang.org/dist/rust-1.56.0-aarch64-unknown-linux-gnu.tar.gz -o rust.tar.gz
+  $ curl https://static.rust-lang.org/dist/rust-1.56.0-aarch64-unknown-linux-gnu.tar.gz.asc -o rust.tar.gz.asc
+  $ curl https://keybase.io/rust/pgp_keys.asc | gpg --import
 
-# verify
-$ gpg --verify rust.tar.gz.asc rust.tar.gz
-> gpg: Signature made Do 07 Nov 2019 13:25:50 GMT
-> gpg:                using RSA key C13466B7E169A085188632165CB4A9347B3B09DC
-> gpg: Good signature from "Rust Language (Tag and Release Signing Key) <rust-key@rust-lang.org>" [unknown]
-> gpg: WARNING: This key is not certified with a trusted signature!
-> gpg:          There is no indication that the signature belongs to the owner.
-> Primary key fingerprint: 108F 6620 5EAE B0AA A8DD  5E1C 85AB 96E6 FA1B E5FE
->     Subkey fingerprint: C134 66B7 E169 A085 1886  3216 5CB4 A934 7B3B 09DC
+  # verify
+  $ gpg --verify rust.tar.gz.asc rust.tar.gz
+  > gpg: Signature made Do 07 Nov 2019 13:25:50 GMT
+  > gpg:                using RSA key C13466B7E169A085188632165CB4A9347B3B09DC
+  > gpg: Good signature from "Rust Language (Tag and Release Signing Key) <rust-key@rust-lang.org>" [unknown]
+  > gpg: WARNING: This key is not certified with a trusted signature!
+  > gpg:          There is no indication that the signature belongs to the owner.
+  > Primary key fingerprint: 108F 6620 5EAE B0AA A8DD  5E1C 85AB 96E6 FA1B E5FE
+  >     Subkey fingerprint: C134 66B7 E169 A085 1886  3216 5CB4 A934 7B3B 09DC
 
-# install
-$ mkdir /home/admin/rust
-$ tar --strip-components 1 -C /home/admin/rust -xzvf rust.tar.gz
-$ cd /home/admin/rust
-$ sudo ./install.sh
-```
+  # install
+  $ mkdir /home/admin/rust
+  $ tar --strip-components 1 -C /home/admin/rust -xzvf rust.tar.gz
+  $ cd /home/admin/rust
+  $ sudo ./install.sh
+  ```
 
 * Install build tools
 
@@ -126,31 +126,31 @@ The whole process takes about 30 minutes.
   $ nano /mnt/ext/electrs/electrs.conf
   ```
 
-```ini
-# RaspiNail: electrs configuration
-# /mnt/ext/electrs/electrs.conf
+  ```ini
+  # RaspiNail: electrs configuration
+  # /mnt/ext/electrs/electrs.conf
 
-# RPC user / password
-auth = "raspinail:PASSWORD_[B]"
+  # RPC user / password
+  auth = "raspinail:PASSWORD_[B]"
 
-# Bitcoin Core settings
-network = "bitcoin"
-daemon_dir= "/mnt/ext/bitcoin"
-daemon_rpc_addr = "127.0.0.1:8332"
+  # Bitcoin Core settings
+  network = "bitcoin"
+  daemon_dir= "/mnt/ext/bitcoin"
+  daemon_rpc_addr = "127.0.0.1:8332"
 
-# Use p2p method for indexing Electrs database
-daemon_p2p_addr = "127.0.0.1:8333"
+  # Use p2p method for indexing Electrs database
+  daemon_p2p_addr = "127.0.0.1:8333"
 
-# Electrs settings
-electrum_rpc_addr = "127.0.0.1:50001"
-db_dir = "/mnt/ext/electrs/db"
-index_lookup_limit = 1000
+  # Electrs settings
+  electrum_rpc_addr = "127.0.0.1:50001"
+  db_dir = "/mnt/ext/electrs/db"
+  index_lookup_limit = 1000
 
-# Logging
-verbose = 2
-timestamp = true
-rust_backtrace = true
-```
+  # Logging
+  verbose = 2
+  timestamp = true
+  rust_backtrace = true
+  ```
 
 
 * Let's start Electrs manually first, to check if it's running as expected.
