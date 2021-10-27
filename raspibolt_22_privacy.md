@@ -39,7 +39,7 @@ It is called "Tor" for "The Onion Router": information is encrypted multiple tim
 
 Log in your RaspiNail via SSH as user "admin".
 
-* Add the following two lines to `sources.list` to add the torproject repository.
+* Add the following two lines to `sources.list` to add the torproject repository. The current Ubuntu Server distribution codename is "impish", so you have to change it if needed.
 
   ```sh
   $ sudo nano /etc/apt/sources.list
