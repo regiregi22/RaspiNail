@@ -53,7 +53,7 @@ As there are no binaries available, we will compile the application directly fro
 
   🚨 This Rust installation is for Linux ARM64 systems only. Don't install the following binaries on other platforms, it could damage your system.  
   
-  Logged as admin:
+  Logged in as admin:
 
 ```sh
 # download
