@@ -119,7 +119,8 @@ The whole process takes about 30 minutes.
   ln -s /mnt/ext/electrs /home/bitcoin/.electrs
   ```
 
-* Create config file
+* Create config file:
+   🚨 **Change the password**, otherwise Electrs is not able to talk to Bitcoin Core.
 
   ```sh
   $ nano /mnt/ext/electrs/electrs.conf
@@ -151,7 +152,6 @@ timestamp = true
 rust_backtrace = true
 ```
 
-  🚨 **Change the password**, otherwise Electrs is not able to talk to Bitcoin Core.
 
 * Let's start Electrs manually first, to check if it's running as expected.
   It will immediately start with the initial indexing of the Bitcoin blocks.
