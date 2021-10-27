@@ -216,8 +216,6 @@ The whole process takes about 30 minutes.
   $ exit
   ```
 
-<script id="asciicast-YxcQdbYzczkuv8OmAyUSZLske" src="https://asciinema.org/a/YxcQdbYzczkuv8OmAyUSZLske.js" async></script>
-
 ### Autostart on boot
 
 Electrs needs to start automatically on system boot.
