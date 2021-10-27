@@ -48,7 +48,7 @@ This is a precaution to make sure that this is an official release and not a mal
   cd /tmp
   ```
 
-* Get the latest download links at [bitcoincore.org/en/download](https://bitcoincore.org/en/download){:target="_blank"} (ARM Linux 64 bit), they change with each update.
+* Get the latest download links at [bitcoincore.org/en/download](https://bitcoincore.org/en/download){:target="_blank"} (ARM Linux 64 bit), they change with each update. Currently the latest one is 22.0, so the script has to be changed to the latest version available.
   Then run the following  commands (with adjusted filenames) and check the output where indicated:
 
   ```sh
