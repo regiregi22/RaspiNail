@@ -179,6 +179,7 @@ The whole process takes about 30 minutes.
   [2021-10-27T18:52:50.335Z INFO  electrs::db] starting txid compaction
   [2021-10-27T19:17:40.807Z INFO  electrs::db] starting funding compaction
   [2021-10-27T20:17:00.417Z INFO  electrs::db] starting spending compaction
+  [2021-10-27T21:18:44.228Z INFO  electrs::db] finished full compaction
   ```
 
 * Wait until the initial sync is completed and the database is compacted.  The space used on disk will grow to over 125 GB before reducing to about 60 GB at the time of this writing.
