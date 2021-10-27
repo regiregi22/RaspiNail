@@ -119,7 +119,7 @@ The whole process takes about 30 minutes.
   ln -s /mnt/ext/electrs /home/bitcoin/.electrs
   ```
 
-* Create config file:
+* Create config file:  
    🚨 **Change the password**, otherwise Electrs is not able to talk to Bitcoin Core.
 
   ```sh
