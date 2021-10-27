@@ -427,36 +427,15 @@ or you could use the node LAN IP to connect to it (eg 192.168.0.20):
 ```
 "C:\Program Files (x86)\Electrum\electrum-4.1.5.exe" --oneserver --server xxxxxxxxxxxx.onion:50002:s --proxy socks5:127.0.0.1:9050
 ```
-To use the TOR connection, you need [Tor](https://www.torproject.org) installed locally on your computer. You have to execute this TOR proxy before opening the wallet in order to allow it to connect through TOR:
+To use the TOR connection, you need [Tor](https://www.torproject.org) installed locally on your computer. You have to execute this program before opening the wallet, in order to allow it to connect through TOR proxy:
 ```
 C:\Users\regiregi22\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe
 ```
 
 [![Electrum Wallet local](images/50_electrum_wallet_local.png)](images/50_electrum_wallet_local.png){:target="_blank"}
 
-A green LED in the bottom right indicates an active connection over IP clearnet.  
-A blue LED in the bottom right indicates an active connection over TOR net.
-
-### Tor
-
-Your RaspiNail is also available remotely over Tor.
-You need [Tor](https://www.torproject.org) installed locally on your computer.
-
-* In the menu: `Tools > Network > Proxy`
-* Check "Use Tor proxy at 9050"
-* On the "Server" tab, enter your Tor onion address (e.g. `gwdllz5g7vky2q4gr45zGuvopjzf33czreca3a3exosftx72ekppkuqd.onion`)
-* Enter the port `50002`
-* `Close` and check connection in tab "Console"
-
-[![Electrum Wallet local](images/50_electrum_wallet_tor.png)](images/50_electrum_wallet_local.png){:target="_blank"}
-
-The blue LED in the bottom right indicates an active Tor connection.
-
-You can force Electrum to only use your own server on startup with the following command line arguments:
-
-```sh
-$ electrum --oneserver --server <your-onion-address>.onion:50002:s --proxy socks5:127.0.0.1:9050
-```
+A green LED in the bottom right indicates an active connection over clearnet.  
+A blue LED in the bottom right indicates an active connection over TOR.
 
 ---
 
@@ -466,7 +445,7 @@ $ electrum --oneserver --server <your-onion-address>.onion:50002:s --proxy socks
 
 ### General
 
-On your regular computer, configure the BitBoxApp to use your RaspiNail:
+On your regular computer, configure the BitBoxApp to use your RaspiNail node:
 
 * In the sidebar, select `Settings` > `Connect your own full node`
 * In the field "Enter the endpoint" enter the hostname or ip address and the port, e.g. `RaspiNail.local:50002`
