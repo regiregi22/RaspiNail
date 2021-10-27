@@ -415,7 +415,7 @@ Electrum wallet is a well-established, feature-rich software wallet that support
 
 On your regular computer, configure [Electrum wallet](https://electrum.org) to use your RaspiNail node. We will set it up to connect ONLY to your own node, by plain IP connection on your LAN network or by private TOR connection from a remote location:
 
-* Create a shortcut on your desktop called "Electrum LAN", right click on "Properties" and write this on the "target" field. Change the executable path to your actual Electrum version:
+* **Create a shortcut on your desktop called "Electrum LAN"**, right click on "Properties" and write this on the "target" field. Change the executable path to your actual Electrum version:
 ```
 "C:\Program Files (x86)\Electrum\electrum-4.1.5.exe" --oneserver --server raspinail.local:50002:s --proxy none
 ```
@@ -423,19 +423,20 @@ or you could use the node LAN IP to connect to it (eg 192.168.0.20):
 ```
 "C:\Program Files (x86)\Electrum\electrum-4.1.5.exe" --oneserver --server 192.168.0.20:50002:s --proxy none
 ```
-* Create another shortcut on your desktop called "Electrum TOR", right click on "Properties" and write this on the "target" field. Change the "xxxxxxxxxxxx.onion" string to your actual Onion TOR address:
+* **Create another shortcut on your desktop called "Electrum TOR"**, right click on "Properties" and write this on the "target" field. Change the "xxxxxxxxxxxx.onion" string to your actual Onion TOR address:
 ```
 "C:\Program Files (x86)\Electrum\electrum-4.1.5.exe" --oneserver --server xxxxxxxxxxxx.onion:50002:s --proxy socks5:127.0.0.1:9050
 ```
-To use the TOR connection, you need [Tor](https://www.torproject.org) installed locally on your computer. You have to execute this program before opening the wallet, in order to allow it to connect through TOR proxy:
+To use the TOR connection, **you need [Tor](https://www.torproject.org) installed locally on your computer**. You have to execute this program before opening the wallet, in order to allow it to connect through TOR proxy:
 ```
 C:\Users\regiregi22\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe
+```  
+
+*  Check the connnection in the tab "Console".  
 ```
-
-[![Electrum Wallet local](images/50_electrum_wallet_local.png)](images/50_electrum_wallet_local.png){:target="_blank"}
-
 A green LED in the bottom right indicates an active connection over clearnet.  
 A blue LED in the bottom right indicates an active connection over TOR.
+```
 
 ---
 
