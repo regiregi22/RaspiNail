@@ -210,12 +210,12 @@ The whole process takes about 30 minutes.
 * Stop Electrs with `Ctrl`-`C` and exit the "bitcoin" user session.
 
   ```sh
-  2020-07-12T23:22:37.498+01:00 - TRACE - notified via SIG2
-  2020-07-12T23:22:37.498+01:00 - TRACE - stop accepting new RPCs
-  2020-07-12T23:22:37.499+01:00 - TRACE - closing 0 RPC connections
-  2020-07-12T23:22:37.499+01:00 - TRACE - RPC connections are closed
-  2020-07-12T23:22:37.499+01:00 - TRACE - RPC server is stopped
-  2020-07-12T23:22:37.499+01:00 - TRACE - closing DB at "/mnt/ext/electrs/db/mainnet"
+  [2021-10-28T11:19:17.728Z INFO  electrs::signals] notified via SIG2
+  [2021-10-28T11:19:17.731Z INFO  electrs::db] closing DB at /mnt/ext/electrs/db/bitcoin
+  [2021-10-28T11:19:17.896Z INFO  electrs::server] electrs stopped: RPC server interrupted
+      
+    Caused by:
+        exiting due to signal
   ```
 
   ```sh
