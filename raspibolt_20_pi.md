@@ -307,6 +307,36 @@ Make sure that all necessary software packages are installed:
 ```sh
 $ sudo apt install raspi-config rpi-eeprom avahi-daemon nyx iftop htop git curl bash-completion jq qrencode dphys-swapfile hdparm --install-recommends
 ```
+
+* We will do some cleaning after the upgrade:
+```sh
+$ sudo apt --fix-broken install
+$ sudo apt autoremove
+```
+and then reboot the system:
+```sh
+$ sudo reboot
+```
+
+* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem```, to allow the system to make use of the full sdcard. It will reboot the system afterwards.
+
+* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options```, then ```A7 Boot ROM Version``` and then ```E1 Latest```, to update the Bootloader of the Raspberry. It will reboot the system afterwards.  
+
+* After booting up, check that you have the latest bootloader version with ```sudo rpi-eeprom-update```:
+```sh
+$ sudo rpi-eeprom-update
+BOOTLOADER: up to date
+   CURRENT: Thu Apr 29 16:11:25 UTC 2021 (1619712685)
+    LATEST: Thu Apr 29 16:11:25 UTC 2021 (1619712685)
+   RELEASE: stable (/lib/firmware/raspberrypi/bootloader/stable)
+            Use raspi-config to change the release.
+
+  VL805_FW: Using bootloader EEPROM
+     VL805: up to date
+   CURRENT: 000138a1
+    LATEST: 000138a1
+```
+### Avahi
 * We have just installed Avahi, so now your node is accessible by its hostname using raspinail.local instead of a dynamic IP inside your network, which is very handy if the router changes its IP by DHCP.
 
 **On Windows:**  
@@ -325,21 +355,6 @@ Approximate round trip times in milli-seconds:
     Minimum = 0ms, Maximum = 0ms, Average = 0ms
   ```
 Now your node is accessible using **raspinail.local** instead of a dynamic IP inside your network.
-
-* We will do some cleaning:
-```sh
-$ sudo apt --fix-broken install
-$ sudo apt autoremove
-```
-and then reboot the system:
-```sh
-$ sudo reboot
-```
-
-* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem```, to allow the system to make use of the full sdcard. It will reboot the system afterwards.
-
-* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options```, then ```A7 Boot ROM Version``` and then ```E1 Latest```, to update the Bootloader of the Raspberry. It will reboot the system afterwards.
-
 
 ### Add users
 
