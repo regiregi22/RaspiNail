@@ -317,8 +317,9 @@ and then reboot the system:
 ```sh
 $ sudo reboot
 ```
+* Enter the folowing command ```sudo raspi-config```, then choose ```8 Update```.
 
-* Enter the folowing command ```raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem```, to allow the system to make use of the full sdcard. It will reboot the system afterwards.
+* Enter the folowing command ```sudo raspi-config```, then choose ```6 Advanced options``` and then ```A1 Expand Filesystem```, to allow the system to make use of the full sdcard. It will reboot the system afterwards.
 
 * Enter the folowing command ```sudo raspi-config```, then choose ```6 Advanced options```, then ```A7 Boot ROM Version``` and then ```E1 Latest```, to update the Bootloader of the Raspberry. It will reboot the system afterwards.  
 
