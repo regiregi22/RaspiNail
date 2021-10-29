@@ -46,7 +46,7 @@ The **RaspiNail** node builds on the Raspberry Pi 4 platform.
 
 ### Purpose
 
-My aim is to set up a Bitcoin and Lightning node that
+The aim of this guide is to set up a Bitcoin and Lightning node that:
 
 * is a Bitcoin Full Node running 24/7, supporting Lightning Network routing, and not requiring any trust in a 3rd party.
 * is configured with the higher standards of security and privacy, while keeping usability and compatibility.
