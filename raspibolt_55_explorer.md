@@ -45,11 +45,11 @@ As reindexing can take more than a day, you can follow the progress using `sudo 
 ### Install NodeJS
 
 * Starting with user "admin", we switch to user "root" and add the [Node JS](https://nodejs.org) package repository.
-  We'll use version 12 which is the most recent stable one. Then, exit the "root" user session.
+  We'll use version 16 which is the most recent stable one. Then, exit the "root" user session.
 
   ```sh
   $ sudo su
-  $ curl -sL https://deb.nodesource.com/setup_12.x | bash -
+  $ curl -sL https://deb.nodesource.com/setup_16.x | bash -
   $ exit
   ```
 
