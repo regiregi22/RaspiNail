@@ -5,8 +5,7 @@ nav_order: 1
 ---
 <!-- markdownlint-disable MD014 MD022 MD025 MD033 MD040 -->
 
-**This is a forked, improved and updated version of the original work "RaspiBolt" from Stadicus, made years ago. Thank him for the great ammount of work invested in his great original guide:**
-[https://stadicus.github.io/RaspiBolt/](https://stadicus.github.io/RaspiBolt/) 
+**This is a forked project, based on the original work "[RaspiBolt](https://stadicus.github.io/RaspiBolt/) " from Stadicus. Do not forget to thank and honor him for the great amount of work invested in educating the Bitcoin community:**
 <br/>
 
 
