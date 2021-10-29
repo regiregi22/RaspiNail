@@ -44,12 +44,11 @@ As reindexing can take more than a day, you can follow the progress using `sudo 
 
 ### Install NodeJS
 
-* Starting with user "admin", we switch to user "root" and add the [Node JS](https://nodejs.org) package repository.
-  We'll use version 16 which is the most recent stable one. Then, exit the "root" user session.
+* Starting with user "admin", we switch to user "root" and add the [Node JS](https://nodejs.org) package repository. Then, exit the "root" user session.
 
   ```sh
   $ sudo su
-  $ curl -sL https://deb.nodesource.com/setup_16.x | bash -
+  $ curl -sL https://deb.nodesource.com/setup_14.x | bash -
   $ exit
   ```
 
@@ -114,7 +113,7 @@ We are going to install the BTC RPC Explorer in the home directory since it does
   ```conf
   BTCEXP_BITCOIND_HOST=127.0.0.1
   BTCEXP_BITCOIND_PORT=8332
-  BTCEXP_BITCOIND_USER=RaspiNail
+  BTCEXP_BITCOIND_USER=raspinail
   BTCEXP_BITCOIND_PASS=PASSWORD_[B]
   ```
 
@@ -129,16 +128,24 @@ We are going to install the BTC RPC Explorer in the home directory since it does
   The following configuration also works with Electrum Personal Server or ElectrumX.
 
   ```conf
-  BTCEXP_ADDRESS_API=electrumx
-  BTCEXP_ELECTRUMX_SERVERS=tcp://127.0.0.1:50001
+  BTCEXP_ADDRESS_API=electrum
+  BTCEXP_ELECTRUM_SERVERS=tcp://127.0.0.1:50001
   ```
-
-* You can go further improve your privacy by enabling privacy mode, but you won't get certain feature like price exchange rates.
+* To use the Electrum server as an external txindex, uncoment this option to true:
+  ```conf
+  BTCEXP_ELECTRUM_TXINDEX=true
+  ```
+* You can go further improve your privacy by enabling privacy mode, but you won't get certain feature like price exchange rates. Set it to false to get currency live price:
 
   ```conf
   BTCEXP_PRIVACY_MODE=true
   ```
+* Set this to false to allow it to query current BTC price:
 
+  ```conf
+  BTCEXP_NO_RATES=false
+  ```  
+  
 * Make sure the RPC methods are not all allowed to avoid unnecessary security leaks.
   However, if you want to use the BTC RPC Explorer to send RPC commands to your node you might want to activate this with caution.
 
