@@ -64,7 +64,7 @@ As reindexing can take more than a day, you can follow the progress using `sudo 
 * Configure firewall to allow incoming HTTP requests from your local network to the web server.
 
   ```sh
-  $ sudo ufw allow from 192.168.0.0/16 to any port 3002 comment 'allow BTC RPC Explorer from local network'
+  $ sudo ufw allow 3002 comment 'allow BTC RPC Explorer'
   $ sudo ufw status
   ```
 
@@ -84,10 +84,10 @@ We are going to install the BTC RPC Explorer in the home directory since it does
   ```
 
 * Download the source code directly from GitHub and install all dependencies using NPM.
-  Since the program is written in JavaScript, there is no need to compile.
+  Since the program is written in JavaScript, there is no need to compile. [Look here](https://github.com/janoside/btc-rpc-explorer/releases) for the latest version and download it, which currently is 3.2.0:
 
   ```sh
-  $ git clone --branch v3.1.0 https://github.com/janoside/btc-rpc-explorer.git
+  $ git clone --branch v3.2.0 https://github.com/janoside/btc-rpc-explorer.git
   $ cd btc-rpc-explorer
   $ npm install
   ```
