@@ -17,7 +17,9 @@ https://github.com/marcosdub/custom_raspibolt_others/blob/main/lndinstallupgrade
 
 https://github.com/marcosdub/custom_raspibolt_others
 
--Revisar el método de autenticacion por cookie: https://github.com/Kixunil/security_writings/blob/master/cookie_files.md
+-Revisar el método de autenticacion por cookie: 
+  https://github.com/Kixunil/security_writings/blob/master/cookie_files.md
+  https://github.com/romanz/electrs/blob/master/doc/config.md
 
 PARA EL AVAHI Y EL IPV6, ESA ES LA CONFIG DE RECALBOX:
 
