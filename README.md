@@ -9,10 +9,10 @@ This guide has been completely rewritten, but those are the most relevant:
 * Changed OS from Raspberry OS 32 bits to Ubuntu Server 64 bits (21.10 Impish)
 * Updated signatures check of Bitcoin Core since v22
 * Updated configuration in Electrs since v9
-* Added some useful apps (rfkill, htop, iftop, nyx)
+* Added some useful apps (avahi, rfkill, htop, iftop, nyx)
 * Added SSH access through TOR
-* Added section for updating all software of the node
-* Added section for checking the correct functioning of the system's services
+* Added section for updating all installed software and services
+* Added section for checking the correct behaviour of the installed services
 * Removed support for other boards (Odroid, Pine64...)
 * Removed SSH access using certificates
 * Disabled Buetooth
