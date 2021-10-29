@@ -337,6 +337,7 @@ BOOTLOADER: up to date
    CURRENT: 000138a1
     LATEST: 000138a1
 ```
+* Restart the Raspberry once again, just to be sure ```sudo reboot```
 ### Avahi
 * We have just installed Avahi, so now your node is accessible by its hostname using raspinail.local instead of a dynamic IP inside your network, which is very handy if the router changes its IP by DHCP.
 
