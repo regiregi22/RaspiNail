@@ -16,7 +16,7 @@ This is a forked project based on the original work "[RaspiBolt](https://stadicu
 
 ---
 
-The **RaspiNail** node builds on the Raspberry Pi 4 platform.  
+**RaspiNail** node builds on the Raspberry Pi 4 platform.  
 
 ---
 
