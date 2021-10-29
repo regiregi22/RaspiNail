@@ -1,7 +1,7 @@
 ### The RaspiNail Guide is now available on GitHub Pages:
 * https://regiregi22.github.io/RaspiNail/
 
-This is a forked, modified and up-to-date version of the original work from Stadicus. All credit goes to him and his great original guide. Thank him for the great ammount of work invested for the Bitcoin node community.
+This is a forked, modified and up-to-date version of the original work from Stadicus. All credit goes to him and his great original guide. Thank him for the great amount of work invested for the Bitcoin node community.
 * https://stadicus.github.io/RaspiBolt/
 * https://github.com/Stadicus/RaspiBolt
 
