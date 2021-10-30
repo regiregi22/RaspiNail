@@ -20,6 +20,7 @@ Ideas pendientes MarcosDub:
 - LND v0.13.1-beta vs v0.13.3-beta + configuracion con Watchtower server + client activada por defecto
 - Añadir a la guia para instalar Thunderhub
 - Actualizar el script del System overview
+-Para monitorizar, el iftop, añadir seccion
 
 Pdte. revisar mas adelante:
 https://github.com/marcosdub/custom_raspibolt_others/blob/main/lndinstallupgrade.md
