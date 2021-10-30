@@ -149,4 +149,6 @@ $ sudo systemctl disable wpa_supplicant.service
 $ sudo ifconfig wlan0 down
 ```
 
+---
+
 Next: [Privacy >>](raspibolt_22_privacy.md)
