@@ -4,6 +4,7 @@
 # Requires bc,jq  (sudo apt-get install bc jq)
 #
 # Author: @Tx0k0 on Telegram
+# Adapted to RaspberryPi: regiregi22
 # -------------------------------------------------------
 #
 
@@ -39,9 +40,6 @@ else
   color_temp="${verde}"
 fi
 
-#GPU Temperature
-GPU_TEMP=`/opt/vc/bin/vcgencmd measure_temp | tr  -d "\'C" |sed 's/=/ = /'`
-
 #Uptime 
 UPTIME=$(uptime -p|sed -r  's/up//g')
 
@@ -58,7 +56,7 @@ else
 fi
 
 #storage
-ext_hdd="/media/externo"
+ext_hdd="/mnt/ext"
 
 sd_free_ratio=$(df --output=target,pcent /|tail -1| tr -d "%"|awk '{ print $2}')
 sd=$(printf "%s" "$(df -h|grep '/$'|awk '{print $4}')") 2>/dev/null
