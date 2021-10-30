@@ -10,6 +10,7 @@ SCRIPT TXOKO:
 -Linea 157, ver que es /home/admin/.versions.inf que yo no lo tengo
 -Linea 224 el LND dir
 -Linea 367 el $btcrpcexplorergit refiere a la 159 del $gitstatusfile
+-Linea 387 le quito la ruta al ejecutable de tor
 -Ver si la parte de hdd_free_ratio y sd_free_ratio reportan correctamente
 -Decirle que se requiere el paquete net-tools
 
