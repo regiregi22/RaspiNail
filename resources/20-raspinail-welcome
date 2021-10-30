@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Purpose: Display node status of, in my noobie opinion, interesting parameters, based on raspibold omtd
+# Purpose: Display node status of, in my noobie opinion, interesting parameters, based on raspibolt motd
 # Requires bc,jq  (sudo apt-get install bc jq)
 #
 # Author: @Tx0k0 on Telegram
