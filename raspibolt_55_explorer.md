@@ -210,7 +210,7 @@ In order to do that we create a systemd unit that starts the service on boot dir
   After=network.target bitcoind.service
 
   # If you use an Electrum server, uncomment the following line and make sure to use the correct the service
-  # After=electrs.service
+  After=electrs.service
 
   [Service]
   WorkingDirectory=/home/btcrpcexplorer/btc-rpc-explorer
@@ -234,7 +234,7 @@ In order to do that we create a systemd unit that starts the service on boot dir
   $ sudo journalctl -f -u btcrpcexplorer
   ```
 
-* You can now access your own BTC RPC Explorer from within your local network by browsing to <http://RaspiNail.local:3002> (or your equivalent ip address).
+* You can now access your own BTC RPC Explorer from within your local network by browsing to <http://raspinail.local:3002> (or your equivalent ip address).
 
 ### Remote access over Tor (optional)
 
