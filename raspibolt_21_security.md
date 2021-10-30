@@ -118,19 +118,23 @@ $ sudo reboot
 
 ---
 
-## Disable Bluetooh - rfkill
+## Disable Bluetooh
 
-As we are not using Bluetooth on the node, it is more secure to just disable it:
-
+* As we are not using Bluetooth on the node, it is more secure to just disable it. Add those lines to the file ```/boot/config.txt```:  
 ```sh
-$ sudo apt install rfkill
-$ sudo rfkill block 1
-$ rfkill
-ID TYPE      DEVICE      SOFT      HARD
- 0 wlan      phy0   unblocked unblocked
- 1 bluetooth hci0     blocked unblocked
+$ sudo nano /boot/config.txt
+```
+```
+# RaspiNail - Disable bluetooth
+dtoverlay=disable-bt
+```
+* Then proceed to disable its associated services:  
+```sh
+$ sudo systemctl disable hciuart.service
+$ sudo systemctl disable bluetooth.service
 ```
 ---
+
 ## Disable WLAN
 
 Only if you are not using WLAN on the node. It is more secure to just disable:
