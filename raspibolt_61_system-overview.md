@@ -26,9 +26,9 @@ $ nano 20-raspinail-welcome
 # delete existing welcome scripts and install
 $ sudo mv /etc/update-motd.d /etc/update-motd.d.bak
 $ sudo mkdir /etc/update-motd.d
-$ sudo cp 20-RaspiNail-welcome /etc/update-motd.d/
-$ sudo chmod +x /etc/update-motd.d/20-RaspiNail-welcome
-$ sudo ln -s /etc/update-motd.d/20-RaspiNail-welcome /usr/local/bin/RaspiNail
+$ sudo cp 20-raspinail-welcome /etc/update-motd.d/
+$ sudo chmod +x /etc/update-motd.d/20-raspinail-welcome
+$ sudo ln -s /etc/update-motd.d/20-raspinail-welcome /usr/local/bin/raspinail
 ```
 
 In case the script runs into problems, it could theoretically prevent you from logging in. We therefore disable all motd execution for the "root" user, so you will always be able to login as "root" to disable it.
@@ -39,7 +39,7 @@ $ touch /root/.hushlogin
 $ exit
 ```
 
-You can now start the script with `sudo RaspiNail` and it is shown every time you log in.
+You can now start the script with `sudo raspinail` and it is shown every time you log in.
 
 If the script is showing 'Public Not reachable' but you do have incoming connections and the blockchain is syncing, you might have a router that does not support NAT Loopback. Please check your node at https://bitnodes.earn.com, if it displays your node as available remove the # on lines 147 and 148 and put them before 149 and 150 by editing the file:
 ```sh
