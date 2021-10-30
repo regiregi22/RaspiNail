@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 # Purpose: Display node status of, in my noobie opinion, interesting parameters, based on raspibolt motd
-# Requires bc,jq  (sudo apt-get install bc jq)
+# Requires bc,jq,net-tools  (sudo apt-get install bc jq net-tools)
 #
 # Author: @Tx0k0 on Telegram
-# Adapted to RaspberryPi: regiregi22
+# Adaptation to RaspberryPi: regiregi22
 # -------------------------------------------------------
 #
 
@@ -384,7 +384,7 @@ else
 fi
 
 #create variable torversion
-torpi=$(/usr/local/bin/tor --version|grep "Tor version"|cut -d' ' -f3|sed 's/.$//')
+torpi=$(tor --version|grep "Tor version"|cut -d' ' -f3|sed 's/.$//')
 
 torgit=$(curl -s --socks5-hostname localhost:9050 https://dist.torproject.org/ |grep "tar.gz"|grep -v 'alpha\|asc' |cut -d\> -f3|awk '{print substr($0,5,7)}'|tail -1)
 #torgit=$(curl -s --socks5-hostname localhost:9050 https://dist.torproject.org/ |grep 'tar.gz'|grep -v 'alpha\|asc' |cut -d\> -f3|sed  's/<\/a//g'|sort -n |tail -1)
