@@ -16,9 +16,9 @@ To get a quick overview over the system status, @Tx0k0 has created [a shell scri
 This script will run as root, so please check it before blindly trusting me.
 
 ```sh
-$ sudo apt install jq net-tools
+$ sudo apt install bc jq net-tools
 $ cd /tmp/
-$ wget https://raw.githubusercontent.com/Stadicus/RaspiNail/master/resources/20-RaspiNail-welcome
+$ wget https://raw.githubusercontent.com/regiregi22/raspinail/master/resources/20-raspinail-welcome
 
 # check script & exit
 $ nano 20-RaspiNail-welcome
