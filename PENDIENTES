@@ -5,6 +5,9 @@
 
 * Revisar si es necesario deshabilitar IPv6 para el mDNS
 
+SCRIPT TXOKO:
+-Ver si la parte de hdd_free_ratio y sd_free_ratio reportan correctamente
+
 
 Ideas pendientes MarcosDub:
 - BTC RPC Explorer v3.1.0 vs v3.2.0 + configuración nueva 
