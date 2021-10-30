@@ -21,7 +21,7 @@ $ cd /tmp/
 $ wget https://raw.githubusercontent.com/regiregi22/raspinail/master/resources/20-raspinail-welcome
 
 # check script & exit
-$ nano 20-RaspiNail-welcome
+$ nano 20-raspinail-welcome
 
 # delete existing welcome scripts and install
 $ sudo mv /etc/update-motd.d /etc/update-motd.d.bak
