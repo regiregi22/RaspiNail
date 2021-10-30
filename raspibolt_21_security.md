@@ -123,7 +123,6 @@ $ sudo reboot
 As we are not using Bluetooth on the node, it is more secure to just disable it:
 
 ```sh
-$ sudo apt update
 $ sudo apt install rfkill
 $ sudo rfkill block 1
 $ rfkill
@@ -132,5 +131,16 @@ ID TYPE      DEVICE      SOFT      HARD
  1 bluetooth hci0     blocked unblocked
 ```
 ---
+## Disable WLAN - rfkill
+
+Only if you are not using WLAN on the node, it is more secure to just disable it too:
+
+```sh
+$ sudo rfkill block 0
+$ rfkill
+ID TYPE      DEVICE      SOFT      HARD
+ 0 wlan      phy0     blocked unblocked
+ 1 bluetooth hci0     blocked unblocked
+```
 
 Next: [Privacy >>](raspibolt_22_privacy.md)
