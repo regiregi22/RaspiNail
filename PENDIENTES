@@ -9,6 +9,7 @@ SCRIPT TXOKO:
 -Cambiar las lineas 147 y 148, lo del publick check si no funciona.
 -Linea 157, ver que es /home/admin/.versions.inf que yo no lo tengo
 -Linea 224 el LND dir
+-Linea 367 el $btcrpcexplorergit refiere a la 159 del $gitstatusfile
 -Ver si la parte de hdd_free_ratio y sd_free_ratio reportan correctamente
 -Decirle que se requiere el paquete net-tools
 
