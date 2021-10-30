@@ -133,6 +133,11 @@ dtoverlay=disable-bt
 $ sudo systemctl disable hciuart.service
 $ sudo systemctl disable bluetooth.service
 ```
+* Then proceed to remove bluetooth packages:  
+```sh
+$ sudo apt remove -y --purge pi-bluetooth bluez
+$ sudo apt-get autoremove -y
+```
 ---
 
 ## Disable WLAN
