@@ -6,7 +6,7 @@ nav_order: 1
 <!-- markdownlint-disable MD014 MD022 MD025 MD033 MD040 -->
 
 
-## Beginner’s Guide to ️Bitcoin Node on a Raspberry Pi 4
+## Beginner’s Guide to ️Bitcoin Node on a Raspberry Pi 4  
 {: .no_toc }
 
 ![RaspiNail Logo](images/00_raspibolt_v2_banner_440.png){:target="_blank"}
