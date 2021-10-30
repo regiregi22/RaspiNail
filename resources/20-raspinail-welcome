@@ -1,0 +1,467 @@
+#!/bin/bash
+#
+# Purpose: Display node status of, in my noobie opinion, interesting parameters, based on raspibold omtd
+# Requires bc,jq  (sudo apt-get install bc jq)
+#
+# Author: @Tx0k0 on Telegram
+# -------------------------------------------------------
+#
+
+#display output:
+# set colors
+
+rojo=$(tput setaf 197)
+verde=$(tput setaf 10)
+burdeos=$(tput setaf 124)
+morado=$(tput setaf 5)
+morado_2=$(tput setaf 93)
+morado_3=$(tput setaf 63)
+gris=$(tput setaf 254)
+gris_oscuro=$(tput setaf 238)
+naranja=$(tput setaf 208)
+naranja_2=$(tput setaf 130)
+azul=$(tput setaf 33)
+verde_claro=$(tput setaf 154)
+beige=$(tput setaf 230)
+
+amarillo=$(tput setaf 11)
+anaranjado=$(tput setaf 214)
+
+#CPU Temperature
+temp=$(cat /sys/class/thermal/thermal_zone0/temp)
+CPU_TEMP=`echo "scale = 1;$(echo $temp)/1000"|bc`
+
+if [ ${temp} -gt 60000 ]; then
+  color_temp="${rojo}$(tput blink)"
+elif [ ${temp} -gt 50000 ]; then
+  color_temp="${anaranjado}"
+else
+  color_temp="${verde}"
+fi
+
+#GPU Temperature
+GPU_TEMP=`/opt/vc/bin/vcgencmd measure_temp | tr  -d "\'C" |sed 's/=/ = /'`
+
+#Uptime 
+UPTIME=$(uptime -p|sed -r  's/up//g')
+
+#System Metrics
+#cpu load
+LOAD_AV=$(w|head -1|sed -E 's/.*load average: (.*)/\1/')
+
+#memory
+FREE_MEM=$(free -m | grep ^Mem | awk '{ print $7 }')
+if [ ${FREE_MEM} -lt 100 ]; then
+  color_ram="${rojo}$(tput blink)"
+else
+  color_ram=${verde}
+fi
+
+#storage
+ext_hdd="/media/externo"
+
+sd_free_ratio=$(df --output=target,pcent /|tail -1| tr -d "%"|awk '{ print $2}')
+sd=$(printf "%s" "$(df -h|grep '/$'|awk '{print $4}')") 2>/dev/null
+if [ ${sd_free_ratio} -gt 90 ]; then
+  color_sd="${rojo}$(tput blink)"
+else
+  color_sd="${verde}"
+fi
+
+hdd_free_ratio=$(df --output=target,pcent $ext_hdd /|tail -1| tr -d "%"|awk '{ print $2}')
+hdd=$(printf "%s" "$(df -h|grep ${ext_hdd}|awk '{print $4}')") 2>/dev/null
+if [ ${hdd_free_ratio} -gt 90 ]; then
+  color_hdd="${rojo}$(tput blink)"
+else
+  color_hdd=${verde}
+fi
+
+#Network
+# get network traffic for eth0 y wlan0
+network_rx_eth0=$(ifconfig eth0 | grep 'RX packets' | awk '{ print $6$7 }' | sed 's/[()]//g')
+network_tx_eth0=$(ifconfig eth0 | grep 'TX packets' | awk '{ print $6$7 }' | sed 's/[()]//g')
+
+network_rx_wlan0=$(ifconfig wlan0 | grep 'RX packets' | awk '{ print $6$7 }' | sed 's/[()]//g')
+network_tx_wlan0=$(ifconfig wlan0 | grep 'TX packets' | awk '{ print $6$7 }' | sed 's/[()]//g')
+
+#Bitcoin core
+bitcoind_running=$(systemctl is-active bitcoind)
+bitcoind_color="${verde}"
+if [ -z "${bitcoind_running##*inactive*}" ]; then
+  bitcoind_running="down"
+  bitcoind_color="${rojo}$(tput blink)"
+else
+  bitcoind_running="up"
+fi
+btc_path=$(command -v bitcoin-cli)
+if [ -n ${btc_path} ]; then
+  btc_title="฿itcoin"
+  chain="$(bitcoin-cli -datadir=${bitcoin_dir} getblockchaininfo | jq -r '.chain')"
+  if [ -n $chain ]; then
+    btc_title="${btc_title} (${chain}net)"
+
+    # get sync status
+    block_chain="$(bitcoin-cli -datadir=${bitcoin_dir} getblockchaininfo | jq -r '.headers')"
+    block_verified="$(bitcoin-cli -datadir=${bitcoin_dir} getblockchaininfo | jq -r '.blocks')"
+    block_diff=$(expr ${block_chain} - ${block_verified})
+
+    progress="$(bitcoin-cli -datadir=${bitcoin_dir} getblockchaininfo | jq -r '.verificationprogress')"
+    sync_percentage=$(LANG=C printf "%.2f%%" "$(echo $progress | awk '{print 100 * $1}')")
+
+    if [ ${block_diff} -eq 0 ]; then    # fully synced
+      sync="OK"
+      sync_color="${verde}"
+      sync_behind="[${block_chain}]"
+    elif [ ${block_diff} -eq 1 ]; then          # fully synced
+      sync="OK"
+      sync_color="${verde}"
+      sync_behind="-1 block"
+    elif [ ${block_diff} -le 10 ]; then    # <= 10 blocks behind
+      sync="Behind"
+      sync_color="${rojo}"
+      sync_behind="-${block_diff} blocks"
+    else
+      sync="In progress"
+      sync_color="${rojo}"
+      sync_behind="${sync_percentage}"
+    fi
+
+    # get last known block
+    last_block="$(bitcoin-cli -datadir=${bitcoin_dir} getblockcount)"
+    if [ ! -z "${last_block}" ]; then
+      btc_line2="${btc_line2} ${gris}(block ${last_block})"
+    fi
+
+    # get mem pool transactions
+    mempool="$(bitcoin-cli -datadir=${bitcoin_dir} getmempoolinfo | jq -r '.size')"
+
+    # get connection info
+    connections="$(bitcoin-cli -datadir=${bitcoin_dir} getnetworkinfo | jq .connections)"
+    inbound="$(bitcoin-cli -datadir=${bitcoin_dir} getpeerinfo | jq '.[] | select(.inbound == true)' | jq -s 'length')"
+    outbound="$(bitcoin-cli -datadir=${bitcoin_dir} getpeerinfo | jq '.[] | select(.inbound == false)' | jq -s 'length')"
+
+  else
+    btc_line2="${rojo}NOT RUNNING\t\t"
+  fi
+fi
+
+dir_port=$(/usr/local/bin/bitcoin-cli -netinfo |tail -1|awk '{print $1" "$3;}')
+#public_check=$(timeout 2s nc -x localhost:9050 -z $(/usr/local/bin/bitcoin-cli -netinfo |tail -1|awk '{print $1" "$3;}'); echo $?)
+public_check=`timeout 2s nc -z -x localhost:9050 -z $dir_port; echo $?`
+if [ $public_check = "0" ]; then
+  public="Yes"
+  public_color="${verde}"
+else
+  public="Not reachable"
+  public_color="${rojo}"
+fi
+# Github calls for version info, limited to once a day
+gitstatusfile="${HOME}/.versions.inf"
+gitupdate="0"
+if [ ! -f "$gitstatusfile" ]; then
+  gitupdate="1"
+else
+  gitupdate=`find ${gitstatusfile} -mtime +1|wc -l`
+fi
+if [ "${gitupdate}" -eq "1" ]; then
+  # Calls to github
+  #btcgit=$(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/bitcoin/bitcoin/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
+  btcgit=`echo $(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/bitcoin/bitcoin/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').0`
+  lndgit=$(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/lightningnetwork/lnd/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
+  # Electrs and RPC Explorer dont have a latest release, just tags
+  electrsgit=$(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/romanz/electrs/tags | jq -r '.[0].name')
+  btcrcpexplorergit=$(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/janoside/btc-rpc-explorer/tags | jq -r '.[0].name')
+  # write to file TODO: convert to JSON for sanity
+  printf "%s\n%s\n%s\n%s\n" "${btcgit}" "${lndgit}" "${electrsgit}" "${btcrpcexplorergit}" > "${gitstatusfile}"
+  
+else
+  # read from file
+  btcgit=`cat ${gitstatusfile} | sed -n '1p'`
+  lndgit=`cat ${gitstatusfile} | sed -n '2p'`
+  llectrsgit=`cat ${gitstatusfile} | sed -n '3p'`
+  btcrpcexplorergit=`cat ${gitstatusfile} | sed -n '4p'`
+  # fill if not yet set -- TBD: convert to common routine
+  if [ -z "$btcgit" ]; then
+    btcgit=$(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/bitcoin/bitcoin/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
+    printf "%s\n%s\n%s\n%s\n" "${btcgit}" "${lndgit}" "${electrsgit}" "${btcrpcexplorergit}" > "${gitstatusfile}"
+  fi
+  if [ -z "$lndgit" ]; then
+    lndgit=$(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/lightningnetwork/lnd/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
+    printf "%s\n%s\n%s\n%s\n" "${btcgit}" "${lndgit}" "${electrsgit}" "${btcrpcexplorergit}" > "${gitstatusfile}"
+  fi
+  if [ -z "$electrsgit" ]; then
+    electrsgit=$(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/romanz/electrs/tags | jq -r '.[0].name')
+    printf "%s\n%s\n%s\n%s\n" "${btcgit}" "${lndgit}" "${electrsgit}" "${btcrpcexplorergit}" > "${gitstatusfile}"
+  fi
+  if [ -z "$btcrpcexplorergit" ]; then
+    btcrpcexplorergit=$(curl --socks5-hostname  localhost:9050 -s https://api.github.com/repos/janoside/btc-rpc-explorer/tags | jq -r '.[0].name')
+    printf "%s\n%s\n%s\n%s\n" "${btcgit}" "${lndgit}" "${electrsgit}" "${btcrpcexplorergit}" > "${gitstatusfile}"
+  fi
+fi
+
+#create variable btcversion
+btcpi=$(bitcoin-cli -version |sed -n 's/^.*version //p')
+if [ "$btcpi" = "$btcgit" ]; then
+  btcversion="$btcpi"
+  btcversion_color="${verde}"
+else
+  btcversion="$btcpi"" Update!"
+  btcversion_color="${rojo}"
+fi
+
+#Bitcoin price BTC/USD
+PRICES=$(curl -s --socks5-hostname localhost:9050 https://api.coindesk.com/v1/bpi/currentprice.json|jq '.bpi[].rate' | tr -d '\",')
+n=0
+for i in $PRICES; do
+	PRICE[$n]=`echo "scale = 2; $i/1"|bc`
+	n=$((n+1))
+done
+PRICE_USD=${PRICE[0]}
+PRICE_EUR=${PRICE[2]}
+
+#bitcoin block count
+BLOCK=`/usr/local/bin/bitcoin-cli -getinfo | jq '.blocks'`
+
+# get LND info
+lnd_dir="/home/pi/.lnd"
+
+if [ $chain = "test" ]; then
+  macaroon_path="${lnd_dir}/data/chain/bitcoin/testnet/readonly.macaroon"
+else
+  macaroon_path="${lnd_dir}/data/chain/bitcoin/mainnet/readonly.macaroon"
+fi
+lnd_running=$(systemctl is-active lnd)
+lnd_color="${verde}"
+if [ -z "${lnd_running##*inactive*}" ]; then
+  lnd_running="down"
+  lnd_color="${rojo}$(tput blink)"
+else
+  if [ -z "${lnd_running##*failed*}" ]; then
+    lnd_running="down"
+    lnd_color="${rojo}$(tput blink)"
+  else
+    lnd_running="up"
+  fi
+fi
+if [ -z "${lnd_running##*up*}" ] ; then
+  lncli="/usr/local/bin/lncli --macaroonpath=${macaroon_path} --tlscertpath=${lnd_dir}/tls.cert"
+  $lncli getinfo 2>&1 | grep "Please unlock" >/dev/null
+  wallet_unlocked=$?
+else
+  wallet_unlocked=0
+fi
+if [ "$wallet_unlocked" -eq "0" ] ; then
+ alias_color="${rojo}"
+ ln_alias="Wallet Locked"
+ ln_walletbalance="?"
+ ln_channelbalance="?"
+ ln_channels_online="?"
+ ln_channels_total="?"
+ ln_connect_addr=""
+ ln_external=""
+ ln_external_ip=""
+ ln_channel_pubkey=""
+ external_color="${gris}"
+ ln_pendingopen="?"
+ ln_pendingforce="?"
+ ln_waitingclose="?"
+ ln_pendinglocal="?"
+ sum_balance="?"
+ if [ $lnd_running = "up" ]; then
+   ln_connect_guidance="You must first unlock your wallet:   lncli unlock"
+ else
+   ln_connect_guidance="The LND service is down. Start the service:   sudo systemctl start lnd"
+ fi
+else
+ alias_color="${gris}"
+ ln_alias="$($lncli getinfo | jq -r '.alias')" 2>/dev/null
+ ln_walletbalance="$($lncli walletbalance | jq -r '.confirmed_balance')" 2>/dev/null
+ ln_channelbalance="$($lncli channelbalance | jq -r '.balance')" 2>/dev/null
+
+ ln_channels_online="$($lncli getinfo | jq -r '.num_active_channels')" 2>/dev/null
+ ln_channels_total="$($lncli listchannels | jq '.[] | length')" 2>/dev/null
+ ln_connect_addr="$($lncli getinfo | jq -r '.uris[0]')" 2>/dev/null
+ ln_connect_guidance="lncli connect ${ln_connect_addr}"
+ ln_external="$(echo $ln_connect_addr | tr "@" " " |  awk '{ print $2 }')" 2>/dev/null
+ ln_external_ip="$(echo $ln_external | tr ":" " " | awk '{ print $1 }' )" 2>/dev/null
+ ln_channel_pubkey="$(echo $ln_connect_addr | tr "@" " " | awk '{ print $1 }')" 2>/dev/null
+ if [ "$ln_external_ip" = "$public_ip" ]; then
+  external_color="${gris}"
+ else
+  external_color="${rojo}"
+ fi
+ if [ -z "${ln_external##*onion*}" ]; then
+  external_color="${color_blue}"
+  ln_external="Using TOR Address"
+ fi
+
+ ln_pendingopen=$($lncli pendingchannels  | jq '.pending_open_channels[].channel.local_balance|tonumber ' | awk '{sum+=$0} END{print sum}')
+ if [ -z $ln_pendingopen ]; then
+  ln_pendingopen=0
+ fi
+
+ ln_pendingforce=$($lncli pendingchannels  | jq '.pending_force_closing_channels[].channel.local_balance|tonumber ' | awk '{sum+=$0} END{print sum}')
+ if [ -z $ln_pendingforce ]; then
+  ln_pendingforce=0
+ fi
+
+ ln_waitingclose=$($lncli pendingchannels  | jq '.waiting_close_channels[].channel.local_balance|tonumber ' | awk '{sum+=$0} END{print sum}')
+ if [ -z $ln_waitingclose ]; then
+  ln_waitingclose=0
+ fi
+
+ ln_pendinglocal=$(expr $ln_pendingopen + $ln_pendingforce + $ln_pendingclose + $ln_waitingclose)
+
+ sum_balance=0
+ if [ ! -z "$ln_channelbalance" ]; then
+  sum_balance=$(expr $ln_channelbalance + $sum_balance )
+ fi
+ if [ ! -z "$ln_walletbalance" ]; then
+  sum_balance=$(expr $ln_walletbalance + $sum_balance )
+ fi
+ if [ ! -z "$ln_pendinglocal" ]; then
+   sum_balance=$(expr $sum_balance + $ln_pendinglocal )
+ fi
+fi
+
+
+#create variable lndversion
+lndpi=$(lncli -version | sed -n 's/^.*commit=//p')
+if [ "$lndpi" = "$lndgit" ]; then
+  lndversion="$lndpi"
+  lndversion_color="${verde}"
+else
+  lndversion="$lndpi"" Update!"
+  lndversion_color="${rojo}"
+fi
+
+#electrs
+electrs_running=$(systemctl is-active electrs)
+electrs_color="${verde}"
+if [ -z "${electrs_running##*inactive*}" ]; then
+  electrs_running="down"
+  electrs_color="${rojo}\e[7m"
+  electrsversion=""
+  electrsversion_color="${rojo}"
+else
+  electrs_running="up"
+  electrspi=$(echo '{"jsonrpc": "2.0", "method": "server.version", "params": [ "pibitnode", "1.4" ], "id": 0}' | netcat 127.0.0.1 50001 -w 1|jq -r '.result[0]' | awk -F "/" '{print "v"$2}')
+  #electrspi=$(echo '{"jsonrpc": "2.0", "method": "server.version", "params": [ "pibitnode", "1.4" ], "id": 0}' | netcat 127.0.0.1 50001 -q 1 | jq -r '.result[0]' | awk '{print "v"$2}')
+  if [ "$electrspi" = "$electrsgit" ]; then
+    electrsversion="$electrspi"
+    electrsversion_color="${verde}"
+  else
+    electrsversion="$electrspi"" Update!"
+    electrsversion_color="${rojo}"
+  fi
+fi
+#btcrpcexplorer
+btcrpcexplorer_running=$(systemctl is-active btcrpcexplorer)
+btcrpcexplorer_color="${verde}"
+if [ -z "${btcrpcexplorer_running##*inactive*}" ]; then
+  btcrpcexplorer_running="down"
+  btcrpcexplorer_color="${rojo}\e[7m"
+  btcrpcexplorerversion=""
+  btcrpcexplorerversion_color="${rojo}"
+else
+  btcrpcexplorer_running="up"
+  btcrpcexplorerpi=$(curl -s http://127.0.0.1:3002/tools | grep -oP '(?<=version: )[^</]*' | awk '{print "v"$1}' )
+  if [ "$btcrpcexplorerpi" = "$btcrpcexplorergit" ]; then
+    btcrpcexplorerversion="$btcrpcexplorerpi"
+    btcrpcexplorerversion_color="${verde}"
+  else
+    btcrpcexplorerversion="$btcrpcexplorerpi"" Update!"
+    btcrpcexplorerversion_color="${rojo}"
+  fi
+fi
+
+#TOR
+tor_running=$(systemctl is-active tor)
+tor_color="${verde}"
+if [ -z "${tor_running##*inactive*}" ]; then
+  tor_running="down"
+  tor_color="${rojo}$(tput blink)"
+else
+  tor_running="up"
+fi
+
+#create variable torversion
+torpi=$(/usr/local/bin/tor --version|grep "Tor version"|cut -d' ' -f3|sed 's/.$//')
+
+torgit=$(curl -s --socks5-hostname localhost:9050 https://dist.torproject.org/ |grep "tar.gz"|grep -v 'alpha\|asc' |cut -d\> -f3|awk '{print substr($0,5,7)}'|tail -1)
+#torgit=$(curl -s --socks5-hostname localhost:9050 https://dist.torproject.org/ |grep 'tar.gz'|grep -v 'alpha\|asc' |cut -d\> -f3|sed  's/<\/a//g'|sort -n |tail -1)
+if [ "$torpi" = "$torgit" ]; then
+  torversion="$torpi"
+  torversion_color="${verde}"
+else
+  torversion="$torpi"" Update!"
+  torversion_color="${rojo}"
+fi
+
+#TOR services:
+TOR_NODE=`/usr/local/bin/bitcoin-cli -netinfo |tail -1|awk '{print $1":"$3;}'`
+TOR_LN=`/usr/local/bin/lncli getinfo | jq -r '.uris[0]'`
+TOR_BTCRPCEXPL=`sudo cat /var/lib/tor/hidden_service_btcrpcexplorer/hostname`
+TOR_ELECTRS=`sudo cat  /var/lib/tor/hidden_service_electrs/hostname`
+
+
+#echo "$(tput setab 0)
+printf "$(tput setab 0)
+
+$gris_oscuro⠀⠀⠀⠀⣀⣠⣤⣦⣶⣤⣄⣄⠀⠀⠀⠀⠀⢀⣄⣤⣤⣦⣦⣤⣀⡀⠀⠀   ${amarillo} $(tput bold) $(hostname)$(tput sgr0)$(tput setab 0)${gris}   $(date)
+${gris_oscuro}⠀⠀⣻⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⣷⡀⣠⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⡂⠀⠀ ${amarillo} ${gris} Uptime:$UPTIME
+${gris_oscuro}⠀⠀⠹⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⠀⠀⠀ ${amarillo} 
+${gris_oscuro}⠀⠀⠀⢻⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⣿⣿⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⠉⠀⠀⠀ ${amarillo} ${color_temp} CPU temp = $CPU_TEMP˚C        GPU $GPU_TEMP˚C$(tput sgr0)$(tput setab 0)
+${gris_oscuro}⠀⠀⠀⠀⠈⠻⣿${verde}⣿⣿⣿⣿⣿${gris_oscuro}⣿⣿⣿⣿⣿⣿${verde}⣿⣿⣿⣿⣿${gris_oscuro}⣿⠛⠀⠀⠀⠀⠀ ${amarillo} ${gris} Free mem.: ${color_ram}%-6s$(tput sgr0)$(tput setab 0)${gris}        Avg. load: $LOAD_AV
+${gris_oscuro}⠀⠀⠀⠀⢀⣶⣿${burdeos}⣿⣿⣿${gris_oscuro}⣿⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿${burdeos}⣿⣿⣿⣿${gris_oscuro}⣿⣦⠀⠀⠀⠀⠀ ${amarillo} ${gris} SD card: ${color_sd}%-10s $(tput sgr0)$(tput setab 0)${gris}     External: ${color_hdd}$hdd$(tput sgr0)$(tput setab 0)
+${gris_oscuro}⠀⠀⠀⠀⣿${burdeos}⣿${rojo}⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿⣿${burdeos}⣿${rojo}⣿⣿${gris_oscuro}⣿⣷⠀⠀⠀⠀ ${amarillo} ${gris} $(tput smul)Eth0$(tput rmul) TX: %-8s        $(tput smul)Wlan0$(tput rmul) TX: $network_tx_wlan0
+${gris_oscuro}⠀⠀⠀⣼⣿${burdeos}⣿${gris_oscuro}⣿⣿${burdeos}⣿${rojo}⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿${burdeos}⣿${gris_oscuro}⣿⣀⠀⠀⠀ ${amarillo} ${gris}      RX: %-8s              RX: $network_rx_wlan0
+${gris_oscuro}⠀⣠⣿${burdeos}⣿${rojo}⣿${gris_oscuro}⣿⣿${rojo}⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⣿${rojo}⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿${burdeos}⣿${rojo}⣿${gris_oscuro}⣿⣷⠀⠀ ${amarillo} ${gris} 
+${gris_oscuro}⠀⣿${burdeos}⣿${rojo}⣿⣿${gris_oscuro}⣿⣿${rojo}⣿⣿⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿${burdeos}⣿${rojo}⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿${burdeos}⣿${rojo}⣿⣿${gris_oscuro}⣿⣷⠀ ${amarillo} ${gris}       ${anaranjado}⠀1₿ = $PRICE_USD\$ = $PRICE_EUR€
+${gris_oscuro}⠀⢿${burdeos}⣿${rojo}⣿⣿${gris_oscuro}⣿⣿${burdeos}⣿${rojo}⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿⣿⣿⣿⣿⣿${burdeos}⣿⣿⣿⣿${gris_oscuro}⣿⣿⣿${rojo}⣿⣿${gris_oscuro}⣿⠃⠀ ${amarillo} ${gris} 
+${gris_oscuro}⠀⠀⢹⣿⣿${burdeos}⣿⣿⣿${gris_oscuro}⣿⣿⣿${burdeos}⣿${rojo}⣿⣿⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿⣿${burdeos}⣿${rojo}⣿⣿${gris_oscuro}⣿⣿⠁⠀⠀ ${amarillo}  %-20s${bitcoind_color}%-4s$(tput sgr0)$(tput setab 0)${amarillo}    Lightning (LND) ${lnd_color}%-4s$(tput sgr0)$(tput setab 0)}
+${gris_oscuro}⠀⠀⠀⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿${rojo}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${gris_oscuro}⣿⡏⠀⠀⠀ ${amarillo} ${gris} ${btcversion_color}%-21s     ${lndversion_color}%-21s
+${gris_oscuro}⠀⠀⠀⠈⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${gris_oscuro}⣿⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⠟⠀⠀⠀⠀ ${amarillo} ${gris} Blockclock: %-12s  ${ln_alias}
+${gris_oscuro}⠀⠀⠀⠀⠀⠈⠛⣿⣿⣿⣿⣿⣿${burdeos}⣿⣿⣿${gris_oscuro}⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀ ${amarillo} ${gris} Sync: ${sync_color}%-18s  ${gris}฿${gris}%15s sat
+${naranja}⠀⠀⠀⢀⣤⣶⣿⣿${naranja_2}⢿${gris_oscuro}⢿⣻${burdeos}⣿⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⡿⠛⠉⠀⠀⠀⠀ ⠀⠀⠀⠀ ${amarillo} ${gris}⠀Onion con.: ${public_color}%-14s${gris}⚡%14s sat
+${naranja}⠀⠀⣶⣿⣿⣿⠛⠿⠁⡟⣹⣿${naranja_2}⢿⢿⢿${gris_oscuro}⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ${amarillo} ${gris} Mempool: %-16s ${gris}⏳%14s sat
+${naranja}⠀⣾⣿⣿⣿⣿⣿⠀⣶⣦⠀⠙⣿⣿⣿⣷${morado_2}⢀⣤⣶⣿⣿⣿⣿⣶⣦⡀⠀⠀⠀  ${amarillo} ${gris} Peers: %-22s ${gris}∑%15s sat
+${naranja}⠀⣿⣿⣿⣿⣿⠃⢀⣤⣄⠀⢾⣿⣿⣿${morado_2}⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⡄⠀  ${amarillo} ${gris}⠀                          ${gris}%s/%s channels
+${naranja}⠀⢹⣿⣿⣿⣤⠀⣈⠉⠉⠀⣾⣿⣿${morado_2}⣿⣿⣿⣿⣿⣿⠛⠁⣾⣿⣿⣿⣿⣿⡄  ${amarillo} ${gris}⠀
+${naranja}⠀⠀⠙⣿⣿⣿⣶⣷⣾⣿⣿⣿⣿⣿${morado_2}⣿⣿⣿⣿⣉⣀⡀⠀⠀⣠⣿⣿⣿⣿⡟  ${amarillo}  %-18s${electrs_color}%-4s${gris}    ${amarillo}%-16s${gris}${btcrpcexplorer_color}%-4s${gris}
+${naranja}⠀⠀⠀⠀⠈${naranja_2}⣿${naranja}⠿⠿⠿⠿${naranja_2}⣿⣿⣟${naranja}⠁${morado_2}⣿⣿⣿⣿⣿⡿⠀⣴⣿⣿⣿⣿⣿⣿⠁⠀ ${amarillo} ${gris} ${electrsversion_color}%-25s ${btcrpcexplorerversion_color}%-24s
+${azul}⠀⠀⠀⠀⠀⣿⢀⣀⣤⣾⣯⣤⣬⣿${morado_3}⣌${morado_2}⣿⣿⣿⣯⣾⣿⣿⣿⣿⣿⣿⡿⠁⠀  ${amarillo} ${gris}
+${azul}⠀⠀⣠⣶⠛⣿⠉⣴⠟⠀⠀⡀⠀⠀⠙⣷${morado_2}⠈${morado_3}⣿${morado_2}⠿⣿⣿⣿⣿⠿⠛⠉ ⠀⠀⠀ ${amarillo}  %-18s${tor_color}%-4s  ${amarillo}
+${azul}⠀⣿⠁⠀⠀⠘⣿⠃⠀⠈⣿⣉⣹⡗⠀⠈⣿⡟⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀  ${amarillo} ${gris} ${torversion_color}%-26s 
+${azul}⠀⠻⣦⠀⠀⣼⠛⣧⠀⢠⣿⣦⣶⠿⠀⣰⡟⣷⠀⠀${naranja}⣠⣿⣿⢻⢻⣿⣷⡄⠀  ${amarillo} ${gris}
+${azul}⠀⠀⠀⠉⠛⣿⣦⣬⣷⣀⣀⣈⣀⣀⣾⣯⣤⣿⡟${naranja_2}⢹${naranja}⣿⣿⡆⠰⠖⢠⣿⣿⠀  ${amarillo} ${gris}
+${azul}⠀⠀⠀⠀⠀⣷⠀⠀⠀⠙⣷⡀⣴⠟⠀⠀⠀⢸⡇⠀${naranja}⣿⣿⡃⠘⠛⣀⣿⡟⠀  ${amarillo} ${gris}
+${morado}⢠⣶⣶⣶⣶⣿⣶⣶⣶⣶⣶⣿${azul}⠷⣦⣀${verde_claro}⣀⣦⣿⠛⠀${naranja}⠀⠻⣿⣿⣿⣿⠋⠀⠀  ${amarillo} ${gris}
+${morado}⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀${beige}⣄${verde_claro}⣿⠟⠀⠀⠀⠀⠀${naranja}⠈⣿⡟⠀⠀⠀ ⠀ ${amarillo} ${gris}
+${morado}⠀⠉⠉⠉⣿⣿⣿⣿⡿⠉⠉⠉⠀⠀${beige}⡼⡇${morado}⣿⡀⠀⠀⠀⠀⠀⠀⣴⣾⣿⣿⣷  ${amarillo} ${gris}
+${morado}⠀⠀⠀⠀⣿⣿⣿⣿⣷⠀⠀${beige}⣤⠛⠁⠤⡟⠉${morado}⣿⣿⣦⠀⠀⢠⣿⣿⣿⣿⣿⡟  ${amarillo} ${gris}
+${morado}⠀⠀⠀⠀⣿⣿⣿⣿⣷⠀${beige}⡿⢀⠊⠀⠤⡟⡘${morado}⣿⣿⣿⣿⠀⢸⣿⣿⣿⣿⠀⠀  ${amarillo} ${gris}
+${morado}⠀⠀⠀⠀⣿⣿⣿⣿⣷⠀${beige}⣧⠹⢰⠀⢠⠟⢹${morado}⣿⣿⣿⣿⠀⢸⣿⣿⣿⣿⠀⠀  ${amarillo} ${gris}
+${morado}⠀⠀⠀⠀⣿⣿⣿⣿⣷⠀⠀${beige}⠳⣕⣦⠱⣣${morado}⣿⣿⣿⡿⠁⠀⢸⣿⣿⣿⣿⠀⠀  ${amarillo} ${gris}
+${morado}⠀⠀⠀⠀⠈⠉⠉⠉⠀⠀⠀⠀⠀⠀${beige}⠉${morado}⠉⠉⠀⠀⠀⠀⠀⠀⠉⠉⠉⠀⠀   ${amarillo} ${gris}
+${amarillo}   Bitcoin Core node domain:${gris}     $TOR_NODE
+${amarillo}   Lightning node domain:${gris}        $TOR_LN
+${amarillo}   BTCRPCEXPLORER domain:${gris}        $TOR_BTCRPCEXPL:3002
+${amarillo}   Electrs domain:${gris}               $TOR_ELECTRS:50002
+
+$(tput sgr0)"\
+ "${FREE_MEM}M" "${sd}" "$network_tx_eth0" "$network_rx_eth0"\
+ "${btc_title}" "${bitcoind_running}" "${lnd_running}"\
+ "${btcversion}" "${lndversion}"\
+ "${BLOCK}"\
+ "${sync} ${sync_behind}" "${ln_walletbalance}"\
+ "${public}" "${ln_channelbalance}"\
+ "${mempool} tx" "${ln_pendinglocal}"\
+ "${connections} (📥 ${inbound}/📤 ${outbound})" "${sum_balance}"\
+ "${ln_channels_online}" "${ln_channels_total}"\
+ "Electrum" "${electrs_running}" "Block Explorer" "${btcrpcexplorer_running}"\
+ "${electrsversion}" "${btcrpcexplorerversion}"\
+ "Tor" "${tor_running}"\
+ "${torversion}"
+
+echo "$(tput -T xterm sgr0)"
