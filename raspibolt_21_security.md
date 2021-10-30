@@ -7,7 +7,7 @@ nav_order: 21
 # Security
 {: .no_toc }
 
-We make sure that your RaspiNail is secure and reliable.
+We make sure that your RaspiNail is secure and reliable. Some of those tips are took from [Raspiblitz config](https://github.com/rootzoll/raspiblitz):
 
 ---
 
@@ -142,7 +142,7 @@ $ sudo apt-get autoremove -y
 
 ## Disable WLAN
 
-Only if you are not using WLAN on the node. It is more secure to just disable:
+Only if you are not using WLAN on the node. It is more secure to just disable it:
 
 ```sh
 $ sudo systemctl disable wpa_supplicant.service
