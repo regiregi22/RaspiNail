@@ -6,6 +6,7 @@
 * Revisar si es necesario deshabilitar IPv6 para el mDNS
 
 SCRIPT TXOKO:
+-Cambiar las lineas 147 y 148, lo del publick check si no funciona.
 -Ver si la parte de hdd_free_ratio y sd_free_ratio reportan correctamente
 -Decirle que se requiere el paquete net-tools
 
