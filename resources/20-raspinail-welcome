@@ -409,7 +409,7 @@ printf "$(tput setab 0)
 $gris_oscuro⠀⠀⠀⠀⣀⣠⣤⣦⣶⣤⣄⣄⠀⠀⠀⠀⠀⢀⣄⣤⣤⣦⣦⣤⣀⡀⠀⠀   ${amarillo} $(tput bold) $(hostname)$(tput sgr0)$(tput setab 0)${gris}   $(date)
 ${gris_oscuro}⠀⠀⣻⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⣷⡀⣠⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⡂⠀⠀ ${amarillo} ${gris} Uptime:$UPTIME
 ${gris_oscuro}⠀⠀⠹⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⠀⠀⠀ ${amarillo} 
-${gris_oscuro}⠀⠀⠀⢻⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⣿⣿⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⠉⠀⠀⠀ ${amarillo} ${color_temp} CPU temp = $CPU_TEMP˚C        GPU $GPU_TEMP˚C$(tput sgr0)$(tput setab 0)
+${gris_oscuro}⠀⠀⠀⢻⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⣿⣿⣿${verde}⣿⣿⣿⣿⣿⣿⣿⣿${gris_oscuro}⣿⠉⠀⠀⠀ ${amarillo} ${color_temp} CPU temp = $CPU_TEMP˚C        $GPU_TEMP $(tput sgr0)$(tput setab 0)
 ${gris_oscuro}⠀⠀⠀⠀⠈⠻⣿${verde}⣿⣿⣿⣿⣿${gris_oscuro}⣿⣿⣿⣿⣿⣿${verde}⣿⣿⣿⣿⣿${gris_oscuro}⣿⠛⠀⠀⠀⠀⠀ ${amarillo} ${gris} Free mem.: ${color_ram}%-6s$(tput sgr0)$(tput setab 0)${gris}        Avg. load: $LOAD_AV
 ${gris_oscuro}⠀⠀⠀⠀⢀⣶⣿${burdeos}⣿⣿⣿${gris_oscuro}⣿⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿${burdeos}⣿⣿⣿⣿${gris_oscuro}⣿⣦⠀⠀⠀⠀⠀ ${amarillo} ${gris} SD card: ${color_sd}%-10s $(tput sgr0)$(tput setab 0)${gris}     External: ${color_hdd}$hdd$(tput sgr0)$(tput setab 0)
 ${gris_oscuro}⠀⠀⠀⠀⣿${burdeos}⣿${rojo}⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿⣿${burdeos}⣿${rojo}⣿⣿⣿⣿${burdeos}⣿${gris_oscuro}⣿⣿⣿${burdeos}⣿${rojo}⣿⣿${gris_oscuro}⣿⣷⠀⠀⠀⠀ ${amarillo} ${gris} $(tput smul)Eth0$(tput rmul) TX: %-8s        $(tput smul)Wlan0$(tput rmul) TX: $network_tx_wlan0
