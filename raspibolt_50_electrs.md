@@ -423,7 +423,7 @@ Electrum wallet is a well-established, feature-rich software wallet that support
 
 ### General
 
-On your regular computer, configure [Electrum wallet](https://electrum.org) to use your RaspiNail node. We will set it up to connect ONLY to your own node, by plain IP connection on your LAN network or by private TOR connection from a remote location:
+On your regular computer, we will configure [Electrum wallet](https://electrum.org) to connect ONLY to your own RaspiNail node, by using clearnet IP connection on your LAN network or by private TOR connection from a remote location:
 
 * **Create a shortcut on your desktop called "Electrum LAN"**, right click on "Properties" and write this on the "target" field. Change the executable path to your actual Electrum version:
 ```
