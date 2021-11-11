@@ -4,7 +4,7 @@
 This is a forked project based on the original work [RaspiBolt](https://stadicus.github.io/RaspiBolt/) from [Stadicus](https://github.com/Stadicus). Do not forget to thank him for the great amount of time invested in educating the Bitcoin community.
 <br/>
 
-### Main changes to [RaspiBolt](https://stadicus.github.io/RaspiBolt/) 
+### Main changes from [RaspiBolt](https://stadicus.github.io/RaspiBolt/) 
 This guide has been completely rewritten, but those are the most relevant:
 * Changed OS from Raspberry OS 32 bits to Ubuntu Server 64 bits (21.10 Impish)
 * Updated signatures check of Bitcoin Core since v22
