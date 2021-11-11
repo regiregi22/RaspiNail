@@ -14,7 +14,7 @@ nav_order: 1
 ---
 
 **RaspiNail** node builds on the Raspberry Pi 4 platform.  
-It is based on RaspiBolt guide, originally made by Stadicus.
+It is based on the RaspiBolt guide, originally made by Stadicus.
 
 ---
 
