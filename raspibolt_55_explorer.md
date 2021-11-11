@@ -266,6 +266,15 @@ You can easily do so by adding a Tor hidden service on the RaspiNail and accessi
 
 * With the [Tor browser](https://www.torproject.org), you can access this onion address from any device.
   Please be aware that this access is not password protected and should not be shared widely.
+  
+  
+### Using RPC Explorer from Electrum (optional)  
+* In order to directly explore transactions from the Electrum interface using RPC Explorer, go to menu Tools/Preferences/Transactions, where it says "Online Block Explorer" set it to "Custom URL" and fill the IP or TOR address. As an example:
+
+  ```
+  http://192.168.0.40:3002
+  http://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.onion
+  ```
 
 **Congratulations!**
 You now have the BTC RPC Explorer running to check the Bitcoin network information directly from your node.
