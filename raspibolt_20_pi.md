@@ -165,7 +165,7 @@ Install and start the SSH client for your operating system:
 
 * Windows: PuTTY ([Website](https://www.putty.org){:target="_blank"})
 * MacOS and Linux: from the Terminal, use the native command:
-  * `ssh pi@192.168.0.20`
+  * `ssh ubuntu@192.168.0.20`
 
 🔍 *more: [using SSH with Raspberry Pi](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md){:target="_blank"}*
 
