@@ -48,13 +48,13 @@ The aim of this guide is to set up a Bitcoin and Lightning node that:
 
 * is a Bitcoin Full Node running 24/7, supporting Lightning Network routing, and not requiring any trust in a 3rd party.
 * is configured with the higher standards of security and privacy, while keeping usability and compatibility.
-* is set up with Ubuntu Server 64bit, [the far most widely used server OS](https://w3techs.com/technologies/details/os-linux).
+* is set up with Ubuntu Server 64bit, [the far most widely used server OS](https://w3techs.com/technologies/details/os-linux). More stable and updated.
 * has overdimensioned hardware specs that will last for years.
 * is set up without graphical user interface and can be managed remotely using the Secure Shell (SSH) command line.
 
-### Main changes to [RaspiBolt v2](https://stadicus.github.io/RaspiBolt/) 
+### Main changes to [RaspiBolt v2 or v3](https://stadicus.github.io/RaspiBolt/) 
 This guide has been completely rewritten, but those are the most relevant:
-* Changed OS from Raspberry OS 32 bits to Ubuntu Server 64 bits (21.10 Impish)
+* Changed OS from Raspberry OS 32 bits to Ubuntu Server 64 bits (21.10 Impish). Stable OS, not beta OS like Raspibolt v3.
 * Updated signatures check of Bitcoin Core since v22
 * Updated configuration in Electrs since v9
 * Added some useful apps (avahi, rfkill, htop, iftop, nyx)
@@ -64,6 +64,7 @@ This guide has been completely rewritten, but those are the most relevant:
 * Removed support for other boards (Odroid, Pine64...)
 * Removed SSH access using certificates
 * Disabled Buetooth
+* (Optional) Disabled WIFI
 
 
 ### Target audience
