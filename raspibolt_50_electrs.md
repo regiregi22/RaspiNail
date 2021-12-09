@@ -148,6 +148,7 @@ The whole process takes about 30 minutes.
 
   # Logging
   verbose = 2
+  log_filters = "INFO"
   timestamp = true
   rust_backtrace = true
   ```
